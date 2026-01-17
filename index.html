@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Sizzle Map - LA Food & Fun</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="static/img/logo.png" alt="Sizzle LA Logo" class="logo">
+                <div class="header-text">
+                    <h1>Sizzle Map</h1>
+                    <div class="subtitle">Your LA food & fun guide</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="filters">
+            <div class="filter-section">
+                <div class="filter-label">Filter by Type:</div>
+                <button class="filter-btn active" data-type="all">✨ All</button>
+                <button class="filter-btn" data-type="restaurant">🍽️ Restaurants</button>
+                <button class="filter-btn" data-type="cafe">☕ Cafés</button>
+                <button class="filter-btn" data-type="bar">🍸 Bars</button>
+                <button class="filter-btn" data-type="plant">🌿 Plants</button>
+                <button class="filter-btn" data-type="vinyl">🎵 Vinyl</button>
+            </div>
+            
+            <div class="filter-section" id="cuisine-section" style="display: none;">
+                <div class="filter-label">Cuisine Type:</div>
+                <select class="cuisine-filter" id="cuisine-filter">
+                    <option value="all">All Cuisines</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="map"></div>
+        
+        <button class="location-btn" id="locate-btn" title="Find my location">📍</button>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="static/js/sizzle_map.js"></script>
+</body>
+</html>
