@@ -562,20 +562,6 @@
     "link": "https://mellowist.com/"
   },
   {
-    "name": "Semilla",
-    "type": "plant",
-    "cuisine": null,
-    "lat": 33.86987555761746, 
-    "lng": -117.9245744268321,
-    "description": "Family owned & operated Houseplants, clothing, vibes + much more.",
-    "address": "109 S Harbor Blvd, Fullerton, CA 92832",
-    "phone": "(714) 853-2626",
-    "price": null,
-    "rating": "5.0",
-    "ratingSource": "Google",
-    "link": "https://www.instagram.com/semillaplants/"
-  },
-  {
     "name": "The Potting Shed by Carlisle",
     "type": "plant",
     "cuisine": null,
@@ -630,5 +616,75 @@
     "rating": "4.6",
     "ratingSource": "Yelp",
     "link": "https://www.instagram.com/trendyflowerplantshop"
-  }                               
+  },
+  {
+    "name": "Analog Records",
+    "type": "vinyl",
+    "cuisine": null,
+    "lat": 33.750364432808816, 
+    "lng": -117.80940337231203,
+    "description": "Indie venue selling new and used records, stereo gear and vintage electronics.",
+    "address": "12872 Newport Ave, Tustin, CA 92780",
+    "phone": "(714) 265-7533",
+    "price": null,
+    "rating": "4.6",
+    "ratingSource": "Google",
+    "link": "https://www.analogrecordshop.com/"
+  },
+  {
+    "name": "Port of Sound Record Shoppe",
+    "type": "vinyl",
+    "cuisine": null,
+    "lat": 33.67409632451073, 
+    "lng": -117.92055241730472,
+    "description": "Record shop stocking a large selection of new and used vinyl, including rare finds.",
+    "address": "1500 Adams Ave #104-B, Costa Mesa, CA 92626",
+    "phone": "(714) 444-2337",
+    "price": null,
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "https://www.portofsoundrecords.com"
+  },
+  {
+    "name": "Blind Dog HiFi and Records",
+    "type": "vinyl",
+    "cuisine": null,
+    "lat": 33.67234612762353, 
+    "lng": -117.91833805212435,
+    "description": "Legendary independent record store. Massive vinyl selection spanning all genres. A must-visit.",
+    "address": "2750 Harbor Blvd b03, Costa Mesa, CA 92626",
+    "phone": "(657) 346-7785",
+    "price": null,
+    "rating": "4.7",
+    "ratingSource": "Google",
+    "link": "https://www.blinddoghifiandrecords.com/"
+  },
+  {
+    "name": "Factory Records",
+    "type": "vinyl",
+    "cuisine": null,
+    "lat": 33.63007279134826, 
+    "lng": -117.91045363702563,
+    "description": "From the mind behind Costa Mesa's legendary Noise Nose Noise Records, Factory Records stocks thousands of record albums, 12s singles, and 45s, plus CDs. cassettes, stickers, buttons, patches,and more.",
+    "address": "440 E 17th St, Costa Mesa, CA 92627",
+    "phone": "(949) 722-8101",
+    "price": null,
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "https://www.amoeba.com"
+  },
+  {
+    "name": "Vinyl Station",
+    "type": "vinyl",
+    "cuisine": null,
+    "lat": 33.68910864274982, 
+    "lng": -117.98809334095144,
+    "description": "Long-running store selling and trading new and used LPs, 7-inches, CDs, and cassettes, plus T-shirts.",
+    "address": "18822 Beach Blvd Huntington Beach, CA 92648",
+    "phone": "(714) 963-1819",
+    "price": null,
+    "rating": "4.7",
+    "ratingSource": "Google",
+    "link": "https://www.theevinylsolutionhb.com"
+  }                                  
 ]
