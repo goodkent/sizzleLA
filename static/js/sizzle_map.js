@@ -131,23 +131,61 @@ window.onload = function() {
                 icon: icons[place.type]
             });
 
-            // Create popup content
-            const popupContent = `
-                <div class="popup-content">
-                    <div class="popup-title">${place.name}</div>
-                    <div class="popup-type">${place.type.toUpperCase()}${place.cuisine ? ' • ' + place.cuisine : ''}</div>
-                    <div class="popup-description">${place.description}</div>
-                    <div class="popup-info">
-                        ${place.phone ? `<div class="popup-info-item">📞 ${place.phone}</div>` : ''}
-                        ${place.address ? `<div class="popup-info-item">📍 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}" target="_blank" class="address-link" title="Open in Google Maps">${place.address}</a></div>` : ''}
-                        ${place.price ? `<div class="popup-info-item">💰 <span class="price-rating">${place.price}</span></div>` : ''}
-                        ${place.rating ? `<div class="popup-info-item"><span class="star-rating">⭐ ${place.rating}</span> ${place.ratingSource || ''}</div>` : ''}
+            // Function to create popup content
+            function createPopupContent(neighborhoodName = '') {
+                return `
+                    <div class="popup-content">
+                        <div class="popup-title">${place.name}</div>
+                        <div class="popup-type">${place.type.toUpperCase()}${place.cuisine ? ' • ' + place.cuisine : ''}</div>
+                        ${neighborhoodName ? `<div class="popup-neighborhood">📍 ${neighborhoodName}</div>` : ''}
+                        <div class="popup-description">${place.description}</div>
+                        <div class="popup-info">
+                            ${place.phone ? `<div class="popup-info-item">📞 ${place.phone}</div>` : ''}
+                            ${place.address ? `<div class="popup-info-item">📍 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}" target="_blank" class="address-link" title="Open in Google Maps">${place.address}</a></div>` : ''}
+                            ${place.price ? `<div class="popup-info-item">💰 <span class="price-rating">${place.price}</span></div>` : ''}
+                            ${place.rating ? `<div class="popup-info-item"><span class="star-rating">⭐ ${place.rating}</span> ${place.ratingSource || ''}</div>` : ''}
+                        </div>
+                        ${place.link ? `<a href="${place.link}" target="_blank" class="popup-link">View More →</a>` : ''}
                     </div>
-                    ${place.link ? `<a href="${place.link}" target="_blank" class="popup-link">View More →</a>` : ''}
-                </div>
-            `;
+                `;
+            }
 
-            marker.bindPopup(popupContent);
+            // Bind initial popup
+            marker.bindPopup(createPopupContent());
+
+            // Query neighborhood when popup opens
+            marker.on('popupopen', function() {
+                console.log('Popup opened for:', place.name);
+                console.log('Querying at coordinates:', place.lat, place.lng);
+                
+                // Create a proper L.LatLng object for the query
+                const point = L.latLng(place.lat, place.lng);
+                
+                // Query the neighborhoods layer to find which one contains this point
+                neighborhoodsLayer.query()
+                    .contains(point)
+                    .run(function(error, featureCollection) {
+                        console.log('Query completed');
+                        console.log('Error:', error);
+                        console.log('Features found:', featureCollection);
+                        
+                        if (!error && featureCollection && featureCollection.features && featureCollection.features.length > 0) {
+                            // Get the first neighborhood found
+                            const feature = featureCollection.features[0];
+                            const neighborhoodName = feature.properties.name || feature.properties.Name || '';
+                            
+                            console.log('Neighborhood found:', neighborhoodName);
+                            
+                            if (neighborhoodName) {
+                                // Update popup content with neighborhood
+                                marker.setPopupContent(createPopupContent(neighborhoodName));
+                            }
+                        } else {
+                            console.log('No neighborhood found for this location');
+                        }
+                    });
+            });
+
             marker.addTo(map);
             markers.push(marker);
         });

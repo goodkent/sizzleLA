@@ -11,7 +11,7 @@
     "price": "$$$",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.opentable.com/r/republique-los-angeles"
+    "link": "https://republiquela.com/"
   },
   {
     "name": "Guelaguetza",
@@ -39,7 +39,7 @@
     "price": "$$$$",
     "rating": "4.8",
     "ratingSource": "Google",
-    "link": "https://www.opentable.com/r/n-naka-los-angeles"
+    "link": "https://n-naka.com/"
   },
   {
     "name": "Bestia",
@@ -53,7 +53,7 @@
     "price": "$$$",
     "rating": "4.4",
     "ratingSource": "Yelp",
-    "link": "https://www.opentable.com/r/bestia-los-angeles"
+    "link": "https://bestiala.com"
   },
   {
     "name": "Jitlada",
@@ -67,7 +67,7 @@
     "price": "$$",
     "rating": "4.3",
     "ratingSource": "Google",
-    "link": null
+    "link": "https://jitladala.com/"
   },
   {
     "name": "Sqirl",
@@ -81,35 +81,21 @@
     "price": "$$",
     "rating": "4.2",
     "ratingSource": "Yelp",
-    "link": null
+    "link": "https://www.Sqirlla.com"
   },
   {
-    "name": "Guerrilla Tacos",
-    "type": "restaurant",
-    "cuisine": "Mexican",
-    "lat": 34.0441,
-    "lng": -118.2320,
-    "description": "Elevated taco truck turned brick-and-mortar. Creative takes on Mexican cuisine in Arts District.",
-    "address": "2000 E 7th St, Los Angeles, CA 90021",
-    "phone": "(213) 375-3300",
-    "price": "$$",
-    "rating": "4.3",
-    "ratingSource": "Google",
-    "link": null
-  },
-  {
-    "name": "HomeState",
+    "name": "HomeState - Highland Park",
     "type": "restaurant",
     "cuisine": "Tex-Mex",
     "lat": 34.0973,
     "lng": -118.3279,
     "description": "Texas-style breakfast tacos and queso. Multiple locations but Los Feliz is our favorite.",
-    "address": "4624 Hollywood Blvd, Los Angeles, CA 90027",
-    "phone": "(323) 906-1122",
+    "address": "5611 N Figueroa St #1, Los Angeles, CA 90042",
+    "phone": "(323) 204-9397",
     "price": "$",
     "rating": "4.4",
     "ratingSource": "Yelp",
-    "link": null
+    "link": "https://www.myhomestate.com/highland-park-los-angeles/"
   },
   {
     "name": "Blue Bottle Coffee - Arts District",
@@ -179,7 +165,7 @@
     "price": "$$",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": null
+    "link": "https://www.barbandini.com/"
   },
   {
     "name": "The Normandie Club",
@@ -193,7 +179,7 @@
     "price": "$$$",
     "rating": "4.5",
     "ratingSource": "Yelp",
-    "link": null
+    "link": "https://www.thenormandieclub.com/"
   },
   {
     "name": "Potted",
@@ -266,20 +252,6 @@
     "link": "https://www.permanentrecordsla.com"
   },
   {
-    "name": "Vacation Vinyl",
-    "type": "vinyl",
-    "cuisine": null,
-    "lat": 34.0869,
-    "lng": -118.2693,
-    "description": "Small but perfectly curated shop. Specializes in soul, funk, and rare grooves.",
-    "address": "3815 W Sunset Blvd, Los Angeles, CA 90026",
-    "phone": null,
-    "price": "$$",
-    "rating": "4.8",
-    "ratingSource": "Google",
-    "link": null
-  },
-  {
     "name": "Mae Malai Thai House of Noodles",
     "type": "restaurant",
     "cuisine": "Thai",
@@ -305,7 +277,7 @@
     "price": "$$$",
     "rating": "4.3",
     "ratingSource": "Yelp",
-    "link": "https://www.opentable.com/r/majordomo-los-angeles"
+    "link": "https://www.majordomo.la"
   },
   {
     "name": "Girl & the Goat",
@@ -437,28 +409,128 @@
       "name": "Ardor",
       "type": "restaurant",
       "cuisine": "Californian",
-      "lat": null,
-      "lng": null,
+      "lat": 34.09030991772521, 
+      "lng": -118.3895382878019,
       "description": "West Hollywood EDITION’s signature restaurant featuring live-fire cooking and seasonal California-forward menus.",
       "address": "9040 W Sunset Blvd, West Hollywood, CA 90069",
       "phone": "(424) 310-1197",
       "price": "$$$$",
-      "rating": null,
-      "ratingSource": "Yelp",
+      "rating": 4.3,
+      "ratingSource": "Google",
       "link": "https://www.ardorweho.com/"
     },
     {
       "name": "Paradise Cove Beach Cafe",
       "type": "restaurant",
       "cuisine": "Seafood",
-      "lat": null,
-      "lng": null,
+      "lat": 34.020242455624185, 
+      "lng": -118.7871809868503,
       "description": "Classic Malibu beachfront cafe at Paradise Cove—casual seafood and coastal plates right on the sand.",
       "address": "28128 Pacific Coast Hwy, Malibu, CA 90265",
       "phone": "(310) 457-2503",
       "price": "$$$",
-      "rating": null,
-      "ratingSource": "Yelp",
+      "rating": 4.1,
+      "ratingSource": "Google",
       "link": "https://www.paradisecovemalibu.com/"
+    },
+     {
+      "name": "Barra Santos",
+      "type": "restaurant",
+      "cuisine": "Portugese",
+      "lat": 34.09564333233686, 
+      "lng": -118.22810015731868,
+      "description": "A tiny Portuguese restaurant in cypress park helmed by Mike Santos with food brought to you by Melissa López",
+      "address": "1215 Cypress Ave, Los Angeles, CA 90065",
+      "phone": "(213) 668-5349",
+      "price": "$$$",
+      "rating": "4.5",
+      "ratingSource": "Google",
+      "link": "https://www.barrasantosla.com/"
+    },
+     {
+      "name": "Holbox",
+      "type": "restaurant",
+      "cuisine": "Yucatan",
+      "lat": 34.01735787333006, 
+      "lng": -118.27837603742245,
+      "description": "Eatery offering raw and cooked Yucatan-style seafood, served as ceviche or tacos. Located inside Mercado Paloma",
+      "address": "3655 S Grand Ave c9, Los Angeles, CA 90007",
+      "phone": "(213) 986-9972",
+      "price": "$$",
+      "rating": "4.8",
+      "ratingSource": "Google",
+      "link": "https://www.holboxla.com/"
+    },
+     {
+      "name": "Ammatoli",
+      "type": "restaurant",
+      "cuisine": "Mediterranean",
+      "lat": 33.77066674435302,  
+      "lng": -118.18968927116387,
+      "description": "Polished restaurant specializing in Mediterranean cuisine, including seafood dishes & baklava.",
+      "address": "285 E 3rd St, Long Beach, CA 90802",
+      "phone": "(562) 435-0808",
+      "price": "$$",
+      "rating": "4.5",
+      "ratingSource": "Google",
+      "link": "https://www.ammatoli.com/"
+    },
+     {
+      "name": "Chaak Kitchen",
+      "type": "restaurant",
+      "cuisine": "Oaxacan",
+      "lat": 33.74382971328245, 
+      "lng": -117.82340553111472,  
+      "description": "Happening restaurant specializing in modern Mexican cuisine, plus drinks & brunch.",
+      "address": "215 El Camino Real, Tustin, CA 92780",
+      "phone": "(657) 699-3019",
+      "price": "$$$",
+      "rating": "4.6",
+      "ratingSource": "Google",
+      "link": "https://chaakkitchen.com/"
+    },
+     {
+      "name": "Chiang Rai",
+      "type": "restaurant",
+      "cuisine": "Thai",
+      "lat": 33.78240113552197,
+      "lng":  -118.14740063570386,  
+      "description": "Casual restaurant serving familiar Thai dishes such as yellow curry, pad see ew, and soft-shell crab.",
+      "address": "3832 E Anaheim St, Long Beach, CA 90804",
+      "phone": "(562) 494-3003",
+      "price": "$$",
+      "rating": "4.5",
+      "ratingSource": "Google",
+      "link": "https://www.chiangrailb.com/"
     } 
+  ,
+     {
+      "name": "Chiang Rai",
+      "type": "restaurant",
+      "cuisine": "Thai",
+      "lat": 33.74531236734269,
+      "lng":   -117.81758211665078,  
+      "description": "Casual restaurant serving familiar Thai dishes such as yellow curry, pad see ew, and soft-shell crab.",
+      "address": "608 E 1st St, Tustin, CA 92780",
+      "phone": "(562) 494-3003",
+      "price": "$$",
+      "rating": "4.5",
+      "ratingSource": "Google",
+      "link": "https://www.chiangraitustin.com/"
+    }
+    ,
+     {
+      "name": "Den Cafe",
+      "type": "restaurant",
+      "cuisine": "American",
+      "lat": 33.74616353262734, 
+      "lng":   -117.86948828115833,  
+      "description": "Coffee shop with a bohemian vibe serving pastry, soup, sandwiches & burgers off the grill.",
+      "address": "125 N Broadway D, Santa Ana, CA 92701",
+      "phone": "(714) 835-8840",
+      "price": "$$",
+      "rating": "4.5",
+      "ratingSource": "Google",
+      "link": "https://www.dencafeoc.com/"
+    }            
 ]
