@@ -13,30 +13,21 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logo-container">
+        <div class="filters">
+            <div class="filter-header">
                 <img src="static/img/logo.png" alt="Sizzle LA Logo" class="logo">
-                <div class="header-text">
-                    <h1>Sizzle Map</h1>
-                    <div class="subtitle">Your LA food & fun guide</div>
+                <div class="filter-section">
+                    <button class="filter-btn active" data-type="all">✨ All</button>
+                    <button class="filter-btn" data-type="restaurant">🍽️ Restaurants</button>
+                    <button class="filter-btn" data-type="cafe">☕ Cafés</button>
+                    <button class="filter-btn" data-type="bar">🍸 Bars</button>
+                    <button class="filter-btn" data-type="plant">🌿 Plants</button>
+                    <button class="filter-btn" data-type="vinyl">🎵 Vinyl</button>
                 </div>
             </div>
-        </header>
-
-        <div class="filters">
-            <div class="filter-section">
-                <div class="filter-label">Filter by Type:</div>
-                <button class="filter-btn active" data-type="all">✨ All</button>
-                <button class="filter-btn" data-type="restaurant">🍽️ Restaurants</button>
-                <button class="filter-btn" data-type="cafe">☕ Cafés</button>
-                <button class="filter-btn" data-type="bar">🍸 Bars</button>
-                <button class="filter-btn" data-type="plant">🌿 Plants</button>
-                <button class="filter-btn" data-type="vinyl">🎵 Vinyl</button>
-            </div>
             
-            <div class="filter-section" id="cuisine-section" style="display: none;">
-                <div class="filter-label">Cuisine Type:</div>
-                <select class="cuisine-filter" id="cuisine-filter">
+            <div class="filter-section" id="cuisine-section">
+                <select class="cuisine-filter" id="cuisine-filter" disabled>
                     <option value="all">All Cuisines</option>
                 </select>
             </div>

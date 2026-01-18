@@ -120,14 +120,17 @@ window.onload = function() {
             e.target.classList.add('active');
 
             const filterType = e.target.dataset.type;
+            console.log('Filter clicked:', filterType); // Debug log
             
-            // Show/hide cuisine filter
-            const cuisineSection = document.getElementById('cuisine-section');
+            // Enable/disable cuisine filter (always keep section visible)
+            const cuisineFilter = document.getElementById('cuisine-filter');
             if (filterType === 'restaurant') {
-                cuisineSection.style.display = 'flex';
+                cuisineFilter.disabled = false;
+                console.log('Cuisine filter enabled'); // Debug log
             } else {
-                cuisineSection.style.display = 'none';
-                document.getElementById('cuisine-filter').value = 'all';
+                cuisineFilter.disabled = true;
+                cuisineFilter.value = 'all';
+                console.log('Cuisine filter disabled'); // Debug log
             }
 
             // Filter places

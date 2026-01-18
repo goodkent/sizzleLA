@@ -278,5 +278,61 @@
     "rating": "4.8",
     "ratingSource": "Google",
     "link": null
+  },
+  {
+    "name": "Mae Malai Thai House of Noodles",
+    "type": "restaurant",
+    "cuisine": "Thai",
+    "lat": 34.1025,
+    "lng": -118.3088,
+    "description": "Michelin Bib Gourmand. Authentic Thai boat noodles and family recipes passed down for 60+ years.",
+    "address": "5445 Hollywood Blvd, Los Angeles, CA 90027",
+    "phone": "(323) 652-2935",
+    "price": "$$",
+    "rating": "4.5",
+    "ratingSource": "Yelp",
+    "link": "https://www.yelp.com/biz/mae-malai-thai-house-of-noodles-los-angeles"
+  },
+  {
+    "name": "Majordomo",
+    "type": "restaurant",
+    "cuisine": "American",
+    "lat": 34.0707,
+    "lng": -118.2341,
+    "description": "David Chang's LA flagship. Famous for whole plate short ribs and Korean-inflected California cuisine.",
+    "address": "1725 Naud St, Los Angeles, CA 90012",
+    "phone": "(323) 545-4880",
+    "price": "$$$",
+    "rating": "4.3",
+    "ratingSource": "Yelp",
+    "link": "https://www.opentable.com/r/majordomo-los-angeles"
+  },
+  {
+    "name": "Girl & the Goat",
+    "type": "restaurant",
+    "cuisine": "American",
+    "lat": 34.0356,
+    "lng": -118.2275,
+    "description": "Top Chef Stephanie Izard's Arts District spot. Famous green beans, goat curry, and creative sharing plates.",
+    "address": "555 Mateo St, Los Angeles, CA 90013",
+    "phone": "(213) 799-4628",
+    "price": "$$$",
+    "rating": "4.4",
+    "ratingSource": "Tripadvisor",
+    "link": "https://www.girlandthegoat.com/los-angeles"
+  },
+  {
+    "name": "Nobu Malibu",
+    "type": "restaurant",
+    "cuisine": "Japanese",
+    "lat": 34.0391,
+    "lng": -118.6697,
+    "description": "Iconic oceanfront sushi spot. Signature black cod miso and yellowtail jalapeño with stunning Pacific views.",
+    "address": "22706 Pacific Coast Hwy, Malibu, CA 90265",
+    "phone": "(310) 317-9140",
+    "price": "$$$$",
+    "rating": "4.2",
+    "ratingSource": "Yelp",
+    "link": "https://www.noburestaurants.com/malibu"
   }
 ]
