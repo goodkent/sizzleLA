@@ -66,6 +66,15 @@ body::before {
     flex-shrink: 0;
 }
 
+/* Logo visibility - desktop shows banner, mobile shows logo2 */
+.logo-mobile {
+    display: none;
+}
+
+.logo-desktop {
+    display: block;
+}
+
 .filter-section {
     display: flex;
     flex-wrap: wrap;
@@ -154,6 +163,24 @@ body::before {
     z-index: 1;
 }
 
+/* Neighborhood Labels - Removed per user request
+.neighborhood-label {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 10px;
+    font-weight: 600;
+    color: #666;
+    text-shadow: 0 0 3px white, 0 0 3px white;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.neighborhood-label::before {
+    display: none;
+}
+*/
+
 /* Leaflet Popup Overrides */
 .leaflet-popup-content-wrapper {
     border-radius: 15px;
@@ -215,6 +242,19 @@ body::before {
     color: #FFC107;
 }
 
+.address-link {
+    color: #2BC0E4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.address-link:hover {
+    color: #1a3a52;
+    border-bottom: 1px solid #2BC0E4;
+}
+
 .popup-link {
     display: inline-block;
     padding: 10px 20px;
@@ -258,6 +298,209 @@ body::before {
     box-shadow: 0 6px 20px rgba(43, 192, 228, 0.4);
 }
 
+/* Info Button */
+.info-btn {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    transition: all 0.3s ease;
+}
+
+.info-btn:hover {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+/* Offcanvas Panel */
+.offcanvas {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 20px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.offcanvas.active {
+    left: 0;
+}
+
+.offcanvas-header {
+    padding: 30px 25px 20px;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offcanvas-header h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.close-btn {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: rotate(90deg);
+}
+
+.offcanvas-body {
+    padding: 25px;
+}
+
+.about-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    border-left: 4px solid #FF6B35;
+}
+
+.about-section p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.form-section h3 {
+    margin: 0 0 10px 0;
+    color: #1a3a52;
+    font-size: 20px;
+}
+
+.form-description {
+    margin: 0 0 20px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #FF6B35;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+}
+
+.form-status {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.form-status.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-status.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Offcanvas Overlay */
+.offcanvas-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.offcanvas-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Pulse Animation */
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
@@ -266,17 +509,43 @@ body::before {
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
-    .logo {
-        height: 70px;
-        padding: 12px;
-        border-width: 5px;
-        border-radius: 50%;
+    /* Mobile logo - use logo2, no border/padding */
+    .logo-desktop {
+        display: none;
     }
     
-    .filter-btn {
-        font-size: 12px;
-        padding: 6px 12px;
+    .logo-mobile {
+        display: block;
+        height: 120px;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: transparent;
     }
+    
+    /* Filter buttons - emoji only, sized to fit one row */
+    .filter-btn {
+        font-size: 0; /* Hide all text */
+        padding: 10px;
+        min-width: 48px;
+        min-height: 48px;
+        justify-content: center;
+        border-width: 2px;
+    }
+    
+    /* Show only emoji at readable size */
+    .filter-btn::before {
+        font-size: 24px; /* Emoji size */
+        content: '';
+    }
+    
+    /* Special handling for each button's emoji */
+    .filter-btn[data-type="all"]::before { content: '✨'; }
+    .filter-btn[data-type="restaurant"]::before { content: '🍽️'; }
+    .filter-btn[data-type="cafe"]::before { content: '☕'; }
+    .filter-btn[data-type="bar"]::before { content: '🍸'; }
+    .filter-btn[data-type="plant"]::before { content: '🌿'; }
+    .filter-btn[data-type="vinyl"]::before { content: '🎵'; }
     
     .filters {
         padding: 15px;
@@ -285,6 +554,13 @@ body::before {
     .filter-header {
         flex-direction: column;
         gap: 15px;
+        width: 100%;
+    }
+    
+    .filter-section {
+        width: 100%;
+        justify-content: center;
+        gap: 6px; /* Slightly tighter spacing on mobile */
     }
     
     #map {
@@ -300,5 +576,31 @@ body::before {
         width: 50px;
         height: 50px;
         font-size: 24px;
+    }
+    
+    .info-btn {
+        bottom: 30px;
+        left: 30px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    /* Offcanvas takes full width on mobile */
+    .offcanvas {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .offcanvas-header {
+        padding: 25px 20px 18px;
+    }
+    
+    .offcanvas-header h2 {
+        font-size: 20px;
+    }
+    
+    .offcanvas-body {
+        padding: 20px;
     }
 }

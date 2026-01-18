@@ -4,9 +4,44 @@ window.onload = function() {
     const map = L.map('map').setView([34.0522, -118.2437], 11);
 
     // Add tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
-        maxZoom: 19
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community',
+    maxZoom: 19
+    }).addTo(map);
+    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     attribution: '© OpenStreetMap contributors',
+    //     maxZoom: 19
+    // }).addTo(map);
+
+    // Add LA Neighborhoods Layer from ArcGIS
+    const neighborhoodColors = [
+        '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
+        '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#AAB7B8',
+        '#5DADE2', '#F1948A', '#85929E', '#82E0AA', '#F8C471'
+    ];
+    
+    let colorIndex = 0;
+    const neighborhoodColorMap = new Map();
+    
+    const neighborhoodsLayer = L.esri.featureLayer({
+        url: 'https://services5.arcgis.com/7nsPwEMP38bSkCjy/arcgis/rest/services/LA_Times_Neighborhoods/FeatureServer/0',
+        style: function(feature) {
+            const name = feature.properties.name || feature.properties.Name;
+            
+            // Assign consistent color to each neighborhood
+            if (!neighborhoodColorMap.has(name)) {
+                neighborhoodColorMap.set(name, neighborhoodColors[colorIndex % neighborhoodColors.length]);
+                colorIndex++;
+            }
+            
+            return {
+                fillColor: neighborhoodColorMap.get(name),
+                fillOpacity: 0.15,
+                color: neighborhoodColorMap.get(name),
+                weight: 2,
+                opacity: 0.4
+            };
+        }
     }).addTo(map);
 
     // Store markers and user location
@@ -86,6 +121,12 @@ window.onload = function() {
 
         // Add new markers
         places.forEach(place => {
+            // Skip places with missing coordinates
+            if (!place.lat || !place.lng) {
+                console.warn('Skipping place with missing coordinates:', place.name);
+                return;
+            }
+            
             const marker = L.marker([place.lat, place.lng], {
                 icon: icons[place.type]
             });
@@ -98,7 +139,7 @@ window.onload = function() {
                     <div class="popup-description">${place.description}</div>
                     <div class="popup-info">
                         ${place.phone ? `<div class="popup-info-item">📞 ${place.phone}</div>` : ''}
-                        ${place.address ? `<div class="popup-info-item">📍 ${place.address}</div>` : ''}
+                        ${place.address ? `<div class="popup-info-item">📍 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}" target="_blank" class="address-link" title="Open in Google Maps">${place.address}</a></div>` : ''}
                         ${place.price ? `<div class="popup-info-item">💰 <span class="price-rating">${place.price}</span></div>` : ''}
                         ${place.rating ? `<div class="popup-info-item"><span class="star-rating">⭐ ${place.rating}</span> ${place.ratingSource || ''}</div>` : ''}
                     </div>
@@ -192,6 +233,68 @@ window.onload = function() {
             );
         } else {
             alert('Geolocation is not supported by your browser.');
+        }
+    });
+
+    // Offcanvas Panel Functionality
+    const infoBtn = document.getElementById('info-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const offcanvas = document.getElementById('offcanvas');
+    const offcanvasOverlay = document.getElementById('offcanvas-overlay');
+
+    function openOffcanvas() {
+        offcanvas.classList.add('active');
+        offcanvasOverlay.classList.add('active');
+    }
+
+    function closeOffcanvas() {
+        offcanvas.classList.remove('active');
+        offcanvasOverlay.classList.remove('active');
+    }
+
+    infoBtn.addEventListener('click', openOffcanvas);
+    closeBtn.addEventListener('click', closeOffcanvas);
+    offcanvasOverlay.addEventListener('click', closeOffcanvas);
+
+    // Form Submission
+    const form = document.getElementById('suggest-form');
+    const formStatus = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Show loading state
+        formStatus.textContent = 'Sending...';
+        formStatus.className = 'form-status';
+        formStatus.style.display = 'block';
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                formStatus.textContent = 'Thanks for the suggestion! We\'ll check it out. 🎉';
+                formStatus.className = 'form-status success';
+                form.reset();
+                
+                // Auto-close after 3 seconds
+                setTimeout(() => {
+                    closeOffcanvas();
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 300);
+                }, 3000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+            formStatus.className = 'form-status error';
         }
     });
 
