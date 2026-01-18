@@ -72,7 +72,7 @@
   {
     "name": "Sqirl",
     "type": "restaurant",
-    "cuisine": "California",
+    "cuisine": "Californian",
     "lat": 34.0877,
     "lng": -118.2727,
     "description": "Instagram-famous brunch spot. House-made jams and creative seasonal dishes. Expect a wait!",
@@ -532,5 +532,19 @@
       "rating": "4.5",
       "ratingSource": "Google",
       "link": "https://www.dencafeoc.com/"
-    }            
+    },
+     {
+      "name": "Two Hommés",
+      "type": "restaurant",
+      "cuisine": "African",
+      "lat": 33.97476371667729,  
+      "lng":   -118.35748098983628,
+      "description": "Trendy restaurant serving Afro-centric fare such as jollof, lamb chops, and garlic noodles, plus cocktails.",
+      "address": "902 N La Brea Ave, Inglewood, CA 90302",
+      "phone": "(424) 577-5242",
+      "price": "$$$",
+      "rating": "4.7",
+      "ratingSource": "Google",
+      "link": "https://www.twohommes.com/"
+    }              
 ]
