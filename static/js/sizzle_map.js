@@ -1,5 +1,9 @@
 // Wait for window and all scripts to load
 window.onload = function() {
+    // Define gtag globally if not already defined
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+    
     // Cookie Consent Management
     function checkCookieConsent() {
         const consent = localStorage.getItem('cookieConsent');
@@ -17,17 +21,19 @@ window.onload = function() {
     // Initialize Google Analytics only if consent given
     function initializeAnalytics() {
         if (checkCookieConsent()) {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-EXH28WZK3T');
+            console.log('Google Analytics initialized');
         }
     }
 
     // Event tracking helper
     function trackEvent(eventName, eventParams = {}) {
-        if (checkCookieConsent() && typeof gtag !== 'undefined') {
+        if (checkCookieConsent()) {
             gtag('event', eventName, eventParams);
+            console.log('Event tracked:', eventName, eventParams);
+        } else {
+            console.log('Event not tracked (no consent):', eventName, eventParams);
         }
     }
 
