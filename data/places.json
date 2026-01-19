@@ -728,5 +728,47 @@
       "rating": "4.6",
       "ratingSource": "Yelp",
       "link": "https://komalmolino.org/"
-    } 
+    } ,
+  {
+    "name": "Arroyo Records",
+    "type": "vinyl",
+    "cuisine": null,
+    "lat": 34.121010918027174, 
+    "lng": -118.20396756060158,
+    "description": "New and used records in a range of genres are sold at this unpretentious store with a listening station.",
+    "address": "5123 1/2 York Blvd, Los Angeles, CA 90042",
+    "phone": "(909) 374-4730",
+    "price": null,
+    "rating": "4.7",
+    "ratingSource": "Yelp",
+    "link": "https://www.instagram.com/arroyo_records"
+  },
+  {
+    "name": "Leaf and Spine LLC",
+    "type": "plant",
+    "cuisine": null,
+    "lat": 34.119558688371924, 
+    "lng": -118.19818298142503,
+    "description": "Known for its diverse selection of healthy, unique, and rare houseplants, succulents, and cacti, run by knowledgeable owners Dustin Bulaon and Ernestine Segura who provide expert care advice and foster a strong community connection through their store. ",
+    "address": "5440 York Blvd, Los Angeles, CA 90042",
+    "phone": "(323) 257-5323",
+    "price": null,
+    "rating": "5.0",
+    "ratingSource": "Google",
+    "link": "https://www.instagram.com/leafandspine"
+  },
+  {
+    "name": "Kiez Küche & Beer Garden",
+    "type": "bar",
+    "cuisine": null,
+    "lat": 34.12187476456466, 
+    "lng": -118.20765782072873,
+    "description": "Kiez Küche & Beer Garden, Highland Park's newest destination for authentic German flavors and a lively beer garden experience.",
+    "address": "4939 York Blvd, Highland Park, CA 90042",
+    "phone": "(323) 274-4250",
+    "price": "$$",
+    "rating": "4.6",
+    "ratingSource": "Google",
+    "link": "https://www.kiezla.com/"
+  }
 ]
