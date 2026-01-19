@@ -81,6 +81,21 @@ body::before {
     gap: 8px;
     align-items: center;
     justify-content: center;
+    max-width: 800px;
+}
+
+.filter-section .filter-btn {
+    flex: 0 0 auto;
+    min-width: auto;
+}
+
+#cuisine-section {
+    width: 100%;
+    display: none;
+}
+
+#cuisine-section.show {
+    display: flex;
 }
 
 .filter-label {
@@ -160,7 +175,7 @@ body::before {
     box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3), 
                 inset 0 0 0 4px rgba(43, 192, 228, 0.2);
     overflow: hidden;
-    z-index: 1;
+    position: relative;
 }
 
 /* Footer */
@@ -281,15 +296,26 @@ body::before {
 }
 */
 
-/* Leaflet Popup Overrides */
-.leaflet-popup-content-wrapper {
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    z-index: 1000;
+/* Leaflet Popup Overrides - Fix z-index issue */
+/* The real issue: .leaflet-top and .leaflet-bottom have z-index: 1000 by default */
+/* Popup pane only has z-index: 700, so controls appear on top */
+/* Solution: Lower the control container z-index */
+.leaflet-top,
+.leaflet-bottom {
+    z-index: 500 !important;
+}
+
+.leaflet-popup-pane {
+    z-index: 700 !important;
 }
 
 .leaflet-popup {
-    z-index: 1000 !important;
+    z-index: 700 !important;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
 .popup-content {
@@ -688,7 +714,7 @@ body::before {
         background: transparent;
     }
     
-    /* Filter buttons - emoji only, sized to fit one row */
+    /* Filter buttons - emoji only, sized to fit in 2 rows */
     .filter-btn {
         font-size: 0; /* Hide all text */
         padding: 10px;
@@ -696,6 +722,7 @@ body::before {
         min-height: 48px;
         justify-content: center;
         border-width: 2px;
+        flex: 0 0 calc(25% - 8px);
     }
     
     /* Show only emoji at readable size */
@@ -706,12 +733,13 @@ body::before {
     
     /* Special handling for each button's emoji */
     .filter-btn[data-type="all"]::before { content: '✨'; }
+    .filter-btn[data-type="favorites"]::before { content: '❤️'; }
     .filter-btn[data-type="restaurant"]::before { content: '🍽️'; }
     .filter-btn[data-type="cafe"]::before { content: '☕'; }
     .filter-btn[data-type="bar"]::before { content: '🍸'; }
     .filter-btn[data-type="plant"]::before { content: '🌿'; }
     .filter-btn[data-type="vinyl"]::before { content: '🎵'; }
-    .filter-btn[data-type="favorites"]::before { content: '❤️'; }
+    .filter-btn[data-type="event"]::before { content: '🎉'; }
     
     .filters {
         padding: 15px;
@@ -726,7 +754,22 @@ body::before {
     .filter-section {
         width: 100%;
         justify-content: center;
-        gap: 6px; /* Slightly tighter spacing on mobile */
+        gap: 8px;
+        max-width: 100%;
+    }
+    
+    .filter-section .filter-btn {
+        flex: 0 0 calc(25% - 8px);
+        min-width: 48px;
+    }
+    
+    #cuisine-section {
+        padding: 0 10px;
+    }
+    
+    .cuisine-filter {
+        width: 100%;
+        max-width: 100%;
     }
     
     #map {

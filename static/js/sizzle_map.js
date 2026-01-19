@@ -374,15 +374,17 @@ window.onload = function() {
                 filter_type: filterType
             });
             
-            // Enable/disable cuisine filter (always keep section visible)
+            // Show/hide cuisine filter section
+            const cuisineSection = document.getElementById('cuisine-section');
             const cuisineFilter = document.getElementById('cuisine-filter');
+            
             if (filterType === 'restaurant') {
-                cuisineFilter.disabled = false;
-                console.log('Cuisine filter enabled'); // Debug log
+                cuisineSection.classList.add('show');
+                console.log('Cuisine filter shown'); // Debug log
             } else {
-                cuisineFilter.disabled = true;
+                cuisineSection.classList.remove('show');
                 cuisineFilter.value = 'all';
-                console.log('Cuisine filter disabled'); // Debug log
+                console.log('Cuisine filter hidden'); // Debug log
             }
 
             // Filter places
