@@ -772,6 +772,11 @@ body::before {
         max-width: 100%;
     }
     
+    /* Hide zoom controls on mobile - users can still pinch to zoom */
+    .leaflet-control-zoom {
+        display: none;
+    }
+    
     #map {
         margin: 15px 15px 5px 15px;
         width: calc(100% - 30px);
