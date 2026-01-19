@@ -713,6 +713,20 @@
       "price": "$$$",
       "rating": "4.7",
       "ratingSource": "Google",
-      "link": "https://www.chiangrailb.com/"
+      "link": "https://akashironikkei.com/"
+    },
+     {
+      "name": "Komal",
+      "type": "restaurant",
+      "cuisine": "Mexican",
+      "lat": 34.01746469487298, 
+      "lng":  -118.27831325133018,  
+      "description": "We bring the bold, soulful flavors of Mexico City's street food to the heart of Los Angeles, all crafted with Mexican heirloom corn. Located inside Mercado Paloma",
+      "address": "3655 S Grand Ave, Los Angeles, CA 90007",
+      "phone": "(213) 275-1062",
+      "price": "$$",
+      "rating": "4.6",
+      "ratingSource": "Yelp",
+      "link": "https://komalmolino.org/"
     } 
 ]
