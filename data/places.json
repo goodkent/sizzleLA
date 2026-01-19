@@ -700,5 +700,19 @@
     "rating": "4.1",
     "ratingSource": "Yelp",
     "link": "https://www.moongoatgh.com/"
-  }
+  },
+     {
+      "name": "Akashiro Nikkei Sushi Peruvian",
+      "type": "restaurant",
+      "cuisine": "Sushi",
+      "lat": 33.87362167279556, 
+      "lng":  -117.92416245605905,  
+      "description": "Casual spot for Japanese fare, including sushi and parmesan scallops, as well as ceviche.",
+      "address": "444 N Harbor Blvd #104, Fullerton, CA 92832",
+      "phone": "(714) 519-3597",
+      "price": "$$$",
+      "rating": "4.7",
+      "ratingSource": "Google",
+      "link": "https://www.chiangrailb.com/"
+    } 
 ]
