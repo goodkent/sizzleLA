@@ -37,6 +37,41 @@ window.onload = function() {
         }
     }
 
+    // Update meta tags for specific place (for rich link previews)
+    function updateMetaTags(place) {
+        // Update title
+        document.title = `${place.name} - Sizzle LA`;
+        
+        // Helper to update or create meta tag
+        function updateMetaTag(property, content, useNameAttr = false) {
+            const attr = useNameAttr ? 'name' : 'property';
+            let element = document.querySelector(`meta[${attr}="${property}"]`);
+            
+            if (!element) {
+                element = document.createElement('meta');
+                element.setAttribute(attr, property);
+                document.head.appendChild(element);
+            }
+            
+            element.setAttribute('content', content);
+        }
+        
+        // Create description
+        const description = `${place.description} Located in ${place.neighborhood || 'Los Angeles'}.`;
+        
+        // Update Open Graph tags
+        updateMetaTag('og:title', `${place.name} - Sizzle LA`);
+        updateMetaTag('og:description', description);
+        updateMetaTag('og:url', window.location.href);
+        
+        // Update Twitter tags
+        updateMetaTag('twitter:title', `${place.name} - Sizzle LA`, true);
+        updateMetaTag('twitter:description', description, true);
+        
+        // Update SEO description
+        updateMetaTag('description', description, true);
+    }
+
     // Cookie consent handlers
     document.getElementById('accept-cookies').addEventListener('click', () => {
         localStorage.setItem('cookieConsent', 'accepted');
@@ -84,6 +119,33 @@ window.onload = function() {
     function isFavorite(placeName) {
         return favorites.has(placeName);
     }
+    
+    // Check URL parameters for shared place
+    function checkSharedPlace() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const placeName = urlParams.get('place');
+        
+        if (placeName && allPlaces.length > 0) {
+            const place = allPlaces.find(p => p.name === placeName);
+            if (place) {
+                // Update meta tags for this specific place
+                updateMetaTags(place);
+                
+                // Zoom to and open the marker
+                map.setView([place.lat, place.lng], 15);
+                
+                // Find and click the marker to open popup
+                setTimeout(() => {
+                    markers.forEach(marker => {
+                        if (marker.options.title === place.name) {
+                            marker.fire('click');
+                        }
+                    });
+                }, 500);
+            }
+        }
+    }
+    
     // Initialize map centered on LA
     const map = L.map('map').setView([34.0522, -118.2437], 11);
 
@@ -173,6 +235,9 @@ window.onload = function() {
             
             // Display all places initially
             displayPlaces(allPlaces);
+            
+            // Check if URL has a shared place parameter
+            checkSharedPlace();
         } catch (error) {
             console.error('Error loading places:', error);
             alert('Could not load places data. Make sure data/places.json exists.');
