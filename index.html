@@ -24,6 +24,7 @@
                     <button class="filter-btn" data-type="bar">🍸 Bars</button>
                     <button class="filter-btn" data-type="plant">🌿 Plants</button>
                     <button class="filter-btn" data-type="vinyl">🎵 Vinyl</button>
+                    <button class="filter-btn" data-type="favorites">❤️ Favorites</button>
                 </div>
             </div>
             
@@ -36,8 +37,26 @@
 
         <div id="map"></div>
         
+        <!-- Footer -->
+        <footer class="map-footer">
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <span class="footer-separator">•</span>
+            <a href="#" class="footer-link" id="cookie-settings">Cookie Settings</a>
+        </footer>
+        
         <button class="location-btn" id="locate-btn" title="Find my location">📍</button>
         <button class="info-btn" id="info-btn" title="About & Submit a Place">ℹ️</button>
+        
+        <!-- Cookie Consent Banner -->
+        <div class="cookie-banner" id="cookie-banner">
+            <div class="cookie-content">
+                <p class="cookie-text">We use cookies and Google Analytics to improve your experience. <a href="privacy.html" class="cookie-link">Learn more</a></p>
+                <div class="cookie-buttons">
+                    <button class="cookie-btn cookie-accept" id="accept-cookies">Accept</button>
+                    <button class="cookie-btn cookie-decline" id="decline-cookies">Decline</button>
+                </div>
+            </div>
+        </div>
         
         <!-- Offcanvas Panel -->
         <div class="offcanvas" id="offcanvas">
@@ -100,6 +119,19 @@
     
     <!-- Esri Leaflet for ArcGIS Layers -->
     <script src="https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js"></script>
+    
+    <!-- Google tag (gtag.js) - Loaded conditionally based on cookie consent -->
+    <script>
+        // Check if user has accepted cookies before loading GA
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        if (cookieConsent === 'accepted') {
+            // Load Google Analytics
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-EXH28WZK3T';
+            document.head.appendChild(gaScript);
+        }
+    </script>
     
     <!-- Custom JS -->
     <script src="static/js/sizzle_map.js"></script>

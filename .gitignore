@@ -65,6 +65,7 @@ coverage.xml
 # Logs
 *.log
 logs/
+claude/
 
 # Environment variables
 .env

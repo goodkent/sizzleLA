@@ -1,5 +1,83 @@
 // Wait for window and all scripts to load
 window.onload = function() {
+    // Cookie Consent Management
+    function checkCookieConsent() {
+        const consent = localStorage.getItem('cookieConsent');
+        return consent === 'accepted';
+    }
+
+    function showCookieBanner() {
+        const consent = localStorage.getItem('cookieConsent');
+        if (!consent) {
+            const banner = document.getElementById('cookie-banner');
+            setTimeout(() => banner.classList.add('show'), 500);
+        }
+    }
+
+    // Initialize Google Analytics only if consent given
+    function initializeAnalytics() {
+        if (checkCookieConsent()) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EXH28WZK3T');
+        }
+    }
+
+    // Event tracking helper
+    function trackEvent(eventName, eventParams = {}) {
+        if (checkCookieConsent() && typeof gtag !== 'undefined') {
+            gtag('event', eventName, eventParams);
+        }
+    }
+
+    // Cookie consent handlers
+    document.getElementById('accept-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        document.getElementById('cookie-banner').classList.remove('show');
+        initializeAnalytics();
+        trackEvent('cookie_consent', { consent_type: 'accepted' });
+    });
+
+    document.getElementById('decline-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'declined');
+        document.getElementById('cookie-banner').classList.remove('show');
+        trackEvent('cookie_consent', { consent_type: 'declined' });
+    });
+
+    document.getElementById('cookie-settings').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('cookieConsent');
+        showCookieBanner();
+        trackEvent('cookie_settings_opened');
+    });
+
+    // Initialize analytics and show banner
+    initializeAnalytics();
+    showCookieBanner();
+
+    // Favorites Management
+    const favorites = new Set(JSON.parse(localStorage.getItem('sizzleFavorites') || '[]'));
+
+    function saveFavorites() {
+        localStorage.setItem('sizzleFavorites', JSON.stringify([...favorites]));
+    }
+
+    function toggleFavorite(placeName) {
+        if (favorites.has(placeName)) {
+            favorites.delete(placeName);
+            trackEvent('favorite_removed', { place_name: placeName });
+        } else {
+            favorites.add(placeName);
+            trackEvent('favorite_added', { place_name: placeName });
+        }
+        saveFavorites();
+        return favorites.has(placeName);
+    }
+
+    function isFavorite(placeName) {
+        return favorites.has(placeName);
+    }
     // Initialize map centered on LA
     const map = L.map('map').setView([34.0522, -118.2437], 11);
 
@@ -133,6 +211,9 @@ window.onload = function() {
 
             // Function to create popup content
             function createPopupContent(neighborhoodName = '') {
+                const isFav = isFavorite(place.name);
+                const shareUrl = `${window.location.origin}${window.location.pathname}?place=${encodeURIComponent(place.name)}`;
+                
                 return `
                     <div class="popup-content">
                         <div class="popup-title">${place.name}</div>
@@ -145,7 +226,19 @@ window.onload = function() {
                             ${place.price ? `<div class="popup-info-item">💰 <span class="price-rating">${place.price}</span></div>` : ''}
                             ${place.rating ? `<div class="popup-info-item"><span class="star-rating">⭐ ${place.rating}</span> ${place.ratingSource || ''}</div>` : ''}
                         </div>
-                        ${place.link ? `<a href="${place.link}" target="_blank" class="popup-link">View More →</a>` : ''}
+                        <div class="popup-actions">
+                            <div class="popup-actions-left">
+                                ${place.link ? `<a href="${place.link}" target="_blank" class="popup-link">Website</a>` : ''}
+                            </div>
+                            <div class="popup-actions-right">
+                                <button class="popup-action-btn favorite-btn ${isFav ? 'favorited' : ''}" data-place="${place.name}" title="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
+                                    ${isFav ? '❤️' : '🤍'}
+                                </button>
+                                <button class="popup-action-btn share-btn" data-place="${place.name}" data-url="${shareUrl}" title="Share this place">
+                                    📤
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 `;
             }
@@ -157,6 +250,81 @@ window.onload = function() {
             marker.on('popupopen', function() {
                 console.log('Popup opened for:', place.name);
                 console.log('Querying at coordinates:', place.lat, place.lng);
+                
+                // Track popup open
+                trackEvent('place_popup_opened', {
+                    place_name: place.name,
+                    place_type: place.type,
+                    cuisine: place.cuisine || 'N/A'
+                });
+                
+                // Add event listeners for action buttons
+                setTimeout(() => {
+                    const favoriteBtn = document.querySelector('.favorite-btn');
+                    const shareBtn = document.querySelector('.share-btn');
+                    
+                    if (favoriteBtn) {
+                        favoriteBtn.addEventListener('click', function() {
+                            const placeName = this.dataset.place;
+                            const nowFavorited = toggleFavorite(placeName);
+                            
+                            // Update button appearance
+                            if (nowFavorited) {
+                                this.classList.add('favorited');
+                                this.innerHTML = '❤️';
+                                this.title = 'Remove from favorites';
+                            } else {
+                                this.classList.remove('favorited');
+                                this.innerHTML = '🤍';
+                                this.title = 'Add to favorites';
+                            }
+                        });
+                    }
+                    
+                    if (shareBtn) {
+                        shareBtn.addEventListener('click', async function() {
+                            const placeName = this.dataset.place;
+                            const shareUrl = this.dataset.url;
+                            
+                            trackEvent('share_clicked', {
+                                place_name: placeName,
+                                place_type: place.type
+                            });
+                            
+                            // Try Web Share API first
+                            if (navigator.share) {
+                                try {
+                                    await navigator.share({
+                                        title: `Check out ${placeName} on Sizzle LA`,
+                                        text: `I found this great place: ${placeName}`,
+                                        url: shareUrl
+                                    });
+                                    trackEvent('share_success', {
+                                        place_name: placeName,
+                                        method: 'web_share_api'
+                                    });
+                                } catch (err) {
+                                    if (err.name !== 'AbortError') {
+                                        console.log('Share failed:', err);
+                                    }
+                                }
+                            } else {
+                                // Fallback: copy to clipboard
+                                try {
+                                    await navigator.clipboard.writeText(shareUrl);
+                                    alert('Link copied to clipboard!');
+                                    trackEvent('share_success', {
+                                        place_name: placeName,
+                                        method: 'clipboard'
+                                    });
+                                } catch (err) {
+                                    console.error('Failed to copy:', err);
+                                    alert('Could not copy link. Please copy manually: ' + shareUrl);
+                                }
+                            }
+                        });
+                    }
+                }, 100);
                 
                 // Create a proper L.LatLng object for the query
                 const point = L.latLng(place.lat, place.lng);
@@ -201,6 +369,11 @@ window.onload = function() {
             const filterType = e.target.dataset.type;
             console.log('Filter clicked:', filterType); // Debug log
             
+            // Track filter usage
+            trackEvent('filter_clicked', {
+                filter_type: filterType
+            });
+            
             // Enable/disable cuisine filter (always keep section visible)
             const cuisineFilter = document.getElementById('cuisine-filter');
             if (filterType === 'restaurant') {
@@ -218,7 +391,12 @@ window.onload = function() {
     });
 
     // Cuisine filter
-    document.getElementById('cuisine-filter').addEventListener('change', filterPlaces);
+    document.getElementById('cuisine-filter').addEventListener('change', function() {
+        trackEvent('cuisine_filter_changed', {
+            cuisine: this.value
+        });
+        filterPlaces();
+    });
 
     function filterPlaces() {
         const activeFilter = document.querySelector('.filter-btn.active').dataset.type;
@@ -226,8 +404,15 @@ window.onload = function() {
 
         let filtered = allPlaces;
 
+        // Filter by favorites
+        if (activeFilter === 'favorites') {
+            filtered = filtered.filter(place => isFavorite(place.name));
+            if (filtered.length === 0) {
+                console.log('No favorites yet!');
+            }
+        }
         // Filter by type
-        if (activeFilter !== 'all') {
+        else if (activeFilter !== 'all') {
             filtered = filtered.filter(place => place.type === activeFilter);
         }
 
@@ -241,11 +426,17 @@ window.onload = function() {
 
     // Geolocation
     document.getElementById('locate-btn').addEventListener('click', () => {
+        trackEvent('locate_button_clicked');
+        
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const lat = position.coords.latitude;
                     const lng = position.coords.longitude;
+
+                    trackEvent('geolocation_success', {
+                        accuracy: position.coords.accuracy
+                    });
 
                     // Remove old user marker
                     if (userMarker) {
@@ -265,11 +456,16 @@ window.onload = function() {
                     map.setView([lat, lng], 13);
                 },
                 (error) => {
+                    trackEvent('geolocation_error', {
+                        error_code: error.code,
+                        error_message: error.message
+                    });
                     alert('Could not get your location. Please enable location services.');
                     console.error('Geolocation error:', error);
                 }
             );
         } else {
+            trackEvent('geolocation_not_supported');
             alert('Geolocation is not supported by your browser.');
         }
     });
@@ -283,11 +479,13 @@ window.onload = function() {
     function openOffcanvas() {
         offcanvas.classList.add('active');
         offcanvasOverlay.classList.add('active');
+        trackEvent('info_panel_opened');
     }
 
     function closeOffcanvas() {
         offcanvas.classList.remove('active');
         offcanvasOverlay.classList.remove('active');
+        trackEvent('info_panel_closed');
     }
 
     infoBtn.addEventListener('click', openOffcanvas);
@@ -300,6 +498,12 @@ window.onload = function() {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // Track form submission attempt
+        const placeType = document.getElementById('place-type').value;
+        trackEvent('form_submission_started', {
+            place_type: placeType
+        });
         
         // Show loading state
         formStatus.textContent = 'Sending...';
@@ -316,6 +520,10 @@ window.onload = function() {
             });
             
             if (response.ok) {
+                trackEvent('form_submission_success', {
+                    place_type: placeType
+                });
+                
                 formStatus.textContent = 'Thanks for the suggestion! We\'ll check it out. 🎉';
                 formStatus.className = 'form-status success';
                 form.reset();
@@ -331,6 +539,10 @@ window.onload = function() {
                 throw new Error('Form submission failed');
             }
         } catch (error) {
+            trackEvent('form_submission_error', {
+                error_message: error.message
+            });
+            
             formStatus.textContent = 'Oops! Something went wrong. Please try again.';
             formStatus.className = 'form-status error';
         }
