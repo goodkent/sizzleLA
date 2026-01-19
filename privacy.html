@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Privacy Policy - Sizzle LA</title>
     <link rel="stylesheet" href="static/css/style.css">
     <style>
+        body {
+            overflow-y: auto !important;
+            height: auto !important;
+            -webkit-overflow-scrolling: touch;
+        }
+        
         .privacy-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
+            padding-bottom: calc(40px + env(safe-area-inset-bottom) + 20px);
             background: white;
             min-height: 100vh;
+            min-height: 100svh;
         }
         .privacy-header {
             text-align: center;

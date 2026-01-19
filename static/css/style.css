@@ -8,7 +8,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: white;
-    height: 100vh;
+    height: 100vh; /* Fallback */
+    height: 100svh; /* Safe for Safari UI bars */
     overflow: hidden;
     position: relative;
 }
@@ -31,7 +32,8 @@ body::before {
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100vh; /* Fallback */
+    height: 100svh; /* Safe for Safari UI bars */
     max-width: 100%;
     margin: 0 auto;
 }
@@ -568,6 +570,11 @@ body::before {
 
 .offcanvas-body {
     padding: 25px;
+    padding-bottom: calc(25px + env(safe-area-inset-bottom) + 80px); /* Extra space for Safari bottom bar */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    max-height: calc(100vh - 60px); /* Account for header */
+    max-height: calc(100svh - 60px); /* Safe for Safari */
 }
 
 .about-section {
@@ -790,7 +797,9 @@ body::before {
     }
     
     .location-btn {
+        /* Add safe space for Safari bottom bar */
         bottom: 50px;
+        bottom: max(50px, calc(env(safe-area-inset-bottom) + 50px));
         right: 30px;
         width: 50px;
         height: 50px;
@@ -798,7 +807,9 @@ body::before {
     }
     
     .info-btn {
+        /* Add safe space for Safari bottom bar */
         bottom: 50px;
+        bottom: max(50px, calc(env(safe-area-inset-bottom) + 50px));
         left: 30px;
         width: 50px;
         height: 50px;
