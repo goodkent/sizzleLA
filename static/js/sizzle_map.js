@@ -151,56 +151,63 @@ window.onload = function() {
                 
                 console.log('Setting map view to:', place.lat, place.lng);
                 
-                // First, set the view without animation
+                // Function to open the marker
+                const openMarker = () => {
+                    console.log('Attempting to open marker, markers available:', markers.length);
+                    let markerFound = false;
+                    
+                    markers.forEach((marker, index) => {
+                        if (marker.options.title === place.name) {
+                            console.log('✓ Opening marker for:', place.name);
+                            
+                            // Open popup and keep it open
+                            marker.openPopup();
+                            
+                            // Track the event
+                            trackEvent('place_popup_opened', {
+                                place_name: place.name,
+                                place_type: place.type,
+                                cuisine: place.cuisine || '',
+                                source: 'shared_link'
+                            });
+                            
+                            markerFound = true;
+                        }
+                    });
+                    
+                    if (!markerFound) {
+                        console.log('✗ Marker not found in', markers.length, 'markers');
+                    }
+                    
+                    return markerFound;
+                };
+                
+                // Set view with animation disabled
                 map.setView([place.lat, place.lng], 17, {
                     animate: false
                 });
                 
-                // Wait for map to settle before opening popup
-                setTimeout(() => {
-                    // Find and open the marker - need to wait for markers to be created
-                    const openMarker = () => {
-                        console.log('Attempting to open marker, markers available:', markers.length);
-                        let markerFound = false;
-                        
-                        markers.forEach((marker, index) => {
-                            console.log(`Marker ${index}: ${marker.options.title}`);
-                            if (marker.options.title === place.name) {
-                                console.log('✓ Opening marker for:', place.name);
-                                
-                                // Open popup and keep it open
-                                marker.openPopup();
-                                
-                                // Also track the event
-                                trackEvent('place_popup_opened', {
-                                    place_name: place.name,
-                                    place_type: place.type,
-                                    cuisine: place.cuisine || '',
-                                    source: 'shared_link'
-                                });
-                                
-                                markerFound = true;
-                            }
-                        });
-                        
-                        if (!markerFound) {
-                            console.log('✗ Marker not found in', markers.length, 'markers');
-                        }
-                        
-                        return markerFound;
-                    };
+                // Use Leaflet's moveend event - fires when map finishes moving/zooming
+                map.once('moveend', function() {
+                    console.log('Map moveend event fired, opening marker...');
                     
-                    // Single attempt with longer delay after map has settled
+                    // Try immediately
                     if (!openMarker()) {
-                        console.log('First attempt failed, trying again in 500ms...');
+                        // If markers not ready, wait a bit
                         setTimeout(() => {
                             if (!openMarker()) {
-                                console.log('Second attempt failed, trying again in 1000ms...');
-                                setTimeout(openMarker, 1000);
+                                // One more attempt
+                                setTimeout(openMarker, 300);
                             }
-                        }, 500);
+                        }, 300);
                     }
-                }, 2000); // Increased delay after setView
+                });
+                
+                // Fallback: if moveend doesn't fire, try after delay
+                setTimeout(() => {
+                    console.log('Fallback timer triggered');
+                    openMarker();
+                }, 1000);
             } else {
                 console.log('✗ Place not found in data:', placeName);
             }
@@ -688,13 +695,11 @@ window.onload = function() {
     // Load places on page load
     loadPlaces();
     
-    // Additional check for shared place after map is fully ready and settled
-    map.whenReady(function() {
-        console.log('Map is ready, checking for shared place again');
-        // Wait a bit longer for map to fully settle
-        setTimeout(() => {
-            checkSharedPlace();
-        }, 1000); // Increased from 500ms
+    // Use Leaflet events instead of arbitrary delays
+    // This runs after map tiles have loaded
+    map.on('load', function() {
+        console.log('Map load event fired');
+        checkSharedPlace();
     });
     
 }; // End window.onload
