@@ -122,27 +122,76 @@ window.onload = function() {
     
     // Check URL parameters for shared place
     function checkSharedPlace() {
+        // Try multiple ways to get the URL parameter (for cross-browser compatibility)
         const urlParams = new URLSearchParams(window.location.search);
-        const placeName = urlParams.get('place');
+        let placeName = urlParams.get('place');
+        
+        // Fallback: parse URL manually if URLSearchParams doesn't work
+        if (!placeName && window.location.search) {
+            const match = window.location.search.match(/[?&]place=([^&]+)/);
+            if (match) {
+                placeName = decodeURIComponent(match[1]);
+            }
+        }
+        
+        console.log('=== SHARED PLACE CHECK ===');
+        console.log('URL:', window.location.href);
+        console.log('Search params:', window.location.search);
+        console.log('Place name from URL:', placeName);
+        console.log('All places loaded:', allPlaces.length);
+        console.log('Markers created:', markers.length);
         
         if (placeName && allPlaces.length > 0) {
             const place = allPlaces.find(p => p.name === placeName);
+            console.log('Found place data:', place);
+            
             if (place) {
                 // Update meta tags for this specific place
                 updateMetaTags(place);
                 
-                // Zoom to and open the marker
-                map.setView([place.lat, place.lng], 15);
+                // Zoom to place with tighter zoom (17 instead of 15)
+                console.log('Setting map view to:', place.lat, place.lng);
+                map.setView([place.lat, place.lng], 17);
                 
-                // Find and click the marker to open popup
-                setTimeout(() => {
-                    markers.forEach(marker => {
+                // Find and open the marker - need to wait for markers to be created
+                const openMarker = () => {
+                    console.log('Attempting to open marker, markers available:', markers.length);
+                    let markerFound = false;
+                    
+                    markers.forEach((marker, index) => {
+                        console.log(`Marker ${index}: ${marker.options.title}`);
                         if (marker.options.title === place.name) {
+                            console.log('✓ Opening marker for:', place.name);
+                            // Fire click event to open popup
                             marker.fire('click');
+                            markerFound = true;
                         }
                     });
-                }, 500);
+                    
+                    if (!markerFound) {
+                        console.log('✗ Marker not found in', markers.length, 'markers');
+                    }
+                    
+                    return markerFound;
+                };
+                
+                // Try multiple times with increasing delays (helps with mobile)
+                setTimeout(() => {
+                    if (!openMarker()) {
+                        console.log('First attempt failed, trying again in 500ms...');
+                        setTimeout(() => {
+                            if (!openMarker()) {
+                                console.log('Second attempt failed, trying again in 1000ms...');
+                                setTimeout(openMarker, 1000);
+                            }
+                        }, 500);
+                    }
+                }, 1000);
+            } else {
+                console.log('✗ Place not found in data:', placeName);
             }
+        } else {
+            console.log('No shared place in URL or data not loaded yet');
         }
     }
     
@@ -623,5 +672,13 @@ window.onload = function() {
 
     // Load places on page load
     loadPlaces();
+    
+    // Additional check for shared place after map is ready (helps with mobile)
+    map.whenReady(function() {
+        console.log('Map is ready, checking for shared place again');
+        setTimeout(() => {
+            checkSharedPlace();
+        }, 500);
+    });
     
 }; // End window.onload
