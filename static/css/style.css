@@ -774,7 +774,7 @@ body::before {
     
     /* Hide zoom controls on mobile - users can still pinch to zoom */
     .leaflet-control-zoom {
-        display: none;
+        display: none !important;
     }
     
     #map {
