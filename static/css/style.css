@@ -849,4 +849,211 @@ body::before {
     .cookie-btn {
         width: 100%;
     }
+    /* Event Status Rings - Updated with better sizing and timing */
+   /* Event Status Rings - Fixed to align with marker center */
+
+/* Base ring animation */
+@keyframes pulseRing {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Event marker wrapper */
+.event-marker-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-icon {
+    position: relative;
+    z-index: 1;
+}
+
+/* Layer 1 (innermost): Deal Active - Blue ring */
+.event-marker-wrapper.deal-active .marker-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 38px;  /* 30px + 8px extra */
+    height: 38px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+    border: 2px solid #2BC0E4;
+    box-shadow: 0 0 8px rgba(43, 192, 228, 0.6);
+}
+
+/* Layer 2 (middle): Event Status - Yellow/Green/Red pulsing ring */
+.event-marker-wrapper.starting-soon .marker-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;  /* 30px + 12px extra */
+    height: 42px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -2;
+    border: 3px solid #FFC107;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
+    animation: pulseRing 2s ease-in-out infinite;
+}
+
+.event-marker-wrapper.live-now .marker-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -2;
+    border: 3px solid #4CAF50;
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.8);
+    animation: pulseRing 1.5s ease-in-out infinite;
+}
+
+.event-marker-wrapper.ending-soon .marker-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -2;
+    border: 3px solid #f44336;
+    box-shadow: 0 0 15px rgba(244, 67, 54, 0.9);
+    animation: pulseRing 1s ease-in-out infinite;
+}
+
+/* Layer 3 (outermost): Sponsored ring as real element */
+.sponsored-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 46px;  /* 30px + 16px extra */
+    height: 46px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -3;
+    border: 2px solid #FF6B35;
+    box-shadow: 0 0 12px rgba(255, 107, 53, 0.6);
+    opacity: 0.8;
+}
+
+/* For sponsored-only markers (no deal) */
+.event-marker-wrapper.sponsored:not(.deal-active) .marker-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -3;
+    border: 2px solid #FF6B35;
+    box-shadow: 0 0 12px rgba(255, 107, 53, 0.6);
+    opacity: 0.8;
+}
+
+/* Popup event/deal badges */
+.popup-event-badge,
+.popup-deal-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 5px 5px 5px 0;
+}
+
+.popup-event-badge.starting-soon {
+    background: #FFC107;
+    color: #333;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.popup-event-badge.live-now {
+    background: #4CAF50;
+    color: white;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.popup-event-badge.ending-soon {
+    background: #f44336;
+    color: white;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.popup-deal-badge.active {
+    background: #2BC0E4;
+    color: white;
+}
+
+.popup-event-time,
+.popup-deal-time {
+    font-size: 11px;
+    color: #666;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+/* Enhanced Pulse Animation for badges */
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .event-marker-wrapper.starting-soon .marker-icon::before,
+    .event-marker-wrapper.live-now .marker-icon::before,
+    .event-marker-wrapper.ending-soon .marker-icon::before {
+        width: 40px;
+        border-width: 2px;
+    }
+    
+    .event-marker-wrapper.deal-active .marker-icon::after {
+        width: 37px;
+        height: 37px;
+    }
+    
+    .event-marker-wrapper.sponsored:not(.deal-active) .marker-icon::after,
+    .sponsored-ring {
+        width: 44px;
+        height: 44px;
+    }
+}
+
 }

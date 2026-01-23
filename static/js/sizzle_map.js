@@ -332,175 +332,366 @@ window.onload = function() {
         });
     }
 
-    // Display places on map
-    function displayPlaces(places) {
-        // Clear existing markers
-        markers.forEach(marker => map.removeLayer(marker));
-        markers = [];
+    // // Display places on map
+    // function displayPlaces(places) {
+    //     // Clear existing markers
+    //     markers.forEach(marker => map.removeLayer(marker));
+    //     markers = [];
 
-        // Add new markers
-        places.forEach(place => {
-            // Skip places with missing coordinates
-            if (!place.lat || !place.lng) {
-                console.warn('Skipping place with missing coordinates:', place.name);
-                return;
+    //     // Add new markers
+    //     places.forEach(place => {
+    //         // Skip places with missing coordinates
+    //         if (!place.lat || !place.lng) {
+    //             console.warn('Skipping place with missing coordinates:', place.name);
+    //             return;
+    //         }
+            
+    //         const marker = L.marker([place.lat, place.lng], {
+    //             icon: icons[place.type],
+    //             title: place.name  // Add title so we can find marker later
+    //         });
+
+    //         // Function to create popup content
+    //         function createPopupContent(neighborhoodName = '') {
+    //             const isFav = isFavorite(place.name);
+    //             const shareUrl = `${window.location.origin}${window.location.pathname}?place=${encodeURIComponent(place.name)}`;
+                
+    //             return `
+    //                 <div class="popup-content">
+    //                     <div class="popup-title">${place.name}</div>
+    //                     <div class="popup-type">${place.type.toUpperCase()}${place.cuisine ? ' • ' + place.cuisine : ''}</div>
+    //                     ${neighborhoodName ? `<div class="popup-neighborhood">📍 ${neighborhoodName}</div>` : ''}
+    //                     <div class="popup-description">${place.description}</div>
+    //                     <div class="popup-info">
+    //                         ${place.phone ? `<div class="popup-info-item">📞 ${place.phone}</div>` : ''}
+    //                         ${place.address ? `<div class="popup-info-item">📍 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}" target="_blank" class="address-link" title="Open in Google Maps">${place.address}</a></div>` : ''}
+    //                         ${place.price ? `<div class="popup-info-item">💰 <span class="price-rating">${place.price}</span></div>` : ''}
+    //                         ${place.rating ? `<div class="popup-info-item"><span class="star-rating">⭐ ${place.rating}</span> ${place.ratingSource || ''}</div>` : ''}
+    //                     </div>
+    //                     <div class="popup-actions">
+    //                         <div class="popup-actions-left">
+    //                             ${place.link ? `<a href="${place.link}" target="_blank" class="popup-link">Website</a>` : ''}
+    //                         </div>
+    //                         <div class="popup-actions-right">
+    //                             <button class="popup-action-btn favorite-btn ${isFav ? 'favorited' : ''}" data-place="${place.name}" title="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
+    //                                 ${isFav ? '❤️' : '🤍'}
+    //                             </button>
+    //                             <button class="popup-action-btn share-btn" data-place="${place.name}" data-url="${shareUrl}" title="Share this place">
+    //                                 📤
+    //                             </button>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             `;
+    //         }
+
+    //         // Bind initial popup
+    //         marker.bindPopup(createPopupContent());
+
+    //         // Query neighborhood when popup opens
+    //         marker.on('popupopen', function() {
+    //             console.log('Popup opened for:', place.name);
+    //             console.log('Querying at coordinates:', place.lat, place.lng);
+                
+    //             // Track popup open
+    //             trackEvent('place_popup_opened', {
+    //                 place_name: place.name,
+    //                 place_type: place.type,
+    //                 cuisine: place.cuisine || 'N/A'
+    //             });
+                
+    //             // Add event listeners for action buttons
+    //             setTimeout(() => {
+    //                 const favoriteBtn = document.querySelector('.favorite-btn');
+    //                 const shareBtn = document.querySelector('.share-btn');
+                    
+    //                 if (favoriteBtn) {
+    //                     favoriteBtn.addEventListener('click', function() {
+    //                         const placeName = this.dataset.place;
+    //                         const nowFavorited = toggleFavorite(placeName);
+                            
+    //                         // Update button appearance
+    //                         if (nowFavorited) {
+    //                             this.classList.add('favorited');
+    //                             this.innerHTML = '❤️';
+    //                             this.title = 'Remove from favorites';
+    //                         } else {
+    //                             this.classList.remove('favorited');
+    //                             this.innerHTML = '🤍';
+    //                             this.title = 'Add to favorites';
+    //                         }
+    //                     });
+    //                 }
+                    
+    //                 if (shareBtn) {
+    //                     shareBtn.addEventListener('click', async function() {
+    //                         const placeName = this.dataset.place;
+    //                         const shareUrl = this.dataset.url;
+                            
+    //                         trackEvent('share_clicked', {
+    //                             place_name: placeName,
+    //                             place_type: place.type
+    //                         });
+                            
+    //                         // Try Web Share API first
+    //                         if (navigator.share) {
+    //                             try {
+    //                                 await navigator.share({
+    //                                     title: `Check out ${placeName} on Sizzle LA`,
+    //                                     text: `I found this great place: ${placeName}`,
+    //                                     url: shareUrl
+    //                                 });
+    //                                 trackEvent('share_success', {
+    //                                     place_name: placeName,
+    //                                     method: 'web_share_api'
+    //                                 });
+    //                             } catch (err) {
+    //                                 if (err.name !== 'AbortError') {
+    //                                     console.log('Share failed:', err);
+    //                                 }
+    //                             }
+    //                         } else {
+    //                             // Fallback: copy to clipboard
+    //                             try {
+    //                                 await navigator.clipboard.writeText(shareUrl);
+    //                                 alert('Link copied to clipboard!');
+    //                                 trackEvent('share_success', {
+    //                                     place_name: placeName,
+    //                                     method: 'clipboard'
+    //                                 });
+    //                             } catch (err) {
+    //                                 console.error('Failed to copy:', err);
+    //                                 alert('Could not copy link. Please copy manually: ' + shareUrl);
+    //                             }
+    //                         }
+    //                     });
+    //                 }
+    //             }, 100);
+                
+    //             // Create a proper L.LatLng object for the query
+    //             const point = L.latLng(place.lat, place.lng);
+                
+    //             // Query the neighborhoods layer to find which one contains this point
+    //             neighborhoodsLayer.query()
+    //                 .contains(point)
+    //                 .run(function(error, featureCollection) {
+    //                     console.log('Query completed');
+    //                     console.log('Error:', error);
+    //                     console.log('Features found:', featureCollection);
+                        
+    //                     if (!error && featureCollection && featureCollection.features && featureCollection.features.length > 0) {
+    //                         // Get the first neighborhood found
+    //                         const feature = featureCollection.features[0];
+    //                         const neighborhoodName = feature.properties.name || feature.properties.Name || '';
+                            
+    //                         console.log('Neighborhood found:', neighborhoodName);
+                            
+    //                         if (neighborhoodName) {
+    //                             // Update popup content with neighborhood
+    //                             marker.setPopupContent(createPopupContent(neighborhoodName));
+    //                         }
+    //                     } else {
+    //                         console.log('No neighborhood found for this location');
+    //                     }
+    //                 });
+    //         });
+
+    //         marker.addTo(map);
+    //         markers.push(marker);
+    //     });
+    // }
+// Display places on map
+function displayPlaces(places) {
+    // Clear existing markers
+    markers.forEach(marker => map.removeLayer(marker));
+    markers = [];
+
+    // Add new markers
+    places.forEach(place => {
+        // Skip places with missing coordinates
+        if (!place.lat || !place.lng) {
+            console.warn('Skipping place with missing coordinates:', place.name);
+            return;
+        }
+        
+        // Get event/deal status classes
+        const statusClasses = getEventClasses(place);
+        
+        // Create custom icon with event status wrapper
+        const typeEmojis = {
+            restaurant: '🍽️',
+            cafe: '☕',
+            bar: '🍸',
+            plant: '🌿',
+            vinyl: '🎵'
+        };
+        
+        const emoji = typeEmojis[place.type] || '📍';
+        
+        // Create icon HTML with event wrapper - with sponsored ring support
+       
+        const iconHtml = `
+            <div class="event-marker-wrapper ${statusClasses}">
+                ${place.is_sponsored && statusClasses.includes('deal-active') ? '<div class="sponsored-ring"></div>' : ''}
+                <div class="marker-icon" style="background: ${getTypeColor(place.type)}; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3); position: relative;">
+                    ${emoji}
+                </div>
+            </div>
+        `;
+
+        const customIcon = L.divIcon({
+            html: iconHtml,
+            className: '',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15],  // Center anchor
+            popupAnchor: [0, -15]  // Popup appears above
+        });
+        
+        const marker = L.marker([place.lat, place.lng], {
+            icon: customIcon,
+            title: place.name
+        });
+
+        // Function to create popup content
+       // Function to create popup content
+function createPopupContent(neighborhoodName = '') {
+    const isFav = isFavorite(place.name);
+    const shareUrl = `${window.location.origin}${window.location.pathname}?place=${encodeURIComponent(place.name)}`;
+    
+    // Build event section if active
+    let eventSection = '';
+    if (place.event_start && place.event_end) {
+        const eventStatus = getEventStatus(place.event_start, place.event_end);
+        if (eventStatus) {
+            const eventTime = formatEventTime(place.event_start, place.event_end);
+            const eventColors = {
+                'starting-soon': { bg: '#FFF9E6', border: '#FFC107', text: '#8B7000' },
+                'live-now': { bg: '#E8F5E9', border: '#4CAF50', text: '#2E7D32' },
+                'ending-soon': { bg: '#FFEBEE', border: '#f44336', text: '#C62828' }
+            };
+            const colors = eventColors[eventStatus];
+            
+            eventSection = `
+                <div style="background: ${colors.bg}; border-left: 4px solid ${colors.border}; padding: 8px 10px; margin: 10px 0; border-radius: 6px;">
+                    <div style="font-size: 11px; font-weight: 700; color: ${colors.text}; text-transform: uppercase; margin-bottom: 3px;">
+                        ${eventStatus === 'starting-soon' ? '🟡 Event Starting Soon' : eventStatus === 'live-now' ? '🟢 Event Live Now' : '🔴 Event Ending Soon'}
+                    </div>
+                    ${place.event_name ? `<div style="font-size: 12px; font-weight: 600; color: #333; margin-bottom: 2px;">${place.event_name}</div>` : ''}
+                    <div style="font-size: 11px; color: #666;">${eventTime}</div>
+                    ${place.event_description ? `<div style="font-size: 11px; color: #555; margin-top: 3px;">${place.event_description}</div>` : ''}
+                </div>
+            `;
+        }
+    }
+    
+    // Build deal section - show if deal exists and not expired
+    let dealSection = '';
+    if (place.deal_title || place.deal_description) {
+        // Check if deal has ended (if deal_end exists)
+        let dealExpired = false;
+        if (place.deal_end) {
+            const now = new Date();
+            const dealEnd = new Date(place.deal_end);
+            dealExpired = now > dealEnd;
+        }
+        
+        // Show deal if not expired (or no end date = always active)
+        if (!dealExpired) {
+            let dealTimeText = '';
+            
+            // Show time range if both start and end exist
+            if (place.deal_start && place.deal_end) {
+                dealTimeText = formatEventTime(place.deal_start, place.deal_end);
+            } 
+            // Show "starts at" if only start exists
+            else if (place.deal_start) {
+                const start = new Date(place.deal_start);
+                dealTimeText = `Starts ${start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}`;
+            }
+            // No time = ongoing deal
+            else {
+                dealTimeText = 'Ongoing';
             }
             
-            const marker = L.marker([place.lat, place.lng], {
-                icon: icons[place.type],
-                title: place.name  // Add title so we can find marker later
-            });
-
-            // Function to create popup content
-            function createPopupContent(neighborhoodName = '') {
-                const isFav = isFavorite(place.name);
-                const shareUrl = `${window.location.origin}${window.location.pathname}?place=${encodeURIComponent(place.name)}`;
-                
-                return `
-                    <div class="popup-content">
-                        <div class="popup-title">${place.name}</div>
-                        <div class="popup-type">${place.type.toUpperCase()}${place.cuisine ? ' • ' + place.cuisine : ''}</div>
-                        ${neighborhoodName ? `<div class="popup-neighborhood">📍 ${neighborhoodName}</div>` : ''}
-                        <div class="popup-description">${place.description}</div>
-                        <div class="popup-info">
-                            ${place.phone ? `<div class="popup-info-item">📞 ${place.phone}</div>` : ''}
-                            ${place.address ? `<div class="popup-info-item">📍 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}" target="_blank" class="address-link" title="Open in Google Maps">${place.address}</a></div>` : ''}
-                            ${place.price ? `<div class="popup-info-item">💰 <span class="price-rating">${place.price}</span></div>` : ''}
-                            ${place.rating ? `<div class="popup-info-item"><span class="star-rating">⭐ ${place.rating}</span> ${place.ratingSource || ''}</div>` : ''}
-                        </div>
-                        <div class="popup-actions">
-                            <div class="popup-actions-left">
-                                ${place.link ? `<a href="${place.link}" target="_blank" class="popup-link">Website</a>` : ''}
-                            </div>
-                            <div class="popup-actions-right">
-                                <button class="popup-action-btn favorite-btn ${isFav ? 'favorited' : ''}" data-place="${place.name}" title="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
-                                    ${isFav ? '❤️' : '🤍'}
-                                </button>
-                                <button class="popup-action-btn share-btn" data-place="${place.name}" data-url="${shareUrl}" title="Share this place">
-                                    📤
-                                </button>
-                            </div>
-                        </div>
+            dealSection = `
+                <div style="background: linear-gradient(135deg, #E3F2FD 0%, #B3E5FC 100%); border-left: 4px solid #2BC0E4; padding: 8px 10px; margin: 10px 0 8px 0; border-radius: 6px;">
+                    <div style="font-size: 11px; font-weight: 700; color: #0277BD; text-transform: uppercase; margin-bottom: 3px;">
+                        💰 ${place.deal_title || 'Special Deal'}
                     </div>
-                `;
-            }
-
-            // Bind initial popup
-            marker.bindPopup(createPopupContent());
-
-            // Query neighborhood when popup opens
-            marker.on('popupopen', function() {
-                console.log('Popup opened for:', place.name);
-                console.log('Querying at coordinates:', place.lat, place.lng);
-                
-                // Track popup open
-                trackEvent('place_popup_opened', {
-                    place_name: place.name,
-                    place_type: place.type,
-                    cuisine: place.cuisine || 'N/A'
-                });
-                
-                // Add event listeners for action buttons
-                setTimeout(() => {
-                    const favoriteBtn = document.querySelector('.favorite-btn');
-                    const shareBtn = document.querySelector('.share-btn');
-                    
-                    if (favoriteBtn) {
-                        favoriteBtn.addEventListener('click', function() {
-                            const placeName = this.dataset.place;
-                            const nowFavorited = toggleFavorite(placeName);
-                            
-                            // Update button appearance
-                            if (nowFavorited) {
-                                this.classList.add('favorited');
-                                this.innerHTML = '❤️';
-                                this.title = 'Remove from favorites';
-                            } else {
-                                this.classList.remove('favorited');
-                                this.innerHTML = '🤍';
-                                this.title = 'Add to favorites';
-                            }
-                        });
-                    }
-                    
-                    if (shareBtn) {
-                        shareBtn.addEventListener('click', async function() {
-                            const placeName = this.dataset.place;
-                            const shareUrl = this.dataset.url;
-                            
-                            trackEvent('share_clicked', {
-                                place_name: placeName,
-                                place_type: place.type
-                            });
-                            
-                            // Try Web Share API first
-                            if (navigator.share) {
-                                try {
-                                    await navigator.share({
-                                        title: `Check out ${placeName} on Sizzle LA`,
-                                        text: `I found this great place: ${placeName}`,
-                                        url: shareUrl
-                                    });
-                                    trackEvent('share_success', {
-                                        place_name: placeName,
-                                        method: 'web_share_api'
-                                    });
-                                } catch (err) {
-                                    if (err.name !== 'AbortError') {
-                                        console.log('Share failed:', err);
-                                    }
-                                }
-                            } else {
-                                // Fallback: copy to clipboard
-                                try {
-                                    await navigator.clipboard.writeText(shareUrl);
-                                    alert('Link copied to clipboard!');
-                                    trackEvent('share_success', {
-                                        place_name: placeName,
-                                        method: 'clipboard'
-                                    });
-                                } catch (err) {
-                                    console.error('Failed to copy:', err);
-                                    alert('Could not copy link. Please copy manually: ' + shareUrl);
-                                }
-                            }
-                        });
-                    }
-                }, 100);
-                
-                // Create a proper L.LatLng object for the query
-                const point = L.latLng(place.lat, place.lng);
-                
-                // Query the neighborhoods layer to find which one contains this point
-                neighborhoodsLayer.query()
-                    .contains(point)
-                    .run(function(error, featureCollection) {
-                        console.log('Query completed');
-                        console.log('Error:', error);
-                        console.log('Features found:', featureCollection);
-                        
-                        if (!error && featureCollection && featureCollection.features && featureCollection.features.length > 0) {
-                            // Get the first neighborhood found
-                            const feature = featureCollection.features[0];
-                            const neighborhoodName = feature.properties.name || feature.properties.Name || '';
-                            
-                            console.log('Neighborhood found:', neighborhoodName);
-                            
-                            if (neighborhoodName) {
-                                // Update popup content with neighborhood
-                                marker.setPopupContent(createPopupContent(neighborhoodName));
-                            }
-                        } else {
-                            console.log('No neighborhood found for this location');
-                        }
-                    });
-            });
-
-            marker.addTo(map);
-            markers.push(marker);
-        });
+                    ${place.deal_description ? `<div style="font-size: 12px; font-weight: 600; color: #333; margin-bottom: 2px;">${place.deal_description}</div>` : ''}
+                    <div style="font-size: 11px; color: #666;">${dealTimeText}</div>
+                    ${place.deal_recurring ? `<div style="font-size: 10px; color: #0288D1; margin-top: 3px; font-style: italic;">♻️ Recurring ${place.deal_recurrence_pattern ? place.deal_recurrence_pattern.replace('weekly_', '').replace('_', ' ') : ''}</div>` : ''}
+                </div>
+            `;
+        }
     }
+    
+    return `
+        <div class="popup-content">
+            <div class="popup-title">${place.name}</div>
+            <div class="popup-type">${place.type.toUpperCase()}${place.cuisine ? ' • ' + place.cuisine : ''}</div>
+            ${place.is_sponsored ? '<div class="popup-type" style="background: #FF6B35; margin-top: 4px;">⭐ SPONSORED</div>' : ''}
+            ${neighborhoodName ? `<div class="popup-neighborhood">📍 ${neighborhoodName}</div>` : ''}
+            <div class="popup-description" style="margin-bottom: 8px;">${place.description}</div>
+            
+            ${eventSection}
+            ${dealSection}
+            
+            <div class="popup-info" style="margin-top: 8px;">
+                ${place.phone ? `<div class="popup-info-item">📞 ${place.phone}</div>` : ''}
+                ${place.address ? `<div class="popup-info-item">📍 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}" target="_blank" class="address-link" title="Open in Google Maps">${place.address}</a></div>` : ''}
+                ${place.price ? `<div class="popup-info-item">💰 <span class="price-rating">${place.price}</span></div>` : ''}
+                ${place.rating ? `<div class="popup-info-item"><span class="star-rating">⭐ ${place.rating}</span> ${place.ratingSource || ''}</div>` : ''}
+            </div>
+            <div class="popup-actions">
+                <div class="popup-actions-left">
+                    ${place.link ? `<a href="${place.link}" target="_blank" class="popup-link">Website</a>` : ''}
+                </div>
+                <div class="popup-actions-right">
+                    <button class="popup-action-btn favorite-btn ${isFav ? 'favorited' : ''}" data-place="${place.name}" title="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
+                        ${isFav ? '❤️' : '🤍'}
+                    </button>
+                    <button class="popup-action-btn share-btn" data-place="${place.name}" data-url="${shareUrl}" title="Share this place">
+                        📤
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+        // Bind initial popup
+        marker.bindPopup(createPopupContent());
 
+        // ... rest of the marker.on('popupopen') code stays the same ...
+        
+        marker.addTo(map);
+        markers.push(marker);
+    });
+}
+
+// Helper function to get type colors
+function getTypeColor(type) {
+    const colors = {
+        restaurant: '#ff6b6b',
+        cafe: '#a0522d',
+        bar: '#9b59b6',
+        plant: '#27ae60',
+        vinyl: '#e74c3c'
+    };
+    return colors[type] || '#666';
+}
+
+// Helper function to format event/deal times
+function formatEventTime(startTime, endTime) {
+    const start = new Date(startTime);
+    const end = new Date(endTime);
+    
+    const timeOptions = { hour: 'numeric', minute: '2-digit', hour12: true };
+    const startStr = start.toLocaleTimeString('en-US', timeOptions);
+    const endStr = end.toLocaleTimeString('en-US', timeOptions);
+    
+    return `${startStr} - ${endStr}`;
+}
     // Filter functionality
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -566,7 +757,60 @@ window.onload = function() {
         }
 
         displayPlaces(filtered);
+    };
+
+// Helper function to determine event/deal status
+function getEventStatus(eventStart, eventEnd) {
+    const now = new Date();
+    const start = new Date(eventStart);
+    const end = new Date(eventEnd);
+    
+    const timeUntilStart = (start - now) / 1000 / 60; // minutes
+    const timeUntilEnd = (end - now) / 1000 / 60; // minutes
+    
+    if (now >= start && now <= end) {
+        // Event is live
+        if (timeUntilEnd <= 30) {
+            return 'ending-soon';
+        }
+        return 'live-now';
+    } else if (timeUntilStart > 0 && timeUntilStart <= 120) {  // Changed from 30 to 120 (2 hours)
+        return 'starting-soon';
     }
+    
+    return null;
+}
+
+// When creating markers, wrap them with status classes
+function createEventMarker(venue) {
+    const iconHtml = `<div class="event-marker-wrapper ${getEventClasses(venue)}">
+        ${venue.emoji || '📍'}
+    </div>`;
+    
+    // ... rest of marker creation
+}
+
+function getEventClasses(venue) {
+    const classes = [];
+    
+    // Check event status
+    if (venue.event_start && venue.event_end) {
+        const status = getEventStatus(venue.event_start, venue.event_end);
+        if (status) classes.push(status);
+    }
+    
+    // Check deal status
+    if (venue.deal_start && venue.deal_end) {
+        const dealStatus = getEventStatus(venue.deal_start, venue.deal_end);
+        if (dealStatus === 'live-now') classes.push('deal-active');
+    }
+    
+    // Check sponsored status
+    if (venue.is_sponsored) classes.push('sponsored');
+    
+    return classes.join(' ');
+}
+
 
     // Geolocation
     document.getElementById('locate-btn').addEventListener('click', () => {
@@ -692,6 +936,7 @@ window.onload = function() {
         }
     });
 
+    
     // Load places on page load
     loadPlaces();
     
