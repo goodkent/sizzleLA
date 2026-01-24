@@ -662,7 +662,114 @@ function createPopupContent(neighborhoodName = '') {
         // Bind initial popup
         marker.bindPopup(createPopupContent());
 
-        // ... rest of the marker.on('popupopen') code stays the same ...
+       // Query neighborhood when popup opens
+marker.on('popupopen', function() {
+    console.log('Popup opened for:', place.name);
+    console.log('Querying at coordinates:', place.lat, place.lng);
+    
+    // Track popup open
+    trackEvent('place_popup_opened', {
+        place_name: place.name,
+        place_type: place.type,
+        cuisine: place.cuisine || 'N/A',
+        source: 'map_click'
+    });
+    
+    // Add event listeners for action buttons
+    setTimeout(() => {
+        const favoriteBtn = document.querySelector('.favorite-btn');
+        const shareBtn = document.querySelector('.share-btn');
+        
+        if (favoriteBtn) {
+            favoriteBtn.addEventListener('click', function() {
+                const placeName = this.dataset.place;
+                const nowFavorited = toggleFavorite(placeName);
+                
+                // Update button appearance
+                if (nowFavorited) {
+                    this.classList.add('favorited');
+                    this.innerHTML = '❤️';
+                    this.title = 'Remove from favorites';
+                } else {
+                    this.classList.remove('favorited');
+                    this.innerHTML = '🤍';
+                    this.title = 'Add to favorites';
+                }
+            });
+        }
+        
+        if (shareBtn) {
+            shareBtn.addEventListener('click', async function() {
+                const placeName = this.dataset.place;
+                const shareUrl = this.dataset.url;
+                
+                trackEvent('share_clicked', {
+                    place_name: placeName,
+                    place_type: place.type
+                });
+                
+                // Try Web Share API first
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: `Check out ${placeName} on Sizzle LA`,
+                            text: `I found this great place: ${placeName}`,
+                            url: shareUrl
+                        });
+                        trackEvent('share_success', {
+                            place_name: placeName,
+                            method: 'web_share_api'
+                        });
+                    } catch (err) {
+                        if (err.name !== 'AbortError') {
+                            console.log('Share failed:', err);
+                        }
+                    }
+                } else {
+                    // Fallback: copy to clipboard
+                    try {
+                        await navigator.clipboard.writeText(shareUrl);
+                        alert('Link copied to clipboard!');
+                        trackEvent('share_success', {
+                            place_name: placeName,
+                            method: 'clipboard'
+                        });
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                        alert('Could not copy link. Please copy manually: ' + shareUrl);
+                    }
+                }
+            });
+        }
+    }, 100);
+    
+    // Create a proper L.LatLng object for the query
+    const point = L.latLng(place.lat, place.lng);
+    
+    // Query the neighborhoods layer to find which one contains this point
+    neighborhoodsLayer.query()
+        .contains(point)
+        .run(function(error, featureCollection) {
+            console.log('Query completed');
+            console.log('Error:', error);
+            console.log('Features found:', featureCollection);
+            
+            if (!error && featureCollection && featureCollection.features && featureCollection.features.length > 0) {
+                // Get the first neighborhood found
+                const feature = featureCollection.features[0];
+                const neighborhoodName = feature.properties.name || feature.properties.Name || '';
+                
+                console.log('Neighborhood found:', neighborhoodName);
+                
+                if (neighborhoodName) {
+                    // Update popup content with neighborhood
+                    marker.setPopupContent(createPopupContent(neighborhoodName));
+                }
+            } else {
+                console.log('No neighborhood found for this location');
+            }
+        });
+});
         
         marker.addTo(map);
         markers.push(marker);
