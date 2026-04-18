@@ -1,5 +1,70 @@
 // Wait for window and all scripts to load
 window.onload = function() {
+
+    // ── MULTI-CITY CONFIG ──────────────────────────────────────────────────────
+    const CITY_CONFIG = {
+        LA: {
+            label: 'Los Angeles',
+            center: [34.0522, -118.2437],
+            zoom: 11,
+            dataFile: 'data/places.json',
+            tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community', maxZoom: 19 },
+            neighborhoodLayer: { type: 'esri-feature', url: 'https://services5.arcgis.com/7nsPwEMP38bSkCjy/arcgis/rest/services/LA_Times_Neighborhoods/FeatureServer/0', nameField: 'name' },
+            colors: { primary: '#FF6B35', secondary: '#F7931E', primaryRgb: '255,107,53' }
+        },
+        MX: {
+            label: 'Mexico City',
+            center: [19.4326, -99.1332],
+            zoom: 11,
+            dataFile: 'data/places-MX.json',
+            tileLayer: { url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19 },
+            neighborhoodLayer: { type: 'wms', url: 'https://krsaline-maps.com/geoserver/TD/wms', layers: 'TD:mexico_colonia', nameField: 'colonia' },
+            colors: { primary: '#00897B', secondary: '#00ACC1', primaryRgb: '0,137,123' }
+        },
+        HK: {
+            label: 'Hong Kong',
+            center: [22.3193, 114.1694],
+            zoom: 12,
+            dataFile: 'data/places-HK.json',
+            tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
+            neighborhoodLayer: null,
+            colors: { primary: '#C62828', secondary: '#EF5350', primaryRgb: '198,40,40' }
+        },
+        TW: {
+            label: 'Taipei',
+            center: [25.0330, 121.5654],
+            zoom: 12,
+            dataFile: 'data/places-TW.json',
+            tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
+            neighborhoodLayer: null,
+            colors: { primary: '#1565C0', secondary: '#42A5F5', primaryRgb: '21,101,192' }
+        },
+        SG: {
+            label: 'Singapore',
+            center: [1.3521, 103.8198],
+            zoom: 12,
+            dataFile: 'data/places-SG.json',
+            tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
+            neighborhoodLayer: null,
+            colors: { primary: '#6A1B9A', secondary: '#AB47BC', primaryRgb: '106,27,154' }
+        }
+        // To add a new city: add an entry here. No other JS or CSS changes needed.
+    };
+
+    function getActiveCity() {
+        const hash = window.location.hash.replace('#', '').toUpperCase().trim();
+        return CITY_CONFIG[hash] ? hash : 'LA';
+    }
+
+    const cityConfig = CITY_CONFIG[getActiveCity()];
+
+    // Apply city theme via CSS custom properties
+    const root = document.documentElement;
+    root.style.setProperty('--city-primary',     cityConfig.colors.primary);
+    root.style.setProperty('--city-secondary',   cityConfig.colors.secondary);
+    root.style.setProperty('--city-primary-rgb', cityConfig.colors.primaryRgb);
+    // ──────────────────────────────────────────────────────────────────────────
+
     // Define gtag globally if not already defined
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function(){dataLayer.push(arguments);};
@@ -40,7 +105,7 @@ window.onload = function() {
     // Update meta tags for specific place (for rich link previews)
     function updateMetaTags(place) {
         // Update title
-        document.title = `${place.name} - Sizzle LA`;
+        document.title = `${place.name} - Sizzle ${cityConfig.label}`;
         
         // Helper to update or create meta tag
         function updateMetaTag(property, content, useNameAttr = false) {
@@ -216,49 +281,62 @@ window.onload = function() {
         }
     }
     
-    // Initialize map centered on LA
-    const map = L.map('map').setView([34.0522, -118.2437], 11);
+    // Initialize map
+    const map = L.map('map').setView(cityConfig.center, cityConfig.zoom);
 
     // Add tile layer
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community',
-    maxZoom: 19
+    L.tileLayer(cityConfig.tileLayer.url, {
+        attribution: cityConfig.tileLayer.attribution,
+        maxZoom: cityConfig.tileLayer.maxZoom
     }).addTo(map);
     // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     //     attribution: '© OpenStreetMap contributors',
     //     maxZoom: 19
     // }).addTo(map);
 
-    // Add LA Neighborhoods Layer from ArcGIS
+    // Add neighborhood layer if configured for this city
     const neighborhoodColors = [
         '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
         '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#AAB7B8',
         '#5DADE2', '#F1948A', '#85929E', '#82E0AA', '#F8C471'
     ];
-    
+
     let colorIndex = 0;
     const neighborhoodColorMap = new Map();
-    
-    const neighborhoodsLayer = L.esri.featureLayer({
-        url: 'https://services5.arcgis.com/7nsPwEMP38bSkCjy/arcgis/rest/services/LA_Times_Neighborhoods/FeatureServer/0',
-        style: function(feature) {
-            const name = feature.properties.name || feature.properties.Name;
-            
-            // Assign consistent color to each neighborhood
-            if (!neighborhoodColorMap.has(name)) {
-                neighborhoodColorMap.set(name, neighborhoodColors[colorIndex % neighborhoodColors.length]);
-                colorIndex++;
-            }
-            
-            return {
-                fillColor: neighborhoodColorMap.get(name),
-                fillOpacity: 0.15,
-                color: neighborhoodColorMap.get(name),
-                weight: 2,
-                opacity: 0.4
-            };
+
+    let neighborhoodsLayer = null;
+    const nl = cityConfig.neighborhoodLayer;
+    if (nl) {
+        if (nl.type === 'esri-feature') {
+            neighborhoodsLayer = L.esri.featureLayer({
+                url: nl.url,
+                style: function(feature) {
+                    if (!feature || !feature.properties) return {};
+                    const key = nl.nameField;
+                    const name = feature.properties[key] || feature.properties[key[0].toUpperCase() + key.slice(1)];
+                    if (!neighborhoodColorMap.has(name)) {
+                        neighborhoodColorMap.set(name, neighborhoodColors[colorIndex % neighborhoodColors.length]);
+                        colorIndex++;
+                    }
+                    return {
+                        fillColor: neighborhoodColorMap.get(name),
+                        fillOpacity: 0.15,
+                        color: neighborhoodColorMap.get(name),
+                        weight: 2,
+                        opacity: 0.4
+                    };
+                }
+            }).addTo(map);
+        } else if (nl.type === 'wms') {
+            neighborhoodsLayer = L.tileLayer.wms(nl.url, {
+                layers: nl.layers,
+                format: 'image/png',
+                transparent: true,
+                opacity: 0.4,
+                attribution: nl.attribution || ''
+            }).addTo(map);
         }
-    }).addTo(map);
+    }
 
     // Store markers and user location
     let markers = [];
@@ -297,7 +375,7 @@ window.onload = function() {
     // Load places from JSON
     async function loadPlaces() {
         try {
-            const response = await fetch('data/places.json');
+            const response = await fetch(cityConfig.dataFile);
             allPlaces = await response.json();
             
             // Populate cuisine filter
@@ -310,7 +388,7 @@ window.onload = function() {
             checkSharedPlace();
         } catch (error) {
             console.error('Error loading places:', error);
-            alert('Could not load places data. Make sure data/places.json exists.');
+            alert(`Could not load places data. Make sure ${cityConfig.dataFile} exists.`);
         }
     }
 
@@ -746,29 +824,64 @@ marker.on('popupopen', function() {
     // Create a proper L.LatLng object for the query
     const point = L.latLng(place.lat, place.lng);
     
-    // Query the neighborhoods layer to find which one contains this point
-    neighborhoodsLayer.query()
-        .contains(point)
-        .run(function(error, featureCollection) {
-            console.log('Query completed');
-            console.log('Error:', error);
-            console.log('Features found:', featureCollection);
-            
-            if (!error && featureCollection && featureCollection.features && featureCollection.features.length > 0) {
-                // Get the first neighborhood found
-                const feature = featureCollection.features[0];
-                const neighborhoodName = feature.properties.name || feature.properties.Name || '';
-                
-                console.log('Neighborhood found:', neighborhoodName);
-                
-                if (neighborhoodName) {
-                    // Update popup content with neighborhood
-                    marker.setPopupContent(createPopupContent(neighborhoodName));
+    // Query the neighborhoods layer if configured for this city
+    const nl = cityConfig.neighborhoodLayer;
+    if (nl && nl.type === 'esri-feature' && neighborhoodsLayer) {
+        neighborhoodsLayer.query()
+            .contains(point)
+            .run(function(error, featureCollection) {
+                console.log('Query completed');
+                console.log('Error:', error);
+                console.log('Features found:', featureCollection);
+
+                if (!error && featureCollection && featureCollection.features && featureCollection.features.length > 0) {
+                    const feature = featureCollection.features[0];
+                    if (!feature || !feature.properties) {
+                        console.log('Feature returned with no properties');
+                        return;
+                    }
+                    const key = nl.nameField;
+                    const neighborhoodName = feature.properties[key]
+                        || feature.properties[key[0].toUpperCase() + key.slice(1)]
+                        || '';
+                    console.log('Neighborhood found:', neighborhoodName);
+                    if (neighborhoodName) marker.setPopupContent(createPopupContent(neighborhoodName));
+                } else {
+                    console.log('No neighborhood found for this location');
                 }
-            } else {
-                console.log('No neighborhood found for this location');
-            }
+            });
+    } else if (nl && nl.type === 'wms') {
+        const bounds = map.getBounds();
+        const size = map.getSize();
+        const containerPoint = map.latLngToContainerPoint(point);
+        const params = new URLSearchParams({
+            SERVICE: 'WMS',
+            VERSION: '1.1.1',
+            REQUEST: 'GetFeatureInfo',
+            LAYERS: nl.layers,
+            QUERY_LAYERS: nl.layers,
+            INFO_FORMAT: 'application/json',
+            FEATURE_COUNT: 1,
+            X: Math.round(containerPoint.x),
+            Y: Math.round(containerPoint.y),
+            WIDTH: size.x,
+            HEIGHT: size.y,
+            BBOX: `${bounds.getWest()},${bounds.getSouth()},${bounds.getEast()},${bounds.getNorth()}`,
+            SRS: 'EPSG:4326'
         });
+        fetch(`${nl.url}?${params}`)
+            .then(r => r.json())
+            .then(fc => {
+                if (fc.features && fc.features.length > 0 && fc.features[0].properties) {
+                    const neighborhoodName = fc.features[0].properties[nl.nameField] || '';
+                    console.log('Neighborhood found:', neighborhoodName);
+                    if (neighborhoodName) marker.setPopupContent(createPopupContent(neighborhoodName));
+                } else {
+                    console.log('No neighborhood found for this location');
+                }
+            })
+            .catch(err => console.log('GetFeatureInfo error:', err));
+    }
 });
         
         marker.addTo(map);
@@ -985,7 +1098,45 @@ function getEventClasses(venue) {
 
     infoBtn.addEventListener('click', openOffcanvas);
     closeBtn.addEventListener('click', closeOffcanvas);
-    offcanvasOverlay.addEventListener('click', closeOffcanvas);
+    offcanvasOverlay.addEventListener('click', () => { closeOffcanvas(); closeCitiesPanel(); });
+
+    // Cities Panel
+    const citiesBtn = document.getElementById('cities-btn');
+    const citiesOffcanvas = document.getElementById('cities-offcanvas');
+    const citiesCloseBtn = document.getElementById('cities-close-btn');
+    const citiesList = document.getElementById('cities-list');
+
+    const cityFlags = { LA: '🇺🇸', MX: '🇲🇽', HK: '🇭🇰', TW: '🇹🇼', SG: '🇸🇬' };
+    const activeCode = getActiveCity();
+
+    Object.entries(CITY_CONFIG).forEach(([code, config]) => {
+        const btn = document.createElement('button');
+        btn.className = 'city-link' + (code === activeCode ? ' active-city' : '');
+        btn.innerHTML = `
+            <span class="city-link-flag">${cityFlags[code] || '🌍'}</span>
+            <span class="city-link-label">${config.label}</span>
+            ${code === activeCode ? '<span class="city-link-active-dot"></span>' : ''}
+        `;
+        btn.addEventListener('click', () => {
+            history.replaceState(null, '', '#' + code);
+            window.location.reload();
+        });
+        citiesList.appendChild(btn);
+    });
+
+    function openCitiesPanel() {
+        citiesOffcanvas.classList.add('active');
+        offcanvasOverlay.classList.add('active');
+        trackEvent('cities_panel_opened');
+    }
+
+    function closeCitiesPanel() {
+        citiesOffcanvas.classList.remove('active');
+        offcanvasOverlay.classList.remove('active');
+    }
+
+    citiesBtn.addEventListener('click', openCitiesPanel);
+    citiesCloseBtn.addEventListener('click', closeCitiesPanel);
 
     // Form Submission
     const form = document.getElementById('suggest-form');
