@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Jiufen",
+    "type": "poi",
+    "lat": 25.1093,
+    "lng": 121.8443,
+    "description": "A hillside mining town northeast of Taipei with narrow stone-stepped alleys, red lanterns, and sweeping views of the Pacific coast. Said to have inspired the animated film Spirited Away. Best visited on a weekday to beat the crowds.",
+    "address": "Jiufen, Ruifang District, New Taipei City, Taiwan",
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "https://www.taiwan.net.tw"
+  },
+  {
+    "name": "Din Tai Fung",
+    "type": "restaurant",
+    "cuisine": "Taiwanese",
+    "lat": 25.0339,
+    "lng": 121.5386,
+    "description": "The original Xinyi Road location of the world-famous soup dumpling institution. Watching the kitchen team fold xiao long bao through the glass is half the experience. Order the pork, crab and pork, and the shrimp fried rice. Expect a queue.",
+    "address": "No. 194, Sec. 2, Xinyi Rd, Da'an District, Taipei",
+    "phone": "+886 2 2321 8928",
+    "price": "$$",
+    "rating": "4.6",
+    "ratingSource": "Google",
+    "link": "https://www.dintaifung.com.tw"
+  },
+  {
+    "name": "Addiction Aquatic Development",
+    "type": "restaurant",
+    "cuisine": "Seafood",
+    "lat": 25.0624,
+    "lng": 121.5574,
+    "description": "Part fish market, part restaurant complex in Zhongshan. The sashimi and oyster bar draws a serious crowd on weekend afternoons. Grab a tray, pick your seafood, and find a table by the open kitchen. One of the best casual seafood experiences in Asia.",
+    "address": "No. 18, Alley 2, Lane 410, Minzu E Rd, Zhongshan District, Taipei",
+    "phone": "+886 2 2508 1268",
+    "price": "$$",
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "https://www.addiction.com.tw"
+  },
+  {
+    "name": "Draft Land",
+    "type": "bar",
+    "lat": 25.0472,
+    "lng": 121.5472,
+    "description": "Cocktail bar by Angus Zou serving all drinks on tap — a rotating lineup of clarified, carbonated, or barrel-aged cocktails pulled straight from the wall. Quick, consistent, and excellent. One of Asia's 50 Best Bars.",
+    "address": "No. 1, Anhe Rd Sec. 1, Da'an District, Taipei",
+    "phone": "+886 2 2711 5657",
+    "price": "$$",
+    "rating": "4.6",
+    "ratingSource": "Google",
+    "link": "https://www.draftland.com"
+  },
+  {
+    "name": "Bar Mood",
+    "type": "bar",
+    "lat": 25.0479,
+    "lng": 121.5535,
+    "description": "Elegant Taipei cocktail bar with a reputation for precise technique and creative seasonal menus. The space is intimate and unhurried — exactly right for a long afternoon of drinks. One of Asia's 50 Best Bars for several years running.",
+    "address": "No. 1, Songgao Rd, Xinyi District, Taipei",
+    "phone": "+886 2 2720 0531",
+    "price": "$$$",
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "https://www.barmoodtaipei.com"
+  },
+  {
+    "name": "Elephant Mountain",
+    "type": "poi",
+    "lat": 25.0240,
+    "lng": 121.5772,
+    "description": "Xiangshan — a gentle 20-minute climb up stone steps from the MRT station to a series of rocky outcrops with the most iconic view of Taipei 101 and the city basin. Best at golden hour. Easy enough for sandals; rewarding enough for the effort.",
+    "address": "Xiangshan, Xinyi District, Taipei",
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "https://www.taiwan.net.tw"
+  },
+  {
+    "name": "Dihua Street",
+    "type": "poi",
+    "lat": 25.0563,
+    "lng": 121.5097,
+    "description": "Taipei's best-preserved 19th-century commercial street in Dadaocheng, lined with baroque shophouses selling dried goods, fabrics, tea, and Chinese medicine. The street has gentrified tastefully — good coffee shops and design boutiques sit alongside century-old spice merchants.",
+    "address": "Dihua St, Datong District, Taipei",
+    "rating": "4.4",
+    "ratingSource": "Google",
+    "link": "https://www.taiwan.net.tw"
+  },
+  {
+    "name": "Shilin Night Market",
+    "type": "poi",
+    "lat": 25.0878,
+    "lng": 121.5242,
+    "description": "Taipei's most famous night market — massive, loud, and relentlessly food-focused. Oyster vermicelli, stinky tofu, giant fried chicken, and bubble tea at every turn. Go hungry, walk slowly, and eat everything that looks good.",
+    "address": "Jihe Rd, Shilin District, Taipei",
+    "rating": "4.3",
+    "ratingSource": "Google",
+    "link": "https://www.taiwan.net.tw"
+  },
+  {
+    "name": "The Boutique Hotel Taipei",
+    "type": "poi",
+    "lat": 25.0479,
+    "lng": 121.5197,
+    "description": "A refined small hotel in central Taipei with considered design and attentive service. Well-positioned for the Da'an and Zhongzheng districts, close to the best restaurants and bars in the city.",
+    "address": "Zhongzheng District, Taipei",
+    "phone": "+886 2 2391 8899",
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "https://www.theboutiquehotel.com.tw"
+  }
+]

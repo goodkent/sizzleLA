@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Pujol",
+    "type": "restaurant",
+    "cuisine": "Mexican",
+    "lat": 19.4312,
+    "lng": -99.1978,
+    "description": "Enrique Olvera's flagship restaurant, consistently ranked among the world's best. The mole madre — aged over 1,000 days — is the centerpiece. Tasting menu only, book well in advance.",
+    "address": "Tennyson 133, Polanco, Miguel Hidalgo, 11550 Ciudad de México",
+    "phone": "+52 55 5545 4111",
+    "price": "$$$$",
+    "rating": "4.7",
+    "ratingSource": "Google",
+    "link": "https://www.pujol.com.mx"
+  },
+  {
+    "name": "Contramar",
+    "type": "restaurant",
+    "cuisine": "Seafood",
+    "lat": 19.4178,
+    "lng": -99.1612,
+    "description": "Roma Norte institution serving impeccable Mexican seafood since 1998. The tuna tostadas and red-and-green grilled fish are legendary. Loud, packed, and worth every minute of the wait.",
+    "address": "Durango 200, Roma Norte, Cuauhtémoc, 06700 Ciudad de México",
+    "phone": "+52 55 5514 9217",
+    "price": "$$$",
+    "rating": "4.6",
+    "ratingSource": "Google",
+    "link": "https://www.contramar.com.mx"
+  }
+]

@@ -1529,5 +1529,73 @@
     "rating": "4.6",
     "ratingSource": "Google",
     "link": "http://www.quartersheetspizza.com/"
+  },
+  {
+    "name": "Highly Likely",
+    "type": "restaurant",
+    "cuisine": "Cafe",
+    "lat": 34.10817751673567, 
+    "lng": -118.19516904662282,
+    "description": "Though the interior is comfy and stylish, it’s all about the patio at Highly Likely in Highland Park. The stunning restaurant fills up quickly, especially the outdoor bar that serves frozen daiquiris on weekends and a cocktail menu at all other times.",
+    "address": "5526 N Figueroa St, Los Angeles, CA 90042",
+    "phone": "+13232071770",
+    "price": "$$",
+    "rating": "4.3",
+    "ratingSource": "Google",
+    "link": "hhttps://www.itshighlylikely.com/location/highland-park"
+  },
+  {
+    "name": "Zebulon",
+    "type": "poi",
+    "lat": 34.10725123206201, 
+    "lng": -118.25479828147577,
+    "description": "You Can either hang in the front or see a show in the back.",
+    "address": "2478 Fletcher Dr, Los Angeles, CA 90039",
+    "phone": "+13236636927",
+    "price": "$$",
+    "rating": "4.6",
+    "ratingSource": "Google",
+    "link": "http://www.zebulon.la/"
+  },
+  {
+    "name": "Brodard Restaurant",
+    "type": "restaurant",
+    "cuisine": "Vietnamese",
+    "lat": 33.72897122750604, 
+    "lng": -117.9550334033728,
+    "description": "Modern Vietnamese cuisine with Asian-fusion touches & specialty cocktails served in a sleek space.",
+    "address": "16105 Brookhurst St, Fountain Valley, CA 92708",
+    "phone": "+16572474401",
+    "price": "$$",
+    "rating": "4.3",
+    "ratingSource": "Google",
+    "link": "http://www.brodardrestaurant.net/"
+  },
+  {
+    "name": "BIG ANT'S BBQ",
+    "type": "restaurant",
+    "cuisine": "bbq",
+    "lat": 34.103848970838555, 
+    "lng": -118.23772994568809,
+    "description": "No-frills spot for BBQ favorites such as brisket, ribs, and pulled pork, plus sides and desserts.",
+    "address": "2207 N San Fernando Rd, Los Angeles, CA 90065",
+    "phone": "+13239870029",
+    "price": "$",
+    "rating": "4.6",
+    "ratingSource": "Google",
+    "link": "http://www.bigantsbbq.com/"
+  },
+  {
+    "name": "Picaresca Barra de Cafe",
+    "type": "cafe",
+    "lat": 34.037472937278245, 
+    "lng": -118.20413905767073,
+    "description": "Trendy coffee shop popular for breakfast and quick bites, including burritos, and chilaquiles.",
+    "address": "2931 East 4th St, Los Angeles, CA 90033",
+    "phone": "+13236855333",
+    "price": "$",
+    "rating": "4.5",
+    "ratingSource": "Google",
+    "link": "http://barrapicaresca.com/"
   }
 ]

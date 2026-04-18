@@ -44,7 +44,7 @@
                     <button class="filter-btn" data-type="bar">🍸 Bars</button>
                     <button class="filter-btn" data-type="plant">🌿 Plants</button>
                     <button class="filter-btn" data-type="vinyl">🎵 Vinyl</button>
-                    <button class="filter-btn" data-type="event">🎉 Events</button>
+                    <button class="filter-btn" data-type="poi">📍 POI</button>
                 </div>
             </div>
             
@@ -66,6 +66,7 @@
         
         <button class="location-btn" id="locate-btn" title="Find my location">📍</button>
         <button class="info-btn" id="info-btn" title="About & Submit a Place">ℹ️</button>
+        <button class="cities-btn" id="cities-btn" title="Switch City">🌍</button>
         
         <!-- Cookie Consent Banner -->
         <div class="cookie-banner" id="cookie-banner">
@@ -130,6 +131,15 @@
             </div>
         </div>
         
+        <!-- Cities Panel -->
+        <div class="cities-offcanvas" id="cities-offcanvas">
+            <div class="offcanvas-header">
+                <h2>Destinations</h2>
+                <button class="close-btn" id="cities-close-btn">✕</button>
+            </div>
+            <div class="cities-offcanvas-body" id="cities-list"></div>
+        </div>
+
         <!-- Offcanvas Overlay -->
         <div class="offcanvas-overlay" id="offcanvas-overlay"></div>
     </div>

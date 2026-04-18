@@ -1,3 +1,10 @@
+/* City theme variables — overridden at runtime by sizzle_map.js for each city */
+:root {
+    --city-primary:     var(--city-primary);
+    --city-secondary:   var(--city-secondary);
+    --city-primary-rgb: 255,107,53;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -61,9 +68,9 @@ body::before {
     background: white;
     padding: 5px;
     border-radius: 50%;
-    border: 6px solid #FF6B35;
+    border: 6px solid var(--city-primary);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3), 
-                0 3px 12px rgba(255,107,53,0.5),
+                0 3px 12px rgba(var(--city-primary-rgb),0.5),
                 inset 0 2px 0 rgba(255,255,255,0.9);
     flex-shrink: 0;
 }
@@ -127,15 +134,15 @@ body::before {
 
 .filter-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-    border-color: #FF6B35;
+    box-shadow: 0 4px 12px rgba(var(--city-primary-rgb), 0.3);
+    border-color: var(--city-primary);
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
     color: white;
-    border-color: #FF6B35;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+    border-color: var(--city-primary);
+    box-shadow: 0 4px 12px rgba(var(--city-primary-rgb), 0.4);
 }
 
 .cuisine-filter {
@@ -158,13 +165,13 @@ body::before {
 }
 
 .cuisine-filter:hover {
-    border-color: #FF6B35;
+    border-color: var(--city-primary);
 }
 
 .cuisine-filter:focus {
     outline: none;
-    border-color: #FF6B35;
-    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    border-color: var(--city-primary);
+    box-shadow: 0 0 0 3px rgba(var(--city-primary-rgb), 0.1);
 }
 
 /* Map Styles with Thick Rounded Border */
@@ -173,8 +180,8 @@ body::before {
     width: calc(100% - 40px);
     margin: 20px 20px 10px 20px;
     border-radius: 30px;
-    border: 8px solid #FF6B35;
-    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3), 
+    border: 8px solid var(--city-primary);
+    box-shadow: 0 8px 24px rgba(var(--city-primary-rgb), 0.3), 
                 inset 0 0 0 4px rgba(43, 192, 228, 0.2);
     overflow: hidden;
     position: relative;
@@ -197,7 +204,7 @@ body::before {
 }
 
 .footer-link:hover {
-    color: #FF6B35;
+    color: var(--city-primary);
 }
 
 .footer-separator {
@@ -212,7 +219,7 @@ body::before {
     left: 0;
     right: 0;
     background: white;
-    border-top: 3px solid #FF6B35;
+    border-top: 3px solid var(--city-primary);
     box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
     padding: 15px 20px;
     z-index: 2001;
@@ -241,7 +248,7 @@ body::before {
 }
 
 .cookie-link {
-    color: #FF6B35;
+    color: var(--city-primary);
     text-decoration: underline;
     font-weight: 600;
 }
@@ -262,13 +269,13 @@ body::before {
 }
 
 .cookie-accept {
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
     color: white;
 }
 
 .cookie-accept:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 12px rgba(var(--city-primary-rgb), 0.3);
 }
 
 .cookie-decline {
@@ -334,7 +341,7 @@ body::before {
 .popup-type {
     display: inline-block;
     padding: 4px 12px;
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
     border-radius: 15px;
     font-size: 10px;
     font-weight: 700;
@@ -347,7 +354,7 @@ body::before {
 .popup-neighborhood {
     font-size: 11px;
     font-weight: 600;
-    color: #FF6B35;
+    color: var(--city-primary);
     margin-bottom: 8px;
     font-style: italic;
 }
@@ -399,14 +406,14 @@ body::before {
 .popup-link {
     display: inline-block;
     padding: 8px 16px;
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
     color: white;
     text-decoration: none;
     border-radius: 18px;
     font-size: 12px;
     font-weight: 700;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 3px 10px rgba(var(--city-primary-rgb), 0.3);
     white-space: nowrap;
     height: 36px;
     display: flex;
@@ -415,7 +422,7 @@ body::before {
 
 .popup-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 5px 15px rgba(var(--city-primary-rgb), 0.4);
 }
 
 /* Popup Action Buttons */
@@ -454,16 +461,16 @@ body::before {
 .popup-action-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    border-color: #FF6B35;
+    border-color: var(--city-primary);
 }
 
 .popup-action-btn.favorited {
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
-    border-color: #FF6B35;
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
+    border-color: var(--city-primary);
 }
 
 .popup-action-btn.favorited:hover {
-    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 3px 10px rgba(var(--city-primary-rgb), 0.4);
 }
 
 /* Location Button */
@@ -497,7 +504,7 @@ body::before {
     bottom: 60px;
     left: 40px;
     z-index: 1000;
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
     border: 3px solid white;
     border-radius: 50%;
     width: 56px;
@@ -513,7 +520,106 @@ body::before {
 
 .info-btn:hover {
     transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 6px 20px rgba(var(--city-primary-rgb), 0.4);
+}
+
+/* Cities Button */
+.cities-btn {
+    position: absolute;
+    top: 170px;
+    right: 40px;
+    z-index: 1000;
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    transition: all 0.3s ease;
+}
+
+.cities-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(var(--city-primary-rgb), 0.4);
+}
+
+/* Cities Panel */
+.cities-offcanvas {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    z-index: 2000;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.cities-offcanvas.active {
+    right: 0;
+}
+
+.cities-offcanvas-body {
+    padding: 16px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.city-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: #f8f8f8;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.city-link:hover {
+    background: white;
+    border-color: var(--city-primary);
+    box-shadow: 0 3px 10px rgba(var(--city-primary-rgb), 0.2);
+    transform: translateX(-3px);
+}
+
+.city-link.active-city {
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(var(--city-primary-rgb), 0.35);
+}
+
+.city-link-flag {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.city-link-label {
+    font-weight: 600;
+    flex: 1;
+}
+
+.city-link-active-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.9;
 }
 
 /* Offcanvas Panel */
@@ -536,7 +642,7 @@ body::before {
 
 .offcanvas-header {
     padding: 30px 25px 20px;
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -582,7 +688,7 @@ body::before {
     padding: 20px;
     background: #f9f9f9;
     border-radius: 12px;
-    border-left: 4px solid #FF6B35;
+    border-left: 4px solid var(--city-primary);
 }
 
 .about-section p {
@@ -631,7 +737,7 @@ body::before {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #FF6B35;
+    border-color: var(--city-primary);
 }
 
 .form-group textarea {
@@ -641,7 +747,7 @@ body::before {
 .submit-btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
     color: white;
     border: none;
     border-radius: 25px;
@@ -649,12 +755,12 @@ body::before {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 12px rgba(var(--city-primary-rgb), 0.3);
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 6px 16px rgba(var(--city-primary-rgb), 0.4);
 }
 
 .form-status {
@@ -815,11 +921,24 @@ body::before {
         height: 50px;
         font-size: 24px;
     }
-    
+
+    .cities-btn {
+        top: 140px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
     /* Offcanvas takes full width on mobile */
     .offcanvas {
         width: 100%;
         left: -100%;
+    }
+
+    .cities-offcanvas {
+        width: 100%;
+        right: -100%;
     }
     
     .offcanvas-header {
@@ -957,8 +1076,8 @@ body::before {
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: -3;
-    border: 2px solid #FF6B35;
-    box-shadow: 0 0 12px rgba(255, 107, 53, 0.6);
+    border: 2px solid var(--city-primary);
+    box-shadow: 0 0 12px rgba(var(--city-primary-rgb), 0.6);
     opacity: 0.8;
 }
 
@@ -974,8 +1093,8 @@ body::before {
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: -3;
-    border: 2px solid #FF6B35;
-    box-shadow: 0 0 12px rgba(255, 107, 53, 0.6);
+    border: 2px solid var(--city-primary);
+    box-shadow: 0 0 12px rgba(var(--city-primary-rgb), 0.6);
     opacity: 0.8;
 }
 
