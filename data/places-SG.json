@@ -31,6 +31,7 @@
   },
   {
     "name": "Atlas Bar",
+    "image":"https://assets.hassellstudio.com/imager/uploads/ATLAS_Projects_full-width_position01_dae9d742f19b6d4d8e59504c1a71c1db.jpg",
     "type": "bar",
     "lat": 1.2998,
     "lng": 103.8486,
@@ -136,6 +137,7 @@
   },
   {
     "name": "Sentosa Island",
+    "image":"https://www.pelago.co/img/collections/sentosa-island/1016-0548_sentosa-island-singapore-xlarge.jpg",
     "type": "poi",
     "lat": 1.2494,
     "lng": 103.8303,
@@ -147,6 +149,7 @@
   },
   {
     "name": "Lazarus Island Beach",
+    "image":"https://marinasouthferries.com/cdn/shop/t/2/assets/laz-shore.jpg?v=61009733517823119291615947545",
     "type": "poi",
     "lat": 1.2167,
     "lng": 103.8583,
@@ -154,6 +157,6 @@
     "address": "Lazarus Island, Southern Islands, Singapore",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.nparks.gov.sg/gardens-parks-and-nature/parks-and-nature-reserves/southern-ridges/lazarus-island"
+    "link": "https://handluggageonly.co.uk/theres-an-amazing-secret-beach-in-singapore-that-no-one-is-telling-you-about/"
   }
 ]

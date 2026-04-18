@@ -28,6 +28,7 @@
   },
   {
     "name": "Tim Ho Wan",
+    "image":"https://images.squarespace-cdn.com/content/v1/5fd80073dba154430f784e70/1631241102019-L5771H61C3ZKZ9N1UHDH/PTH_6192.jpg",
     "type": "restaurant",
     "cuisine": "Dim Sum",
     "lat": 22.3302,
@@ -41,6 +42,7 @@
   },
   {
     "name": "Yung Kee Restaurant",
+    "image":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/92/4e/af/caption.jpg?w=900&h=500&s=1",
     "type": "restaurant",
     "cuisine": "Cantonese",
     "lat": 22.2820,
@@ -55,7 +57,7 @@
   },
   {
     "name": "Foxglove",
-    "iamge":"https://media.timeout.com/images/105327624/image.jpg",
+    "image":"https://media.timeout.com/images/105327624/image.jpg",
     "type": "bar",
     "lat": 22.2798,
     "lng": 114.1560,
@@ -81,6 +83,7 @@
   },
   {
     "name": "Star Ferry",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hKUNYsKSt4Gz9jCFbk6K4BBjg04daNmB2g&s",
     "type": "poi",
     "lat": 22.2934,
     "lng": 114.1683,
