@@ -1,6 +1,7 @@
 [
   {
     "name": "Sai Kung Beach",
+    "image":"https://www.geopark.gov.hk/sites/default/files/web/type/attractions/photo_gallery/2021-11/05_02banner.jpg",
     "type": "poi",
     "lat": 22.3833,
     "lng": 114.2708,
@@ -8,23 +9,11 @@
     "address": "Sai Kung, New Territories, Hong Kong",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.discoverhongkong.com"
-  },
-  {
-    "name": "Sevva",
-    "type": "bar",
-    "lat": 22.2805,
-    "lng": 114.1577,
-    "description": "Hong Kong's best rooftop bar — 25th floor of Prince's Building in Central with a direct view of the harbour and Kowloon skyline. Great cocktails, excellent afternoon crowd, and a terrace that justifies the prices. Book a terrace table.",
-    "address": "25/F Prince's Building, 10 Chater Rd, Central, Hong Kong",
-    "phone": "+852 2537 1388",
-    "price": "$$$$",
-    "rating": "4.3",
-    "ratingSource": "Google",
-    "link": "https://sevva.hk"
+    "link": "https://indulgenteats.com/2024/07/02/sai-kung-guide-hong-kong-best-beaches-things-to-do-restaurants-hiking-more/"
   },
   {
     "name": "The Chairman",
+    "image":"https://axwwgrkdco.cloudimg.io/v7/__gmpics3__/66a9005cb5014e78b0941a39fe721b63.jpeg?w=700&h=700&org_if_sml=1",
     "type": "restaurant",
     "cuisine": "Cantonese",
     "lat": 22.2838,
@@ -66,6 +55,7 @@
   },
   {
     "name": "Foxglove",
+    "iamge":"https://media.timeout.com/images/105327624/image.jpg",
     "type": "bar",
     "lat": 22.2798,
     "lng": 114.1560,
@@ -79,6 +69,7 @@
   },
   {
     "name": "Victoria Peak",
+    "image":"https://media.timeout.com/images/103963377/image.jpg",
     "type": "poi",
     "lat": 22.2711,
     "lng": 114.1434,
@@ -101,6 +92,7 @@
   },
   {
     "name": "Temple Street Night Market",
+    "image":"https://wwen-imgs.weekendhk.com/wp-content/uploads/2023/12/temple-street_928100730658e88a5d5e4b.jpeg",
     "type": "poi",
     "lat": 22.3081,
     "lng": 114.1699,
@@ -108,10 +100,11 @@
     "address": "Temple St, Jordan, Kowloon, Hong Kong",
     "rating": "4.2",
     "ratingSource": "Google",
-    "link": "https://www.discoverhongkong.com"
+    "link": "https://www.cntraveler.com/shops/hong-kong/temple-street-night-market"
   },
   {
     "name": "Repulse Bay",
+    "image":"https://www.forbesglobalproperties.com/wp-content/uploads/2024/02/shutterstock_1207100143.jpg",
     "type": "poi",
     "lat": 22.2400,
     "lng": 114.1965,
@@ -119,10 +112,11 @@
     "address": "Repulse Bay, Southern District, Hong Kong",
     "rating": "4.3",
     "ratingSource": "Google",
-    "link": "https://www.discoverhongkong.com"
+    "link": "https://www.cntraveler.com/activities/hong-kong/repulse-bay-beach"
   },
   {
     "name": "Sheraton Hong Kong",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt5c26I-fsYR7wdfacVIy1sUoBJ1p9Wq6KJw&s",
     "type": "poi",
     "lat": 22.2982,
     "lng": 114.1722,

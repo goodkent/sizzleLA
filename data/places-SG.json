@@ -1,6 +1,7 @@
 [
   {
     "name": "Ce La Vi",
+    "image":"https://www.marinabaysands.com/content/dam/marinabaysands/restaurants-listing/ce-la-vi-skybar/clvsb-masthead-1920x823.jpg",
     "type": "restaurant",
     "cuisine": "Contemporary Asian",
     "lat": 1.2836,
@@ -15,6 +16,7 @@
   },
   {
     "name": "Wild Honey",
+    "image":"https://images.squarespace-cdn.com/content/v1/606ac2fd3a2a3245a5fb4087/1639984096645-DC7I0O40NX588FIA5SAP/Flinders+Lane",
     "type": "restaurant",
     "cuisine": "International Breakfast",
     "lat": 1.3038,
@@ -42,6 +44,7 @@
   },
   {
     "name": "Long Bar at Raffles",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIEKNyLyGZg_EjIzsWOTVobVdxRyk4OoRo1w&s",
     "type": "bar",
     "lat": 1.2953,
     "lng": 103.8520,
@@ -55,6 +58,7 @@
   },
   {
     "name": "Jumbo Seafood",
+    "image":"https://c8.alamy.com/comp/BDD168/people-having-dinner-at-the-jumbo-seafood-restaurant-east-coast-parkway-BDD168.jpg",
     "type": "restaurant",
     "cuisine": "Seafood",
     "lat": 1.2903,
@@ -69,6 +73,7 @@
   },
   {
     "name": "Lau Pa Sat",
+    "image":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/12/53/26/lau-pa-sat.jpg?w=900&h=-1&s=1",
     "type": "restaurant",
     "cuisine": "Hawker",
     "lat": 1.2803,
@@ -78,23 +83,11 @@
     "price": "$",
     "rating": "4.3",
     "ratingSource": "Google",
-    "link": "https://www.laupasat.biz"
-  },
-  {
-    "name": "Smoke & Mirrors",
-    "type": "bar",
-    "lat": 1.2893,
-    "lng": 103.8518,
-    "description": "Rooftop cocktail bar on top of the National Gallery with an unobstructed view of Marina Bay and the Padang. Best perch in Singapore for sundowners — arrive before 6pm to get a railing seat.",
-    "address": "1 St Andrew's Rd, #06-01 National Gallery Singapore, Singapore 178957",
-    "phone": "+65 9018 0150",
-    "price": "$$$",
-    "rating": "4.4",
-    "ratingSource": "Google",
-    "link": "https://www.smokeandmirrors.com.sg"
+    "link": "https://www.laupasat.sg/"
   },
   {
     "name": "Clarke Quay",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5PS4QDPzwcxv4z5v06iNGYFd3q3lCQTSH1A&s",
     "type": "poi",
     "lat": 1.2891,
     "lng": 103.8465,
@@ -102,10 +95,11 @@
     "address": "Clarke Quay, Singapore 179024",
     "rating": "4.2",
     "ratingSource": "Google",
-    "link": "https://www.clarkequay.com.sg"
+    "link": "https://www.cntraveler.com/activities/clarke-quay/clarke-quay"
   },
   {
     "name": "Haji Lane",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Ms3-mMLf5RY7QCH-fFr0injGs3QfqAdQQg&s",
     "type": "poi",
     "lat": 1.3022,
     "lng": 103.8592,
@@ -113,10 +107,11 @@
     "address": "Haji Lane, Singapore 189232",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.visitsingapore.com"
+    "link": "https://www.bloggeratlarge.com/get-down-haji-lane-singapore/"
   },
   {
     "name": "The Biosphere",
+    "image":"https://thumbs.dreamstime.com/b/sun-reflects-off-waterfall-heart-changi-singapore-airport-jewel-terminal-indoor-tress-plants-green-wall-166635288.jpg",
     "type": "poi",
     "lat": 1.2816,
     "lng": 103.8636,
@@ -128,6 +123,7 @@
   },
   {
     "name": "Marina Bay Sands",
+    "image":"https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/https://www.cfmedia.vfmleonardo.com/imageRepo/2/0/186/208/259/20240826_Exterior_Architecture-17_O/Marina-Bay-Sands-Singapore-Exterior.jpg?tr=w-656%2Ch-390%2Cfo-auto",
     "type": "poi",
     "lat": 1.2834,
     "lng": 103.8607,
