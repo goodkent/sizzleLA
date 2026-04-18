@@ -58,6 +58,10 @@ window.onload = function() {
 
     const cityConfig = CITY_CONFIG[getActiveCity()];
 
+    // Set mobile header label
+    const mobileHeader = document.getElementById('mobile-header');
+    if (mobileHeader) mobileHeader.textContent = 'Sizzle ' + cityConfig.label;
+
     // Apply city theme via CSS custom properties
     const root = document.documentElement;
     root.style.setProperty('--city-primary',     cityConfig.colors.primary);
@@ -1197,6 +1201,9 @@ function getEventClasses(venue) {
     
     // Load places on page load
     loadPlaces();
+
+    // On mobile the map is position:absolute — tell Leaflet after layout settles
+    setTimeout(() => map.invalidateSize(), 100);
     
     // Use Leaflet events instead of arbitrary delays
     // This runs after map tiles have loaded

@@ -812,125 +812,229 @@ body::before {
 }
 
 /* Mobile Responsive */
+/* Mobile-only elements — hidden on desktop */
+.mobile-bottom-bar,
+.mobile-header {
+    display: none;
+}
+
 @media (max-width: 600px) {
-    /* Mobile logo - use logo2, no border/padding */
-    .logo-desktop {
+    /* ── MOBILE LAYOUT: full-bleed map with floating top + bottom bars ── */
+
+    /* Container becomes positioning context */
+    .container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Map fills the entire container edge-to-edge */
+    #map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        flex: none;
+    }
+
+    /* Hide page background on mobile — moved to bars */
+    body::before {
         display: none;
     }
-    
-    .logo-mobile {
-        display: block;
-        height: 120px;
-        padding: 0;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
-    
-    /* Filter buttons - emoji only, sized to fit in 2 rows */
-    .filter-btn {
-        font-size: 0; /* Hide all text */
-        padding: 10px;
-        min-width: 48px;
-        min-height: 48px;
-        justify-content: center;
-        border-width: 2px;
-        flex: 0 0 calc(25% - 8px);
-    }
-    
-    /* Show only emoji at readable size */
-    .filter-btn::before {
-        font-size: 24px; /* Emoji size */
-        content: '';
-    }
-    
-    /* Special handling for each button's emoji */
-    .filter-btn[data-type="all"]::before { content: '✨'; }
-    .filter-btn[data-type="favorites"]::before { content: '❤️'; }
-    .filter-btn[data-type="restaurant"]::before { content: '🍽️'; }
-    .filter-btn[data-type="cafe"]::before { content: '☕'; }
-    .filter-btn[data-type="bar"]::before { content: '🍸'; }
-    .filter-btn[data-type="plant"]::before { content: '🌿'; }
-    .filter-btn[data-type="vinyl"]::before { content: '🎵'; }
-    .filter-btn[data-type="event"]::before { content: '🎉'; }
-    
+
+    /* ── TOP BAR: floating filter strip ── */
     .filters {
-        padding: 15px;
-    }
-    
-    .filter-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.13);
+        border-bottom: 2px solid var(--city-primary);
+        padding: max(10px, env(safe-area-inset-top)) 12px 8px;
+        gap: 6px;
         flex-direction: column;
-        gap: 15px;
+        align-items: stretch;
+    }
+
+    .filters::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('../img/background.png') repeat;
+        background-size: auto;
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .filters > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Thin city header above filter buttons */
+    .mobile-header {
+        display: block;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--city-primary);
+        padding: 2px 0 4px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid rgba(var(--city-primary-rgb), 0.15);
+    }
+
+    /* Hide logo entirely on mobile */
+    .logo-desktop,
+    .logo-mobile {
+        display: none;
+    }
+
+    /* filter-header only holds logos + filter-section; collapse it */
+    .filter-header {
+        flex-direction: row;
+        gap: 0;
         width: 100%;
     }
-    
+
+    /* Filter buttons: single scrollable row, emoji only */
     .filter-section {
         width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
         justify-content: center;
-        gap: 8px;
-        max-width: 100%;
+        gap: 4px;
+        padding-right: 4px;
+        padding-top: 4px;
+        margin-top: -4px;
+        padding-bottom: 6px;
+        margin-bottom: -6px;
     }
-    
+
+    .filter-section::-webkit-scrollbar {
+        display: none;
+    }
+
     .filter-section .filter-btn {
-        flex: 0 0 calc(25% - 8px);
-        min-width: 48px;
+        flex: 0 0 auto;
+        min-width: 44px;
+        min-height: 44px;
     }
-    
+
+    /* Cuisine dropdown */
     #cuisine-section {
-        padding: 0 10px;
+        padding: 0;
     }
-    
+
     .cuisine-filter {
         width: 100%;
         max-width: 100%;
     }
-    
-    /* Hide zoom controls on mobile - users can still pinch to zoom */
+
+    /* Emoji-only filter buttons */
+    .filter-btn {
+        font-size: 0;
+        padding: 6px;
+        min-width: 34px;
+        min-height: 34px;
+        justify-content: center;
+        border-width: 2px;
+        flex: 0 0 auto;
+    }
+
+    .filter-btn::before {
+        font-size: 17px;
+        content: '';
+    }
+
+    .filter-btn[data-type="all"]::before      { content: '✨'; }
+    .filter-btn[data-type="favorites"]::before { content: '❤️'; }
+    .filter-btn[data-type="restaurant"]::before { content: '🍽️'; }
+    .filter-btn[data-type="cafe"]::before      { content: '☕'; }
+    .filter-btn[data-type="bar"]::before       { content: '🍸'; }
+    .filter-btn[data-type="plant"]::before     { content: '🌿'; }
+    .filter-btn[data-type="vinyl"]::before     { content: '🎵'; }
+    .filter-btn[data-type="poi"]::before       { content: '📍'; }
+
+    /* Cities button: centred in the bottom bar */
+    .cities-btn {
+        bottom: calc(11px + env(safe-area-inset-bottom));
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        top: auto;
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+
+    /* Hide footer on mobile */
+    .map-footer {
+        display: none;
+    }
+
+    /* Hide Leaflet zoom — pinch to zoom */
     .leaflet-control-zoom {
         display: none !important;
     }
-    
-    #map {
-        margin: 15px 15px 5px 15px;
-        width: calc(100% - 30px);
-        border-width: 6px;
-        border-radius: 20px;
+
+    /* ── BOTTOM BAR: frosted glass action strip ── */
+    .mobile-bottom-bar {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: calc(72px + env(safe-area-inset-bottom));
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.13);
+        border-top: 2px solid var(--city-primary);
+        z-index: 998;
+        overflow: hidden;
     }
-    
-    .map-footer {
-        font-size: 10px;
-        padding: 5px 15px;
+
+    .mobile-bottom-bar::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('../img/background.png') repeat;
+        background-size: auto;
+        opacity: 0.15;
+        pointer-events: none;
     }
-    
+
+    /* Action buttons sit in the bottom bar */
     .location-btn {
-        /* Add safe space for Safari bottom bar */
-        bottom: 50px;
-        bottom: max(50px, calc(env(safe-area-inset-bottom) + 50px));
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
+        bottom: calc(11px + env(safe-area-inset-bottom));
+        right: 24px;
+        width: 42px;
+        height: 42px;
+        font-size: 21px;
     }
-    
+
     .info-btn {
-        /* Add safe space for Safari bottom bar */
-        bottom: 50px;
-        bottom: max(50px, calc(env(safe-area-inset-bottom) + 50px));
-        left: 30px;
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
+        bottom: calc(11px + env(safe-area-inset-bottom));
+        left: 24px;
+        width: 42px;
+        height: 42px;
+        font-size: 21px;
     }
 
-    .cities-btn {
-        top: 15px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-    }
-
-    /* Offcanvas takes full width on mobile */
+    /* Full-width panels */
     .offcanvas {
         width: 100%;
         left: -100%;
@@ -940,36 +1044,41 @@ body::before {
         width: 100%;
         right: -100%;
     }
-    
+
     .offcanvas-header {
         padding: 25px 20px 18px;
     }
-    
+
     .offcanvas-header h2 {
         font-size: 20px;
     }
-    
+
     .offcanvas-body {
         padding: 20px;
     }
-    
-    /* Cookie banner mobile */
+
+    /* Cookie banner */
     .cookie-content {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
     }
-    
+
     .cookie-buttons {
         width: 100%;
         flex-direction: column;
     }
-    
+
     .cookie-btn {
         width: 100%;
     }
-    /* Event Status Rings - Updated with better sizing and timing */
-   /* Event Status Rings - Fixed to align with marker center */
+
+    /* Mobile logo - use logo2, no border/padding */
+    .logo-desktop {
+        display: none;
+    }
+
+}
 
 /* Base ring animation */
 @keyframes pulseRing {
