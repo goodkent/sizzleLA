@@ -1102,7 +1102,7 @@ function getEventClasses(venue) {
 
     infoBtn.addEventListener('click', openOffcanvas);
     closeBtn.addEventListener('click', closeOffcanvas);
-    offcanvasOverlay.addEventListener('click', () => { closeOffcanvas(); closeCitiesPanel(); });
+    // overlay click handled below after all panels are defined
 
     // Cities Panel
     const citiesBtn = document.getElementById('cities-btn');
@@ -1141,6 +1141,105 @@ function getEventClasses(venue) {
 
     citiesBtn.addEventListener('click', openCitiesPanel);
     citiesCloseBtn.addEventListener('click', closeCitiesPanel);
+
+    // ── TOURS PANEL ──────────────────────────────────────────────────────────
+    const toursOffcanvas  = document.getElementById('tours-offcanvas');
+    const toursCloseBtn   = document.getElementById('tours-close-btn');
+    const toursList       = document.getElementById('tours-list');
+    let toursLoaded = false;
+
+    async function openToursPanel() {
+        if (!toursLoaded) {
+            try {
+                const data = await fetch('data/tours.json').then(r => r.json());
+                const city = getActiveCity();
+                const entries = data[city] || [];
+                if (entries.length === 0) {
+                    toursList.innerHTML = '<p style="padding:16px;color:#888;">No tours listed yet for this destination.</p>';
+                } else {
+                    toursList.innerHTML = entries.map(t => {
+                        const providerClass = t.provider.toLowerCase().replace(/\s+/g, '');
+                        return `
+                        <div class="tour-card">
+                            <span class="tour-provider ${providerClass}">${t.provider}</span>
+                            <div class="tour-name">${t.name}</div>
+                            <div class="tour-description">${t.description}</div>
+                            <a class="tour-book-btn" href="${t.url}" target="_blank" rel="noopener">Book →</a>
+                        </div>`;
+                    }).join('');
+                }
+                toursLoaded = true;
+            } catch(e) {
+                toursList.innerHTML = '<p style="padding:16px;color:#888;">Could not load tours.</p>';
+            }
+        }
+        toursOffcanvas.classList.add('active');
+        offcanvasOverlay.classList.add('active');
+        trackEvent('tours_panel_opened');
+    }
+
+    function closeToursPanel() {
+        toursOffcanvas.classList.remove('active');
+        offcanvasOverlay.classList.remove('active');
+    }
+
+    toursCloseBtn.addEventListener('click', closeToursPanel);
+
+    // ── WORDS PANEL ──────────────────────────────────────────────────────────
+    const wordsOffcanvas  = document.getElementById('words-offcanvas');
+    const wordsCloseBtn   = document.getElementById('words-close-btn');
+    const wordsList       = document.getElementById('words-list');
+    let wordsLoaded = false;
+
+    async function openWordsPanel() {
+        if (!wordsLoaded) {
+            try {
+                const data = await fetch('data/phrases.json').then(r => r.json());
+                const city = getActiveCity();
+                const entry = data[city];
+                if (!entry) {
+                    wordsList.innerHTML = '<p style="padding:16px;color:#888;">English is the local language — no translations needed!</p>';
+                } else {
+                    const noteHtml = entry.note
+                        ? `<div class="words-language-note">${entry.language} — ${entry.note}</div>`
+                        : `<div class="words-language-note">${entry.language}</div>`;
+                    wordsList.innerHTML = noteHtml + entry.phrases.map(p => `
+                        <div class="phrase-row">
+                            <span class="phrase-english">${p.english}</span>
+                            <span class="phrase-native">${p.native}</span>
+                            <span class="phrase-pronunciation">${p.pronunciation}</span>
+                        </div>`).join('');
+                }
+                wordsLoaded = true;
+            } catch(e) {
+                wordsList.innerHTML = '<p style="padding:16px;color:#888;">Could not load phrases.</p>';
+            }
+        }
+        wordsOffcanvas.classList.add('active');
+        offcanvasOverlay.classList.add('active');
+        trackEvent('words_panel_opened');
+    }
+
+    function closeWordsPanel() {
+        wordsOffcanvas.classList.remove('active');
+        offcanvasOverlay.classList.remove('active');
+    }
+
+    wordsCloseBtn.addEventListener('click', closeWordsPanel);
+
+    // ── MOBILE NAV BUTTONS ───────────────────────────────────────────────────
+    document.getElementById('tours-nav-btn').addEventListener('click', openToursPanel);
+    document.getElementById('suggest-nav-btn').addEventListener('click', openOffcanvas);
+    document.getElementById('cities-nav-btn').addEventListener('click', openCitiesPanel);
+    document.getElementById('locate-nav-btn').addEventListener('click', () =>
+        document.getElementById('locate-btn').click()
+    );
+    document.getElementById('words-nav-btn').addEventListener('click', openWordsPanel);
+
+    // Close all panels on overlay click
+    offcanvasOverlay.addEventListener('click', () => {
+        closeOffcanvas(); closeCitiesPanel(); closeToursPanel(); closeWordsPanel();
+    });
 
     // Form Submission
     const form = document.getElementById('suggest-form');

@@ -69,6 +69,15 @@
         <button class="location-btn" id="locate-btn" title="Find my location">📍</button>
         <button class="info-btn" id="info-btn" title="About & Submit a Place">ℹ️</button>
         <button class="cities-btn" id="cities-btn" title="Switch City">🌍</button>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <button class="nav-btn nav-tours" id="tours-nav-btn">Tours</button>
+            <button class="nav-btn nav-suggest" id="suggest-nav-btn">Suggest</button>
+            <button class="nav-btn nav-globe" id="cities-nav-btn">🌍</button>
+            <button class="nav-btn nav-locate" id="locate-nav-btn">Locate</button>
+            <button class="nav-btn nav-words" id="words-nav-btn">Words</button>
+        </nav>
         
         <!-- Cookie Consent Banner -->
         <div class="cookie-banner" id="cookie-banner">
@@ -140,6 +149,24 @@
                 <button class="close-btn" id="cities-close-btn">✕</button>
             </div>
             <div class="cities-offcanvas-body" id="cities-list"></div>
+        </div>
+
+        <!-- Tours Panel -->
+        <div class="tours-offcanvas" id="tours-offcanvas">
+            <div class="offcanvas-header">
+                <h2>Tours & Experiences</h2>
+                <button class="close-btn" id="tours-close-btn">✕</button>
+            </div>
+            <div class="tours-offcanvas-body" id="tours-list"></div>
+        </div>
+
+        <!-- Words Panel -->
+        <div class="words-offcanvas" id="words-offcanvas">
+            <div class="offcanvas-header">
+                <h2>Pocket Phrases</h2>
+                <button class="close-btn" id="words-close-btn">✕</button>
+            </div>
+            <div class="words-offcanvas-body" id="words-list"></div>
         </div>
 
         <!-- Offcanvas Overlay -->

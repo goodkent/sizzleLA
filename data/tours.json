@@ -1,0 +1,162 @@
+{
+  "LA": [
+    {
+      "name": "Grand Central Market Tasting Tour",
+      "provider": "Viator",
+      "description": "Guided tasting walk through DTLA's 100-year-old food hall. Sample everything from Eggslut to Wexler's Deli to Horse Thief BBQ with a local food expert narrating the city's culinary history.",
+      "url": "https://www.viator.com/Los-Angeles/d645-ttd"
+    },
+    {
+      "name": "Silver Lake & Los Feliz Cocktail Crawl",
+      "provider": "GetYourGuide",
+      "description": "An eastside bar hop through LA's most creative neighbourhood bars — from dive bars with pool tables to craft cocktail rooms. Small group, walkable, no pretension.",
+      "url": "https://www.getyourguide.com/los-angeles-l30/"
+    },
+    {
+      "name": "Griffith Observatory & Hollywood Sign Hike",
+      "provider": "Tours by Locals",
+      "description": "A private half-day with a local film historian — hike to the best Hollywood Sign viewpoints, then explore Griffith Observatory's free exhibits and the Griffith Park trails. Zero tourist-trap energy.",
+      "url": "https://www.toursbylocals.com/Los-Angeles-Tours"
+    },
+    {
+      "name": "Venice Beach & Abbot Kinney Street Art Walk",
+      "provider": "Viator",
+      "description": "Walk the length of Venice Beach boardwalk, Muscle Beach, and then cut inland to Abbot Kinney — the best street murals in LA with context from a local artist guide.",
+      "url": "https://www.viator.com/Los-Angeles/d645-ttd"
+    },
+    {
+      "name": "Malibu Winery & Scenic Coast Drive",
+      "provider": "GetYourGuide",
+      "description": "An easy half-day trip from the city — drive PCH to Malibu's surprising wine country in the Santa Monica Mountains, taste local wines, and stop at El Matador Beach on the way back.",
+      "url": "https://www.getyourguide.com/los-angeles-l30/"
+    }
+  ],
+  "MX": [
+    {
+      "name": "CDMX Morning Tacos & Mercado Tasting Tour",
+      "provider": "Viator",
+      "description": "Start at a taqueria before most of the city is awake, then move through a covered mercado sampling quesillo, tlayudas, fresh juice, and tamales. Best eaten before 10am when the serious locals eat.",
+      "url": "https://www.viator.com/Mexico-City/d617-ttd"
+    },
+    {
+      "name": "Roma Norte Mezcal & Natural Wine Bar Crawl",
+      "provider": "GetYourGuide",
+      "description": "Hit four of Roma Norte's best mezcalerías and natural wine bars in one evening — a neighbourhood that has quietly become one of the world's great drinking destinations. Small group, walking distance between stops.",
+      "url": "https://www.getyourguide.com/mexico-city-l116/"
+    },
+    {
+      "name": "Frida Kahlo's Coyoacán: Blue House & Neighbourhood Walk",
+      "provider": "Tours by Locals",
+      "description": "A private morning in Coyoacán with a local art historian — the Blue House museum, Diego Rivera's studio, the central plaza, and lunch at a neighbourhood spot tourists rarely find.",
+      "url": "https://www.toursbylocals.com/Mexico-City-Tours"
+    },
+    {
+      "name": "Teotihuacán Pyramids at Sunrise",
+      "provider": "Viator",
+      "description": "Leave the city at 5am to reach the Pyramid of the Sun before the tour buses arrive. Walk the Avenue of the Dead in golden light with a licensed archaeologist guide. Back in the city by noon.",
+      "url": "https://www.viator.com/Mexico-City/d617-ttd"
+    },
+    {
+      "name": "Lucha Libre Night at Arena México",
+      "provider": "GetYourGuide",
+      "description": "Attend a live Lucha Libre match at the legendary Arena México — the Madison Square Garden of Mexican wrestling. Includes transport, front section seats, and a guide who explains the drama unfolding in the ring.",
+      "url": "https://www.getyourguide.com/mexico-city-l116/"
+    }
+  ],
+  "HK": [
+    {
+      "name": "Dim Sum Breakfast & Yum Cha with a Local",
+      "provider": "Tours by Locals",
+      "description": "A private early-morning yum cha session at a traditional teahouse — your guide orders everything in Cantonese and explains the etiquette, the dishes, and the ritual of pouring tea. The most Hong Kong morning possible.",
+      "url": "https://www.toursbylocals.com/Hong-Kong-Tours"
+    },
+    {
+      "name": "Kowloon Night Food Walk: Jordan to Temple Street",
+      "provider": "Viator",
+      "description": "Walk from the night market through Jordan and Yau Ma Tei stopping at roasted goose stalls, clay pot rice shops, and a classic dai pai dong. Ends with a fortune teller consultation at Temple Street.",
+      "url": "https://www.viator.com/Hong-Kong/d178-ttd"
+    },
+    {
+      "name": "Lantau Island: Big Buddha, Monastery & Tai O Village",
+      "provider": "GetYourGuide",
+      "description": "An easy day trip by MTR and cable car to Ngong Ping — the giant Tian Tan Buddha, Po Lin Monastery's famous vegetarian lunch, and the stilt-house fishing village of Tai O. A completely different side of Hong Kong.",
+      "url": "https://www.getyourguide.com/hong-kong-l97/"
+    },
+    {
+      "name": "Central Craft Cocktail Bar Hop with a Bartender",
+      "provider": "GetYourGuide",
+      "description": "Four of Central and SoHo's best bars with a working bartender as your guide — including a speakeasy entrance, the best view bar in Asia, and a hidden basement cocktail room. Starts at 7pm.",
+      "url": "https://www.getyourguide.com/hong-kong-l97/"
+    },
+    {
+      "name": "Hong Kong Tram Ride & Aberdeen Harbour Sampan",
+      "provider": "Viator",
+      "description": "Ride the historic double-decker tram across Hong Kong Island, then take a traditional sampan around Aberdeen's floating village and typhoon shelter. A genuine slice of old Hong Kong that's disappearing fast.",
+      "url": "https://www.viator.com/Hong-Kong/d178-ttd"
+    }
+  ],
+  "TW": [
+    {
+      "name": "Taipei Night Market Tasting Crawl: Raohe & Shilin",
+      "provider": "Viator",
+      "description": "Hit both of Taipei's great night markets in one evening — the compact Raohe Street market for pepper pork buns and oyster vermicelli, then Shilin for the full sensory overload. A guide who eats fast and knows where the locals queue.",
+      "url": "https://www.viator.com/Taipei/d5324-ttd"
+    },
+    {
+      "name": "Jiufen, Gold Ecological Park & Northeast Coast Day Trip",
+      "provider": "GetYourGuide",
+      "description": "The classic northeast day trip from Taipei — Jiufen's lantern-lit alleys, the Gold Ecological Park's mining history, and a coastal drive back along Taiwan's stunning Pacific shoreline. About 4 hours from the city.",
+      "url": "https://www.getyourguide.com/taipei-l189/"
+    },
+    {
+      "name": "Private Taipei Cocktail Bar & Craft Beer Night",
+      "provider": "Tours by Locals",
+      "description": "Taipei has quietly become one of Asia's best cocktail cities. A private evening hitting four bars — from internationally ranked cocktail rooms to a tiny craft beer basement — with a local bartender who knows every barkeep in town.",
+      "url": "https://www.toursbylocals.com/Taipei-Tours"
+    },
+    {
+      "name": "Beitou Hot Springs & Thermal Valley Morning",
+      "provider": "Viator",
+      "description": "A morning trip on the MRT to Taipei's mountain hot spring district — soak in a private onsen, walk the steaming Thermal Valley, and stop at the extraordinary Beitou Library. Back in the city by lunch.",
+      "url": "https://www.viator.com/Taipei/d5324-ttd"
+    },
+    {
+      "name": "Dadaocheng Heritage Walk & Tea Tasting",
+      "provider": "GetYourGuide",
+      "description": "Taipei's 19th-century merchant quarter — baroque shophouses, century-old tea merchants, dried goods stalls, and a sitting tea ceremony in a renovated warehouse. The most atmospheric neighbourhood in the city.",
+      "url": "https://www.getyourguide.com/taipei-l189/"
+    }
+  ],
+  "SG": [
+    {
+      "name": "Hawker Centre Deep Dive: Maxwell, Tiong Bahru & Old Airport Road",
+      "provider": "Viator",
+      "description": "Singapore's greatest hits in one tasting tour — the three best hawker centres, each with a completely different character. Char kway teow, Hainanese chicken rice, laksa, and chilli crab. Eat until you can't.",
+      "url": "https://www.viator.com/Singapore/d12-ttd"
+    },
+    {
+      "name": "Kampong Glam, Little India & Chinatown Cultural Walk",
+      "provider": "GetYourGuide",
+      "description": "Walk through all three of Singapore's historic ethnic quarters in one morning — the Arab Quarter's spice traders, Little India's flower garland stalls, and Chinatown's clan associations. A city in miniature.",
+      "url": "https://www.getyourguide.com/singapore-l6/"
+    },
+    {
+      "name": "Singapore Sling Masterclass & Raffles History Tour",
+      "provider": "Tours by Locals",
+      "description": "Learn to make the original Singapore Sling at Raffles Hotel's Long Bar, then take a private tour through the hotel's colonial history with a local historian. Includes access to areas not open to regular guests.",
+      "url": "https://www.toursbylocals.com/Singapore-Tours"
+    },
+    {
+      "name": "Southern Islands Boat Trip: Lazarus & St John's",
+      "provider": "Viator",
+      "description": "A private charter to Singapore's uninhabited southern islands — pristine beaches, clear water, and the feeling of being a world away from the city skyline you can still see on the horizon. Bring a cooler.",
+      "url": "https://www.viator.com/Singapore/d12-ttd"
+    },
+    {
+      "name": "Gardens by the Bay Night Walk & Supertree Light Show",
+      "provider": "GetYourGuide",
+      "description": "The Supertree Grove's free OCBC Garden Rhapsody light show at 7:45 and 8:45pm is one of the great free spectacles in Asia. This guided evening walks the whole gardens, explains the engineering, and gets you the best spots before the crowds.",
+      "url": "https://www.getyourguide.com/singapore-l6/"
+    }
+  ]
+}

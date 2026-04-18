@@ -814,8 +814,152 @@ body::before {
 /* Mobile Responsive */
 /* Mobile-only elements — hidden on desktop */
 .mobile-bottom-bar,
-.mobile-header {
+.mobile-header,
+.mobile-nav {
     display: none;
+}
+
+/* Tours Panel */
+.tours-offcanvas {
+    position: fixed;
+    top: 0;
+    left: -420px;
+    width: 400px;
+    height: 100%;
+    background: white;
+    z-index: 2000;
+    transition: left 0.3s ease;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.tours-offcanvas.active { left: 0; }
+
+.tours-offcanvas-body {
+    padding: 16px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.tour-card {
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s ease;
+}
+
+.tour-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.tour-provider {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.tour-provider.viator      { background: #1a73e8; }
+.tour-provider.getyourguide { background: #ff5533; }
+.tour-provider.toursbylocals { background: #2e7d32; }
+
+.tour-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.tour-description {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.tour-book-btn {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
+    transition: opacity 0.2s ease;
+}
+
+.tour-book-btn:hover { opacity: 0.85; }
+
+/* Words Panel */
+.words-offcanvas {
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 360px;
+    height: 100%;
+    background: white;
+    z-index: 2000;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.words-offcanvas.active { right: 0; }
+
+.words-offcanvas-body {
+    padding: 16px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.words-language-note {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 14px;
+    padding: 8px 12px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.phrase-row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.phrase-row:last-child { border-bottom: none; }
+
+.phrase-english {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #999;
+    margin-bottom: 3px;
+}
+
+.phrase-native {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+}
+
+.phrase-pronunciation {
+    font-size: 12px;
+    color: var(--city-primary);
+    font-style: italic;
 }
 
 @media (max-width: 600px) {
@@ -990,8 +1134,96 @@ body::before {
         display: none !important;
     }
 
-    /* ── BOTTOM BAR: frosted glass action strip ── */
-    .mobile-bottom-bar {
+    /* Hide old individual buttons on mobile — replaced by mobile-nav */
+    .location-btn, .info-btn, .cities-btn, .mobile-bottom-bar {
+        display: none !important;
+    }
+
+    /* ── MOBILE NAV: 5-button bottom bar ── */
+    .mobile-nav {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: calc(64px + env(safe-area-inset-bottom));
+        padding: 10px 10px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom));
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 2px solid var(--city-primary);
+        box-shadow: 0 -2px 20px rgba(0,0,0,0.12);
+        z-index: 999;
+        overflow: hidden;
+    }
+
+    .mobile-nav::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('../img/background.png') repeat;
+        background-size: auto;
+        opacity: 0.12;
+        pointer-events: none;
+    }
+
+    .nav-btn {
+        position: relative;
+        flex: 1;
+        height: 38px;
+        border-radius: 20px;
+        border: 2px solid var(--city-primary);
+        background: transparent;
+        color: var(--city-primary);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s ease;
+        font-family: inherit;
+        padding: 0 4px;
+    }
+
+    .nav-btn:active {
+        background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
+        color: white;
+        transform: scale(0.96);
+    }
+
+    .nav-btn-globe {
+        flex: 0 0 42px;
+        height: 42px;
+        border-radius: 50%;
+        font-size: 20px;
+        background: linear-gradient(135deg, var(--city-primary) 0%, var(--city-secondary) 100%);
+        color: white;
+        border: 3px solid white;
+        box-shadow: 0 3px 10px rgba(var(--city-primary-rgb), 0.4);
+        padding: 0;
+    }
+
+    /* Full-width panels on mobile */
+    .offcanvas        { left: -100%; }
+    .offcanvas.active { left: 0; }
+    .cities-offcanvas        { right: -100%; }
+    .cities-offcanvas.active { right: 0; }
+    .tours-offcanvas        { left: -100%; }
+    .tours-offcanvas.active { left: 0; }
+    .words-offcanvas        { right: -100%; }
+    .words-offcanvas.active { right: 0; }
+
+    .offcanvas, .cities-offcanvas, .tours-offcanvas, .words-offcanvas {
+        width: 100%;
+    }
+
+    /* ── legacy bottom bar (hidden by rule above but keep for safety) ── */
+    .mobile-bottom-bar-legacy {
         display: block;
         position: absolute;
         bottom: 0;

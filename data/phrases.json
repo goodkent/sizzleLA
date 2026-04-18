@@ -1,0 +1,75 @@
+{
+  "LA": null,
+  "MX": {
+    "language": "Spanish",
+    "note": "Mexican Spanish — widely understood across the country",
+    "phrases": [
+      { "english": "Hello", "native": "Hola", "pronunciation": "OH-lah" },
+      { "english": "Good Morning", "native": "Buenos Días", "pronunciation": "BWEH-nos DEE-as" },
+      { "english": "Good Evening", "native": "Buenas Noches", "pronunciation": "BWEH-nas NOH-ches" },
+      { "english": "Please", "native": "Por Favor", "pronunciation": "por fah-VOR" },
+      { "english": "Thank You", "native": "Gracias", "pronunciation": "GRAH-syas" },
+      { "english": "Excuse Me", "native": "Perdón", "pronunciation": "pehr-DON" },
+      { "english": "Check Please", "native": "La Cuenta, Por Favor", "pronunciation": "la KWEN-ta por fah-VOR" },
+      { "english": "Menu Please", "native": "El Menú, Por Favor", "pronunciation": "el meh-NOO por fah-VOR" },
+      { "english": "Cheers", "native": "Salud", "pronunciation": "sah-LOOD" },
+      { "english": "Help!", "native": "¡Ayuda! / ¡Socorro!", "pronunciation": "ah-YOO-dah / so-KOR-oh" },
+      { "english": "Do You Speak English?", "native": "¿Habla Inglés?", "pronunciation": "AH-blah een-GLES" },
+      { "english": "Where is the Toilet?", "native": "¿Dónde Está el Baño?", "pronunciation": "DON-deh es-TAH el BAH-nyo" }
+    ]
+  },
+  "HK": {
+    "language": "Cantonese",
+    "note": "Most service staff also speak Mandarin and some English",
+    "phrases": [
+      { "english": "Hello", "native": "你好 (Néih Hóu)", "pronunciation": "nay-HO" },
+      { "english": "Good Morning", "native": "早晨 (Jóusàhn)", "pronunciation": "JO-sun" },
+      { "english": "Good Evening", "native": "晚上好 (Máahn-séuhng Hóu)", "pronunciation": "maan-serng-HO" },
+      { "english": "Please / Excuse Me", "native": "唔該 (M̀h Gōi)", "pronunciation": "mm-GOY" },
+      { "english": "Thank You (gift)", "native": "多謝 (Dō Jeh)", "pronunciation": "daw-JEH" },
+      { "english": "Thank You (service)", "native": "唔該 (M̀h Gōi)", "pronunciation": "mm-GOY" },
+      { "english": "Check Please", "native": "買單 (Máaih Dāan)", "pronunciation": "my-DAN" },
+      { "english": "Menu Please", "native": "菜牌 (Choi Paai)", "pronunciation": "choy-PIE" },
+      { "english": "Cheers", "native": "乾杯 (Gōn Būi)", "pronunciation": "gun-BUI" },
+      { "english": "Help!", "native": "救命 (Gau Meng)", "pronunciation": "gow-MING" },
+      { "english": "Do You Speak English?", "native": "你識唔識講英文？", "pronunciation": "nay-sick-mm-sick-GONG-ying-man" },
+      { "english": "Where is the Toilet?", "native": "廁所喺邊？(Chìsó Hái Bīn?)", "pronunciation": "chi-SO high BIN" }
+    ]
+  },
+  "TW": {
+    "language": "Mandarin",
+    "note": "Traditional characters used — simplified also understood",
+    "phrases": [
+      { "english": "Hello", "native": "你好 (Nǐ Hǎo)", "pronunciation": "nee-HOW" },
+      { "english": "Good Morning", "native": "早安 (Zǎo Ān)", "pronunciation": "dzow-AN" },
+      { "english": "Good Evening", "native": "晚安 (Wǎn Ān)", "pronunciation": "wan-AN" },
+      { "english": "Please", "native": "請 (Qǐng)", "pronunciation": "CHING" },
+      { "english": "Thank You", "native": "謝謝 (Xiè Xiè)", "pronunciation": "shyeh-SHYEH" },
+      { "english": "Excuse Me", "native": "不好意思 (Bù Hǎo Yì Si)", "pronunciation": "boo-how-ee-SUH" },
+      { "english": "Check Please", "native": "買單 (Mǎi Dān)", "pronunciation": "my-DAN" },
+      { "english": "Menu Please", "native": "菜單 (Cài Dān)", "pronunciation": "tsye-DAN" },
+      { "english": "Cheers", "native": "乾杯 (Gān Bēi)", "pronunciation": "gan-BAY" },
+      { "english": "Help!", "native": "救命！(Jiù Mìng!)", "pronunciation": "jyo-MING" },
+      { "english": "Do You Speak English?", "native": "你會說英文嗎？(Nǐ Huì Shuō Yīngwén Ma?)", "pronunciation": "nee-hway-shwoh-YING-wen-ma" },
+      { "english": "Where is the Toilet?", "native": "廁所在哪裡？(Cèsuǒ Zài Nǎlǐ?)", "pronunciation": "tse-swoh-dzye-NA-lee" }
+    ]
+  },
+  "SG": {
+    "language": "Singlish / Malay",
+    "note": "English is widely spoken — these local phrases will earn you big smiles",
+    "phrases": [
+      { "english": "Hello", "native": "Hello / Eh (casual)", "pronunciation": "standard English" },
+      { "english": "Good Morning", "native": "Selamat Pagi", "pronunciation": "seh-LAH-mat PAH-gee" },
+      { "english": "Good Evening", "native": "Selamat Petang", "pronunciation": "seh-LAH-mat peh-TANG" },
+      { "english": "Please", "native": "Tolong", "pronunciation": "TOH-long" },
+      { "english": "Thank You", "native": "Terima Kasih", "pronunciation": "teh-REE-mah KAH-see" },
+      { "english": "Excuse Me", "native": "Maaf", "pronunciation": "MAH-af" },
+      { "english": "Check Please", "native": "Boleh minta bil?", "pronunciation": "BOH-leh MIN-tah bil" },
+      { "english": "Menu Please", "native": "Boleh minta menu?", "pronunciation": "BOH-leh MIN-tah MEH-noo" },
+      { "english": "Cheers", "native": "Yam Seng!", "pronunciation": "yam-SENGGGG (hold it!)" },
+      { "english": "Help!", "native": "Tolong!", "pronunciation": "TOH-long" },
+      { "english": "Can or not? (OK?)", "native": "Can lah!", "pronunciation": "can-LAH" },
+      { "english": "Where is the Toilet?", "native": "Toilet where ah?", "pronunciation": "TOY-let where-AH" }
+    ]
+  }
+}
