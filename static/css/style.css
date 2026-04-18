@@ -331,6 +331,20 @@ body::before {
     min-width: 250px;
 }
 
+.popup-image {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 150px;
+}
+
+.popup-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .popup-title {
     font-size: 18px;
     font-weight: 700;

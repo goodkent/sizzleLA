@@ -710,6 +710,7 @@ function createPopupContent(neighborhoodName = '') {
     
     return `
         <div class="popup-content">
+            ${place.image ? `<div class="popup-image"><img src="${place.image}" alt="${place.name}" loading="lazy"></div>` : ''}
             <div class="popup-title">${place.name}</div>
             <div class="popup-type">${place.type.toUpperCase()}${place.cuisine ? ' • ' + place.cuisine : ''}</div>
             ${place.is_sponsored ? '<div class="popup-type" style="background: #FF6B35; margin-top: 4px;">⭐ SPONSORED</div>' : ''}

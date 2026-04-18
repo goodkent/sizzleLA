@@ -1,6 +1,7 @@
 [
   {
     "name": "Jiufen",
+    "image":"https://newtaipei.travel/content/images/attractions/27525/1920x1080_attractions-image-fwfaxumoiegq42wwkiwkpg.jpg",
     "type": "poi",
     "lat": 25.1093,
     "lng": 121.8443,
@@ -8,10 +9,11 @@
     "address": "Jiufen, Ruifang District, New Taipei City, Taiwan",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.taiwan.net.tw"
+    "link": "https://girleatworld.net/jiufen-old-street/"
   },
   {
     "name": "Din Tai Fung",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlso17gFJODzhM6N17WUGGJELip4ZLAy9f_Q&s",
     "type": "restaurant",
     "cuisine": "Taiwanese",
     "lat": 25.0339,
@@ -26,6 +28,7 @@
   },
   {
     "name": "Addiction Aquatic Development",
+    "image":"https://livingnomads.com/wp-content/uploads/2018/12/03/Addiction-Aquatic-Development-Taipei-Fish-Market-37.jpg",
     "type": "restaurant",
     "cuisine": "Seafood",
     "lat": 25.0624,
@@ -40,6 +43,7 @@
   },
   {
     "name": "Draft Land",
+    "image":"https://www.theworlds50best.com/discovery/filestore/jpg/DraftLand-Taipei-Taiwan-02.jpg",
     "type": "bar",
     "lat": 25.0472,
     "lng": 121.5472,
@@ -53,6 +57,7 @@
   },
   {
     "name": "Bar Mood",
+    "image":"https://5mtz55f1.tinifycdn.com/storage/app/uploads/public/630/c61/b56/630c61b56e47a734144174.jpg",
     "type": "bar",
     "lat": 25.0479,
     "lng": 121.5535,
@@ -66,6 +71,7 @@
   },
   {
     "name": "Elephant Mountain",
+    "image":"https://taiwanderers.com/wp-content/uploads/2024/10/elephant-mountain-10.jpg",
     "type": "poi",
     "lat": 25.0240,
     "lng": 121.5772,
@@ -73,10 +79,11 @@
     "address": "Xiangshan, Xinyi District, Taipei",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.taiwan.net.tw"
+    "link": "https://www.taiwanobsessed.com/elephant-mountain-xiangshan-taipei/"
   },
   {
     "name": "Dihua Street",
+    "image":"https://taiwanderers.com/wp-content/uploads/2024/07/dihua-Dadaocheng-44-1144x800.jpg",
     "type": "poi",
     "lat": 25.0563,
     "lng": 121.5097,
@@ -84,10 +91,11 @@
     "address": "Dihua St, Datong District, Taipei",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.taiwan.net.tw"
+    "link": "https://taiwanderers.com/dihua-street-dadaocheng-taipei/"
   },
   {
     "name": "Shilin Night Market",
+    "image":"https://migrationology.smugmug.com/Taiwan-2015/i-Drsk79T/0/X3/shilin-night-market-taiwan-4-X3.jpg",
     "type": "poi",
     "lat": 25.0878,
     "lng": 121.5242,
@@ -95,10 +103,11 @@
     "address": "Jihe Rd, Shilin District, Taipei",
     "rating": "4.3",
     "ratingSource": "Google",
-    "link": "https://www.taiwan.net.tw"
+    "link": "https://migrationology.com/shilin-night-market-taipei/"
   },
   {
     "name": "The Boutique Hotel Taipei",
+    "image":"https://www.humbleboutique.com.tw/files/pages_172063787613tjn1k27_m.jpg",
     "type": "poi",
     "lat": 25.0479,
     "lng": 121.5197,
