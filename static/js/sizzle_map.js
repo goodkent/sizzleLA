@@ -27,7 +27,7 @@ window.onload = function() {
             zoom: 12,
             dataFile: 'data/places-HK.json',
             tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
-            neighborhoodLayer: { type: 'wms', url: 'https://krsaline-maps.com/geoserver/TD/wms', layers: 'TD:Hong%20Kong', nameField: 'ename' },
+            neighborhoodLayer: { type: 'wms', url: 'https://krsaline-maps.com/geoserver/TD/wms', layers: 'TD:Hong Kong', nameField: 'ename' },
             colors: { primary: '#C62828', secondary: '#EF5350', primaryRgb: '198,40,40' }
         },
         TW: {
