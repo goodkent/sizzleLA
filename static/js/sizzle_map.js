@@ -18,7 +18,7 @@ window.onload = function() {
             zoom: 11,
             dataFile: 'data/places-MX.json',
             tileLayer: { url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19 },
-            neighborhoodLayer: { type: 'wms', url: 'https://krsaline-maps.com/geoserver/TD/wms', layers: 'TD:mexico_colonia', nameField: 'colonia' },
+            neighborhoodLayer: { type: 'wms', url: 'https://maprouter.ksimer.workers.dev/proxy/TD/wms', layers: 'TD:mexico_colonia', nameField: 'colonia' },
             colors: { primary: '#00897B', secondary: '#00ACC1', primaryRgb: '0,137,123' }
         },
         HK: {
