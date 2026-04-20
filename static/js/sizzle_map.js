@@ -45,7 +45,7 @@ window.onload = function() {
             zoom: 12,
             dataFile: 'data/places-SG.json',
             tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
-            neighborhoodLayer: null,
+            neighborhoodLayer: { type: 'wms', url: 'https://maprouter.ksimer.workers.dev/proxy/TD/wms', layers: 'TD:Singapore_Subzones', nameField: 'subzone_n' },
             colors: { primary: '#6A1B9A', secondary: '#AB47BC', primaryRgb: '106,27,154' }
         }
         // To add a new city: add an entry here. No other JS or CSS changes needed.
