@@ -54,6 +54,7 @@ window.onload = function() {
             zoom: 12,
             dataFile: 'data/places-NOLA.json',
             tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
+            neighborhoodsLayer: { type: 'wms', url: 'https://maprouter.ksimer.workers.dev/proxy/TD/wms', layers: 'TD:nola_org', nameField: 'gnocdc_lab' }
             colors: { primary: '#5D4037', secondary: '#A1887F', primaryRgb: '93,64,55' }
         }
         // To add a new city: add an entry here. No other JS or CSS changes needed.
