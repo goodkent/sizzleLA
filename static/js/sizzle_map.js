@@ -47,6 +47,14 @@ window.onload = function() {
             tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
             neighborhoodLayer: { type: 'wms', url: 'https://maprouter.ksimer.workers.dev/proxy/TD/wms', layers: 'TD:Singapore_Subzones', nameField: 'subzone_n' },
             colors: { primary: '#6A1B9A', secondary: '#AB47BC', primaryRgb: '106,27,154' }
+        },
+        NOLA: {
+            label: 'New Orleans',
+            center: [29.9511, -90.0715],
+            zoom: 12,
+            dataFile: 'data/places-NOLA.json',
+            tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
+            colors: { primary: '#5D4037', secondary: '#A1887F', primaryRgb: '93,64,55' }
         }
         // To add a new city: add an entry here. No other JS or CSS changes needed.
     };
@@ -297,6 +305,19 @@ window.onload = function() {
     //     attribution: '© OpenStreetMap contributors',
     //     maxZoom: 19
     // }).addTo(map);
+
+    // Add globe markers for all inactive cities
+    const activeCity = getActiveCity();
+    Object.entries(CITY_CONFIG).forEach(([code, cfg]) => {
+        if (code === activeCity) return;
+        const globeIcon = L.divIcon({
+            html: `<div title="Go to ${cfg.label}" class="city-globe-marker" onclick="window.location.hash='${code}';window.location.reload();">🌐<span class="city-globe-label">${cfg.label}</span></div>`,
+            className: '',
+            iconSize: [36, 36],
+            iconAnchor: [18, 18]
+        });
+        L.marker(cfg.center, { icon: globeIcon, zIndexOffset: -1000 }).addTo(map);
+    });
 
     // Add neighborhood layer if configured for this city
     const neighborhoodColors = [
@@ -636,6 +657,18 @@ function displayPlaces(places) {
 
         // Function to create popup content
        // Function to create popup content
+function getMichelinBadge(recognition) {
+    const STAR_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="michelin-star-svg"><path fill="#E42313" d="M50 2 L63 36 L99 36 L71 58 L82 92 L50 71 L18 92 L29 58 L1 36 L37 36Z"/></svg>`;
+    const BIB_IMG = `<img src="https://d3h1lg3ksw6i6b.cloudfront.net/media/image/2023/10/05/44a3a4d99c9d4d3c94c103fd8553de55_Clef-MICHELIn.png" alt="Michelin Bib Gourmand" class="michelin-bib-img">`;
+    switch (recognition) {
+        case 'one-star':   return `<span class="michelin-stars">${STAR_SVG}</span>`;
+        case 'two-star':   return `<span class="michelin-stars">${STAR_SVG}${STAR_SVG}</span>`;
+        case 'three-star': return `<span class="michelin-stars">${STAR_SVG}${STAR_SVG}${STAR_SVG}</span>`;
+        case 'bib-gourmand': return BIB_IMG;
+        default: return '';
+    }
+}
+
 function createPopupContent(neighborhoodName = '') {
     const isFav = isFavorite(place.name);
     const shareUrl = `${window.location.origin}${window.location.pathname}?place=${encodeURIComponent(place.name)}`;
@@ -711,7 +744,10 @@ function createPopupContent(neighborhoodName = '') {
     return `
         <div class="popup-content">
             ${place.image ? `<div class="popup-image"><img src="${place.image}" alt="${place.name}" loading="lazy"></div>` : ''}
-            <div class="popup-title">${place.name}</div>
+            <div class="popup-title-row">
+                <div class="popup-title">${place.name}</div>
+                ${place.michelin ? getMichelinBadge(place.michelin) : ''}
+            </div>
             <div class="popup-type">${place.type.toUpperCase()}${place.cuisine ? ' • ' + place.cuisine : ''}</div>
             ${place.is_sponsored ? '<div class="popup-type" style="background: #FF6B35; margin-top: 4px;">⭐ SPONSORED</div>' : ''}
             ${neighborhoodName ? `<div class="popup-neighborhood">📍 ${neighborhoodName}</div>` : ''}
@@ -1111,7 +1147,7 @@ function getEventClasses(venue) {
     const citiesCloseBtn = document.getElementById('cities-close-btn');
     const citiesList = document.getElementById('cities-list');
 
-    const cityFlags = { LA: '🇺🇸', MX: '🇲🇽', HK: '🇭🇰', TW: '🇹🇼', SG: '🇸🇬' };
+    const cityFlags = { LA: '🇺🇸', MX: '🇲🇽', HK: '🇭🇰', TW: '🇹🇼', SG: '🇸🇬', NOLA: '🎷' };
     const activeCode = getActiveCity();
 
     Object.entries(CITY_CONFIG).forEach(([code, config]) => {

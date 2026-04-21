@@ -349,7 +349,7 @@ body::before {
     font-size: 18px;
     font-weight: 700;
     color: #1a3a52;
-    margin-bottom: 8px;
+    margin-bottom: 0;
 }
 
 .popup-type {
@@ -371,6 +371,59 @@ body::before {
     color: var(--city-primary);
     margin-bottom: 8px;
     font-style: italic;
+}
+
+.city-globe-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    transition: transform 0.15s ease;
+    cursor: pointer;
+}
+
+.city-globe-marker:hover {
+    transform: scale(1.2);
+}
+
+.city-globe-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1a3a52;
+    background: white;
+    padding: 1px 5px;
+    border-radius: 8px;
+    margin-top: 2px;
+    white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
+.popup-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.michelin-bib-img {
+    height: 32px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.michelin-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.michelin-star-svg {
+    width: 20px;
+    height: 20px;
 }
 
 .popup-description {
