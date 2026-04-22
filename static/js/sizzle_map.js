@@ -56,6 +56,14 @@ window.onload = function() {
             tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
             neighborhoodLayer: { type: 'wms', url: 'https://maprouter.ksimer.workers.dev/proxy/TD/wms', layers: 'TD:nola_org', nameField: 'gnocdc_lab' },
             colors: { primary: '#5D4037', secondary: '#A1887F', primaryRgb: '93,64,55' }
+        },
+        XMAS: {
+            label: 'Christmas Markets',
+            center: [50.5, 10.5],
+            zoom: 5,
+            dataFile: 'data/places-christmas.json',
+            tileLayer: { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', attribution: 'Tiles &copy; Esri', maxZoom: 19 },
+            colors: { primary: '#C41E3A', secondary: '#2E7D32', primaryRgb: '196,30,58' }
         }
         // To add a new city: add an entry here. No other JS or CSS changes needed.
     };
@@ -1148,7 +1156,7 @@ function getEventClasses(venue) {
     const citiesCloseBtn = document.getElementById('cities-close-btn');
     const citiesList = document.getElementById('cities-list');
 
-    const cityFlags = { LA: '🇺🇸', MX: '🇲🇽', HK: '🇭🇰', TW: '🇹🇼', SG: '🇸🇬', NOLA: '🎷' };
+    const cityFlags = { LA: '🇺🇸', MX: '🇲🇽', HK: '🇭🇰', TW: '🇹🇼', SG: '🇸🇬', NOLA: '🎷', XMAS: '🎄' };
     const activeCode = getActiveCity();
 
     Object.entries(CITY_CONFIG).forEach(([code, config]) => {
