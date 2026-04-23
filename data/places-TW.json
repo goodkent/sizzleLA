@@ -394,6 +394,7 @@
   },
   {
     "name": "Lin Mao Sen Tea Co.",
+    "imge":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibhlJfCSpTO0EKxAyJTx-k5T3-fpGm20Qf4T6VL56jLaxUCPZB8UOaeEhnNDkgHaprzRwzVzszYDHvGYQJyuO0UY2CoVI52dH6ejlPaUmTugq2OiPTmjjw-RVL0eoYBfaFKODMv_jdJDA/s1600/Lin+Mao+Sen+teaware%252C+Taipei+tea+shop.jpg",
     "type": "poi",
     "lat": 25.0283,
     "lng": 121.5188,
@@ -403,10 +404,11 @@
     "price": "$$",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.linmaosen.com.tw"
+    "link": "https://wanderlog.com/place/details/430425/lin-mao-sen-tea-co"
   },
   {
     "name": "Pinglin Tea District",
+    "image":"https://cdn-cw-english.cwg.tw/article/202506/article-6858defb7e8d7.jpg",
     "type": "poi",
     "lat": 24.9396,
     "lng": 121.72,
@@ -415,10 +417,11 @@
     "price": "$",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.pinglin.ntpc.gov.tw"
+    "link": "https://english.cw.com.tw/article/article.action?id=4188"
   },
   {
     "name": "Alishan National Scenic Area",
+    "image":"https://i0.wp.com/taiwantrailsandtales.com/wp-content/uploads/2023/11/pb060543.jpg?fit=1200%2C900&ssl=1",
     "type": "poi",
     "lat": 23.5118,
     "lng": 120.8039,
@@ -427,23 +430,11 @@
     "price": "$",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.ali-nsa.net"
-  },
-  {
-    "name": "Luk Yu Tea House (台北陸羽茶室)",
-    "type": "cafe",
-    "lat": 25.0441,
-    "lng": 121.5135,
-    "description": "Taipei's most traditional gongfu teahouse, open since 1981 in a quietly elegant room in the Zhongzheng District. Named after the Tang Dynasty author of the Classic of Tea, it serves the full canon of Taiwanese and Chinese teas alongside a menu of refined dim sum and Cantonese dishes. The tea service is ceremonial and unhurried — come for a long afternoon.",
-    "address": "No. 26, Sec. 2, Chang'an W Rd, Zhongzheng District, Taipei",
-    "phone": "+886 2 2371 4168",
-    "price": "$$$",
-    "rating": "4.5",
-    "ratingSource": "Google",
-    "link": "https://www.lukyu.com.tw"
+    "link": "https://www.nickkembel.com/alishan-taiwan-sunrise/"
   },
   {
     "name": "Wang Tea Lab",
+    "image":"https://www.travel.taipei/image/212962/?r=1615792278313",
     "type": "cafe",
     "lat": 25.0465,
     "lng": 121.5478,
@@ -452,10 +443,11 @@
     "price": "$$",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.instagram.com/wang.tea.lab"
+    "link": "https://www.travel.taipei/en/pictorial/article/27049"
   },
   {
     "name": "Beitou Hot Springs",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRoRdi5_Faky7KJL_9Hh5nxbexkOop-CBv7A&s",
     "type": "poi",
     "lat": 25.1367,
     "lng": 121.5018,
@@ -464,10 +456,11 @@
     "price": "$",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.taipeihotspring.org"
+    "link": "https://www.nickkembel.com/beitou-hot-spring/"
   },
   {
     "name": "Bopiliao Historical Block",
+    "image":"https://www.bopiliao.taipei/Assets/images/fb_en.jpg",
     "type": "poi",
     "lat": 25.0387,
     "lng": 121.4993,
@@ -476,10 +469,11 @@
     "price": "Free",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.bopiliao.taipei.gov.tw"
+    "link": "https://guidetotaipei.com/visit/bopiliao-historical-block-%E5%89%9D%E7%9A%AE%E5%AF%AE-heritage-and-culture-education-center-of-taipei-city"
   },
   {
     "name": "Dadaocheng Wharf",
+    "image":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/e3/cb/73/caption.jpg?w=900&h=500&s=1",
     "type": "poi",
     "lat": 25.06,
     "lng": 121.5096,
@@ -488,10 +482,11 @@
     "price": "Free",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.travel.taipei/en/attraction/details/282"
+    "link": "https://happinessontheway.com/dadaocheng-pier-plaza/"
   },
   {
     "name": "Guanghua Digital Plaza",
+    "image":"https://c8.alamy.com/comp/M0K0PG/taipei-taiwan-july-15-this-is-guang-hua-electronics-market-an-area-M0K0PG.jpg",
     "type": "poi",
     "lat": 25.0436,
     "lng": 121.5316,
@@ -500,10 +495,11 @@
     "price": "Free entry",
     "rating": "4.3",
     "ratingSource": "Google",
-    "link": "https://www.gd.com.tw"
+    "link": "https://guidetotaipei.com/visit/guanghua-digital-plaza-computer-market-%E5%85%89%E8%8F%AF%E6%95%B8%E4%BD%8D%E6%96%B0%E5%A4%A9%E5%9C%B0-%E5%85%89%E8%8F%AF%E5%95%86%E5%A0%B4"
   },
   {
     "name": "Treasure Hill Artist Village",
+    "image":"https://image.taiwantoday.tw/images/content/img120160803083751641.jpg",
     "type": "poi",
     "lat": 25.018,
     "lng": 121.5335,
@@ -512,10 +508,11 @@
     "price": "Free",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.treasurehill.taipei"
+    "link": "https://www.clashboomband.com/travelogue/taiwan-treasure-hill-artist-village-taipei"
   },
   {
     "name": "Zhongshan Boutique Corridor",
+    "image":"https://cdn.i-scmp.com/sites/default/files/styles/1020x680/public/d8/images/canvas/2024/08/05/99422adc-48c5-42d4-b1b4-75e20f28b761_453e9d56.jpg?itok=wU8ULmPp&v=1722846879",
     "type": "poi",
     "lat": 25.0526,
     "lng": 121.5231,
@@ -524,10 +521,11 @@
     "price": "Free",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.travel.taipei/en/attraction/details/285"
+    "link": "https://taiwanderers.com/zhongshan-taipei-things-to-do/"
   },
   {
     "name": "Sun Moon Lake",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlXvq9CPlwC-eraiH3GOTnpXnMKqaMD-WpfA&s",
     "type": "poi",
     "lat": 23.8585,
     "lng": 120.9177,
@@ -536,10 +534,11 @@
     "price": "$",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.sunmoonlake.gov.tw"
+    "link": "https://aborntraveller.com/sun-moon-lake-taiwan-a-beginners-guide-2/"
   },
   {
     "name": "Taroko Gorge",
+    "image":"https://images.tourscanner.com/wp-content/uploads/ghost-move/ghost/Taroko-Gorge-day-trips-from-Taipei.jpg",
     "type": "poi",
     "lat": 24.1571,
     "lng": 121.6185,
@@ -548,10 +547,11 @@
     "price": "Free",
     "rating": "4.8",
     "ratingSource": "Google",
-    "link": "https://www.taroko.gov.tw"
+    "link": "https://www.nickkembel.com/taroko-gorge-taiwan/"
   },
   {
     "name": "Houtong Cat Village",
+    "image":"https://taiwanderers.com/wp-content/uploads/2024/08/houtong-cat-village-1-1-1144x800.jpg",
     "type": "poi",
     "lat": 25.0864,
     "lng": 121.827,
@@ -560,7 +560,7 @@
     "price": "Free",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.travel.taipei/en/attraction/details/107"
+    "link": "https://www.taiwanobsessed.com/houtong-cat-village/"
   },
   {
     "name": "Tainan",
@@ -616,6 +616,7 @@
   },
   {
     "name": "Le Palais",
+    "image":"https://images.squarespace-cdn.com/content/v1/6260a0f4f2a1571c44b03c6e/1674673682074-MDGVL2WYP2ZUXXLD7THJ/IMG_2993.jpeg",
     "type": "restaurant",
     "cuisine": "Cantonese",
     "lat": 25.0553,
@@ -627,10 +628,11 @@
     "price": "$$$$",
     "rating": "4.8",
     "ratingSource": "Google",
-    "link": "https://www.palaisdechine.com/le-palais"
+    "link": "https://www.palaisdechinehotel.com/pdc_en/pages/26/0/66"
   },
   {
     "name": "Taïrroir",
+    "image":"https://d3h1lg3ksw6i6b.cloudfront.net/media/image/2023/10/05/213188a115e94272a0bd6ee0fdf5d8fc_Kai_Ho%27s_tea_egg_Tairroir_MICHELIN_restaurant__.jpg",
     "type": "restaurant",
     "cuisine": "Innovative Taiwanese",
     "lat": 25.0503,
@@ -642,10 +644,11 @@
     "price": "$$$$",
     "rating": "4.8",
     "ratingSource": "Google",
-    "link": "https://www.tairroir.com"
+    "link": "https://www.instagram.com/tairroir/"
   },
   {
     "name": "L'Atelier de Joël Robuchon",
+    "image":"https://d3h1lg3ksw6i6b.cloudfront.net/media/image/2017/12/06/cb292f9909da43fea79cdf8bb58362fa_latelier_nyc_iterior_preferred.jpg",
     "type": "restaurant",
     "cuisine": "French",
     "lat": 25.0411,
@@ -657,7 +660,7 @@
     "price": "$$$$",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.robuchon.com.tw"
+    "link": "https://jrobuchon.com/our_locations/latelier-de-joel-robuchon-taipei/"
   },
   {
     "name": "logy",
