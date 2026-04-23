@@ -132,6 +132,7 @@
   },
   {
     "name": "National Palace Museum",
+    "image":"https://cdn.i-scmp.com/sites/default/files/styles/1020x680/public/d8/images/canvas/2025/11/24/0f1eb7e1-510c-4ff4-99dd-ec833a8175dd_c4090a02.jpg?itok=uPbAwbHs&v=1763952648",
     "type": "poi",
     "lat": 25.1024,
     "lng": 121.5483,
@@ -139,10 +140,11 @@
     "address": "No. 221, Sec. 2, Zhishan Rd, Shilin District, Taipei",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.npm.gov.tw"
+    "link": "https://www.npm.gov.tw/index.aspx?l=2"
   },
   {
     "name": "Chiang Kai-shek Memorial Hall",
+    "image":"https://www.travel.taipei/content/images/attractions/222951/1024x768_attractions-image-ipv17a5vbuaew-0ghiobgq.jpg",
     "type": "poi",
     "lat": 25.0354,
     "lng": 121.5198,
@@ -150,10 +152,11 @@
     "address": "21 Zhongshan South Rd, Zhongzheng District, Taipei",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.cksmh.gov.tw"
+    "link": "https://www.cksmh.gov.tw/en"
   },
   {
     "name": "Longshan Temple",
+    "iamge":"https://guidetotaipei.com/sites/default/files/styles/article/public/images/destination/9/longshan-temple-2.jpg?itok=v6c3X2yY",
     "type": "poi",
     "lat": 25.0368,
     "lng": 121.4999,
@@ -161,10 +164,11 @@
     "address": "211 Guangzhou St, Wanhua District, Taipei",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.lungshan.org.tw"
+    "link": "https://eng.taiwan.net.tw/m1.aspx?sNo=0002090&id=93"
   },
   {
     "name": "Ximending",
+    "image":"https://rootsabroadtravel.com/wp-content/uploads/2025/07/the-bustling-square-at-ximending-with-neon-lights-colorful-billboards-and-high-buildings-1170x600.jpg",
     "type": "poi",
     "lat": 25.0428,
     "lng": 121.5078,
@@ -172,10 +176,11 @@
     "address": "Ximending, Wanhua District, Taipei",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.visitTaipei.travel"
+    "link": "https://www.nickkembel.com/taipei-ximending-night-market/"
   },
   {
     "name": "Yongkang Street",
+    "image":"https://guidetotaipei.com/sites/default/files/styles/article/public/images/destination/444/WA08_001.jpg?itok=aWgteAiD",
     "type": "poi",
     "lat": 25.0298,
     "lng": 121.53,
@@ -183,10 +188,11 @@
     "address": "Yongkang St, Da'an District, Taipei",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.visitTaipei.travel"
+    "link": "https://www.taiwanobsessed.com/yongkang-street-taipei/"
   },
   {
     "name": "Huashan 1914 Creative Park",
+    "iamge":"https://taiwanderers.com/wp-content/uploads/2024/04/Huashan-1914-Creative-Park-60-635x800.jpg",
     "type": "poi",
     "lat": 25.0447,
     "lng": 121.5293,
@@ -194,10 +200,11 @@
     "address": "1 Bade Rd Sec. 1, Zhongzheng District, Taipei",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.huashan1914.com"
+    "link": "https://www.huashan1914.com/w/huashan1914_en/index"
   },
   {
     "name": "Songshan Cultural & Creative Park",
+    "image":"https://images.squarespace-cdn.com/content/v1/63da91a5f56b9e15bce44648/ad04b6eb-47cd-4ded-93b1-02f1b245fd7d/Songshan+Cultural+and+Creative+Park+blog+banner.png",
     "type": "poi",
     "lat": 25.0508,
     "lng": 121.5608,
@@ -205,10 +212,11 @@
     "address": "133 Guangfu S Rd, Xinyi District, Taipei",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.songshanculturalpark.org"
+    "link": "https://www.songshanculturalpark.org/english"
   },
   {
     "name": "Daan Forest Park",
+    "image":"https://upload.wikimedia.org/wikipedia/commons/1/14/Daan_Park_20210817.jpg",
     "type": "poi",
     "lat": 25.03,
     "lng": 121.5358,
@@ -216,10 +224,11 @@
     "address": "Da'an Forest Park, Da'an District, Taipei",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.visitTaipei.travel"
+    "link": "https://taiwanderers.com/daan-forest-park-taipei/"
   },
   {
     "name": "Tamsui Old Street",
+    "image":"https://newtaipei.travel/content/images/attractions/47442/1024x768_attractions-image-drn8cu1ukuil1b35ncd6pa.jpg",
     "type": "poi",
     "lat": 25.1699,
     "lng": 121.4435,
@@ -227,10 +236,11 @@
     "address": "Tamsui Old Street, Tamsui District, New Taipei City",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.visitTaipei.travel"
+    "link": "https://www.taiwanobsessed.com/tamsui-old-street/"
   },
   {
     "name": "Yehliu Geopark",
+    "image":"https://guidetotaipei.com/sites/default/files/styles/article/public/images/destination/61/yehliu4.JPG?itok=SJivrtSX",
     "type": "poi",
     "lat": 25.2041,
     "lng": 121.6881,
@@ -238,10 +248,11 @@
     "address": "Yehliu, Wanli District, New Taipei City",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.yehliu.com.tw"
+    "link": "https://eng.taiwan.net.tw/m1.aspx?sNo=0002091&id=155"
   },
   {
     "name": "Wulai",
+    "image":"https://guidetotaipei.com/sites/default/files/styles/article/public/images/destination/33/hot-springs-257867_1920.jpg?itok=jRXsfIT8",
     "type": "poi",
     "lat": 24.8457,
     "lng": 121.5489,
@@ -249,10 +260,11 @@
     "address": "Wulai District, New Taipei City",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.visitTaipei.travel"
+    "link": "https://www.nickkembel.com/wulai-hot-spring-taipei-taiwan/"
   },
   {
     "name": "Maokong Gondola & Tea Houses",
+    "image":"https://www.travel.taipei/image/375889/?r=1689731164103",
     "type": "poi",
     "lat": 24.9875,
     "lng": 121.5822,
@@ -260,10 +272,11 @@
     "address": "Maokong, Wenshan District, Taipei",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.gondola.taipei"
+    "link": "https://www.taiwanobsessed.com/maokong-gondola-taipei/"
   },
   {
     "name": "Raohe Street Night Market",
+    "image":"https://www.justaiwantour.com/wp-content/uploads/2025/06/Raohe_Street_Night_Market.jpg",
     "type": "poi",
     "lat": 25.0504,
     "lng": 121.5776,
@@ -271,10 +284,11 @@
     "address": "Raohe St, Songshan District, Taipei",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.visitTaipei.travel"
+    "link": "https://www.taiwanobsessed.com/raohe-night-market-taipei/"
   },
   {
     "name": "Ningxia Night Market",
+    "image":"https://ik.imagekit.io/tvlk/blog/2024/09/shutterstock_1249346725.jpg?tr=q-70,c-at_max,w-1000,h-600",
     "type": "poi",
     "lat": 25.0556,
     "lng": 121.5121,
@@ -282,10 +296,11 @@
     "address": "Ningxia Rd, Datong District, Taipei",
     "rating": "4.4",
     "ratingSource": "Google",
-    "link": "https://www.visitTaipei.travel"
+    "link": "https://www.feastographyblog.com/blog/ningxia-night-market-taipei"
   },
   {
     "name": "Fu Hang Dou Jiang",
+    "image":"https://admin.misstamchiak.com/wp-content/uploads/2018/02/Part-2-7-of-13-e1517678223358.jpg",
     "type": "restaurant",
     "cuisine": "Taiwanese",
     "lat": 25.0451,
@@ -295,10 +310,11 @@
     "price": "$",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.tasteatlas.com/fu-hang-dou-jiang"
+    "link": "https://www.taiwanobsessed.com/fu-huang-soy-milk/"
   },
   {
     "name": "Yongkang Beef Noodle",
+    "image":"https://media-cdn.tripadvisor.com/media/photo-s/12/56/dc/e8/spicy-beef-noodle-with.jpg",
     "type": "restaurant",
     "cuisine": "Taiwanese",
     "lat": 25.0298,
@@ -308,10 +324,11 @@
     "price": "$",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.tasteatlas.com"
+    "link": "https://ramenadventures.com/listing/%E6%B0%B8%E5%BA%B7%E7%89%9B%E8%82%89%E9%BA%B5-yong-kang-beef-noodle-in-taipei/"
   },
   {
     "name": "Ice Monster",
+    "image":"https://thewanderingeater.com/wp-content/uploads/2016/12/31448505525_0257fb6879_k.jpg",
     "type": "cafe",
     "lat": 25.0408,
     "lng": 121.5494,
@@ -320,10 +337,11 @@
     "price": "$",
     "rating": "4.3",
     "ratingSource": "Google",
-    "link": "https://www.ice-monster.com"
+    "link": "https://www.klook.com/en-US/activity/17629-ice-monster-taipei/"
   },
   {
     "name": "Simple Kaffa",
+    "image":"https://taiwanderers.com/wp-content/uploads/2024/04/simple-kaffa-taipei-101-35.jpg",
     "type": "cafe",
     "lat": 25.0443,
     "lng": 121.5501,
@@ -332,10 +350,11 @@
     "price": "$$",
     "rating": "4.7",
     "ratingSource": "Google",
-    "link": "https://www.simplekaffa.com"
+    "link": "https://www.foodandwine.com/simple-kaffa-taipei-taiwan-11687167"
   },
   {
     "name": "W Taipei",
+    "image":"https://liveandletsfly.com/wp-content/uploads/2026/01/W-Taipei-Review-87.jpeg",
     "type": "poi",
     "lat": 25.0406,
     "lng": 121.5634,
@@ -345,10 +364,11 @@
     "price": "$$$$",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.marriott.com/hotels/travel/tpewh-w-taipei"
+    "link": "https://liveandletsfly.com/w-taipei-review/"
   },
   {
     "name": "Alchemy",
+    "image":"https://www.thediningexperience.org/wp-content/20170531-Taipei-Alchemy-01.jpg",
     "type": "bar",
     "lat": 25.0459,
     "lng": 121.5313,
@@ -357,10 +377,11 @@
     "price": "$$",
     "rating": "4.5",
     "ratingSource": "Google",
-    "link": "https://www.instagram.com/alchemy.taipei"
+    "link": "https://thefoodronin.com/post/120200820803/alchemy-a-prohibition-era-speakeasy-in-taipei"
   },
   {
     "name": "Indulge Experimental Bistro",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZo8YbC55X-ZRPwaix8DAOmkGI-E4bLd8KOw&s",
     "type": "bar",
     "lat": 25.0442,
     "lng": 121.5467,
@@ -369,7 +390,7 @@
     "price": "$$$",
     "rating": "4.6",
     "ratingSource": "Google",
-    "link": "https://www.instagram.com/indulge_bistro"
+    "link": "https://willwanderforfood.com/2023/02/26/taipei-cocktails-indulge-room-barmood/"
   },
   {
     "name": "Lin Mao Sen Tea Co.",
