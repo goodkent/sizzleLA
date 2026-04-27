@@ -2169,5 +2169,46 @@
     "rating": "4.5",
     "ratingSource": "Google",
     "link": "https://kubrick.com.hk/"
+  },
+  {
+    "name": "INK Cafe & Bar",
+    "image": "https://media.timeout.com/images/105573418/750/422/image.jpg",
+    "type": "restaurant",
+    "lat": 22.293284419302278, 
+    "lng": 114.17171497116408,
+    "description": "Alfresco cafe and bar on the TST harbourfront at the base of the Hong Kong Museum of Art, with unobstructed views of Victoria Harbour and the skyline. Casual Australian-inspired seafood, craft beers on tap, and house-made ice cream. Open from morning through midnight, seven days a week.",
+    "address": "G/F, Hong Kong Museum of Art, 10 Salisbury Road, Tsim Sha Tsui, Kowloon, Hong Kong",
+    "phone": "+852 3500 5581",
+    "price": "$$",
+    "rating": "4.2",
+    "ratingSource": "Google",
+    "link": "https://inkcafe.com.hk"
+  },
+  {
+    "name": "The Bayside",
+    "image": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=366,fit=crop/m7Vk6zONPeFb4oJ8/the-bayside-o-thai-festive-brunch-with-free-flow-drinks-2-large-RrU7JQbN3uW95BB8.jpeg",
+    "type": "restaurant",
+    "cuisine": "Mediterranean",
+    "lat": 22.302326902630703, 
+    "lng": 114.19169992430153,
+    "description": "Waterfront Mediterranean bistro, bar, and terrace at Whampoa Garden in Hung Hom, with outdoor tables overlooking Victoria Harbour. The menu runs from tapas and fresh oysters to in-house dry-aged meats and squid ink pasta with Boston lobster. One of the better spots in Kowloon for a long, leisurely meal with a view.",
+    "address": "Shop G1, G/F, 18 Tak Fung St., Whampoa Garden, Hung Hom, Kowloon, Hong Kong",
+    "phone": "+852 6108 9153",
+    "price": "$$$",
+    "rating": "4.3",
+    "ratingSource": "Google",
+    "link": "https://silverspoon.com.hk/the-bayside"
+  },
+  {
+    "name": "Knutsford Terrace",
+    "image": "https://uploads.livethenate.com/wp-content/uploads/2020/01/03114315/2.6.1.1-knutsford-terrace_03.jpg",
+    "type": "restaurant",
+    "lat": 22.3014,
+    "lng": 114.1748,
+    "description": "Kowloon's answer to Lan Kwai Fong — a narrow pedestrian alley on the south slope of Observatory Hill, lined with more than 30 bars and restaurants with al fresco seating. Better-priced and less pretentious than its Central equivalents, with cuisines running from Spanish tapas to Thai to Cuban. Busiest Thursday through Saturday nights.",
+    "address": "Knutsford Terrace, Tsim Sha Tsui, Kowloon, Hong Kong",
+    "rating": "4.3",
+    "ratingSource": "Google",
+    "link": "https://www.discoverhongkong.com/eng/place-to-go/travel.guide-knutsford-terrace-observatory-court.html"
   }
 ]
