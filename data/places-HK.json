@@ -1993,18 +1993,19 @@
     "link": "https://www.instagram.com/sundaysfolks"
   },
   {
-    "name": "The Pawn",
+    "name": "Sophia Loren House",
+    "image": "https://media.timeout.com/images/106128734/750/422/image.jpg",
     "type": "restaurant",
-    "cuisine": "British Brunch",
+    "cuisine": "Italian",
     "lat": 22.2772,
     "lng": 114.1835,
-    "description": "A beautifully restored 1888 pawnshop building in Wan Chai with a rooftop terrace that makes it one of the better brunch settings in the city. British-inflected brunch menu — proper kedgeree, eggs Benedict, Welsh rarebit — and a Bloody Mary programme worth investigating. The terrace fills up fast on sunny Sundays; book ahead.",
-    "address": "62 Johnston Rd, Wan Chai, Hong Kong",
-    "phone": "+852 2866 3444",
-    "price": "$$",
-    "rating": "4.2",
+    "description": "The beautifully restored 1888 Woo Cheong Pawn Shop in Wan Chai, reopened as a four-storey tribute to Sophia Loren and la dolce vita. The ground-floor Pizzeria does Neapolitan-style pies; Casa Sophia Loren upstairs serves seafood-forward Italian fine dining — lavish seafood platters, handmade pasta, Milanese-style amberjack; The Stage hosts live performances; the Pellicola Rooftop is an al fresco cocktail bar with evening views.",
+    "address": "Woo Cheong Pawn House, 62 Johnston Road, Wan Chai, Hong Kong",
+    "phone": "+852 3594 6192",
+    "price": "$$$",
+    "rating": "4.3",
     "ratingSource": "Google",
-    "link": "https://www.thepawn.com.hk"
+    "link": "https://heritage1888.com/"
   },
   {
     "name": "Hong Kong Museum of History",
@@ -2434,5 +2435,20 @@
     "rating": "4.3",
     "ratingSource": "Google",
     "link": "https://www.instagram.com/cdesserthk/"
+  },
+  {
+    "name": "Obongzip",
+    "image": "https://media.timeout.com/images/106395402/750/422/image.jpg",
+    "type": "restaurant",
+    "cuisine": "Korean",
+    "lat": 22.2982,
+    "lng": 114.1727,
+    "description": "Korean chain founded in 1987 with over 300 locations worldwide, known for fire-grilled spicy octopus and pork belly bossam. Shareable mains and single-person sets with banchan, plus japchae, seafood pajeon, spicy buckwheat noodles, and bubbling hot pot. The grilled rice cake with soybean powder is the dessert to order.",
+    "address": "Shop A, 2/F, 23-25A Cameron Lane, Tsim Sha Tsui, Hong Kong",
+    "phone": "+852 2994 2499",
+    "price": "$$",
+    "rating": "4.3",
+    "ratingSource": "Google",
+    "link": "https://www.timeout.com/hong-kong/restaurants/obongzip"
   }
 ]
