@@ -2420,5 +2420,19 @@
     "ratingSource": "Google",
     "link": "https://www.timeout.com/hong-kong/restaurants/man-wah",
     "michelin": "one-star"
+  },
+  {
+    "name": "C Dessert",
+    "image": "https://ak-d.tripcdn.com/images/0102i12000r898qks1471_D_2208_1242_R5.jpg?proc=autoorient",
+    "type": "cafe",
+    "lat": 22.2768,
+    "lng": 114.1746,
+    "description": "Hong Kong-style dessert shop on Johnston Road in Wan Chai with a creative take on tong sui. The menu leans seasonal — longan sorbet with nata de coco, durian crystal balls, mango double-skin milk — with a focus on textures that the classic format rarely attempts. Small, bright space with a dedicated local following.",
+    "address": "Shop 1D, G/F, Newman House, 35-45 Johnston Road, Wan Chai, Hong Kong",
+    "phone": "+852 2493 3349",
+    "price": "$",
+    "rating": "4.3",
+    "ratingSource": "Google",
+    "link": "https://www.instagram.com/cdesserthk/"
   }
 ]
